@@ -1,0 +1,29 @@
+
+#member
+member.memId=\uc544\uc774\ub514
+member.memPass=\ube44\ubc00\ubc88\ud638
+member.memTel= \ud734\ub300\ud3f0 \ubc88\ud638
+member.memMail= \uc774\uba54\uc77c
+member.memZip= \uc6b0\ud3b8\ubc88\ud638
+member.memAddr1= \uc8fc\uc18c
+member.memAddr2= \uc0c1\uc138\uc8fc\uc18c
+member.memDivision= \ud68c\uc6d0\uad6c\ubd84
+
+
+#users
+users.usersId = \uc544\uc774\ub514
+users.usersNm = \uc774\ub984
+users.usersBir = \uc0dd\ub144\uc6d4\uc77c
+users.usersGen = \uc131\ubcc4
+users.usersImg = \ud504\ub85c\ud544 \uc0ac\uc9c4
+users.usersVticket = \uc720\ud6a8\uc774\uc6a9\uad8c
+users.usersVpoint = \uc720\ud6a8\ud3ec\uc778\ud2b8
+
+#company
+conpany.companyId = \uae30\uc5c5\ud68c\uc6d0\uc544\uc774\ub514
+conpany.companyNum = \uc0ac\uc5c5\uc790\ub4f1\ub85d\ubc88\ud638
+conpany.companyFile = \uc0ac\uc5c5\uc790\ub4f1\ub85d\uc99d\uba85\uc6d0
+conpany.companyDnm = \ub2f4\ub2f9\uc790\uba85
+conpany.companyNm = \uae30\uc5c5\uba85
+conpany.companyDate = \uac1c\uc5c5\uc77c
+conpany.companyPermission = \uc2b9\uc778\uc5ec\ubd80

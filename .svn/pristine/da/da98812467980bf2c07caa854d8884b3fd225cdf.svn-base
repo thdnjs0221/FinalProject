@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+	
+
+					
+					<!-- Modal body -->
+					<div class="modal-body modalBody">
+						<div class="payCheck">
+					    <strong class="talentpool-product-card__info-value">'상품명''x'일 권을</strong>
+						<strong class="talentpool-product-card__info-value">구매하시겠습니까?</strong>
+						</div>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<a href="#" id="memDltBtn" class="btn btn-danger btn-icon-split">
+                            <span class="text">취소</span>
+                        </a>
+                        
+                        <a href="#" id="memDltBtn" class="btn btn-danger btn-icon-split">
+                            <span class="text">구매</span>
+                        </a>
+					</div>

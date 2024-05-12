@@ -1,0 +1,25 @@
+package kr.or.ddit.users.service;
+
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.users.dao.PointPayDAO;
+import kr.or.ddit.users.vo.PointPayVO;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class PointPayServiceImpl implements PointPaySerivce{
+	
+	
+	@Inject
+	private final PointPayDAO pointPayDAO;
+	
+	@Override
+	@Transactional
+	public void savePointPay(PointPayVO pointpayVO) {
+		int result = pointPayDAO.savePointPay(pointpayVO);
+	}
+}

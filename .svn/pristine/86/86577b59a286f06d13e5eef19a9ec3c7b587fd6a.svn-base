@@ -1,0 +1,40 @@
+package kr.or.ddit.users.service;
+
+import org.apache.ibatis.exceptions.PersistenceException;
+
+import kr.or.ddit.BoardNotFoundException;
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.vo.QnAAttatchVO;
+import kr.or.ddit.users.vo.QnAVO;
+
+public interface QnAService {
+	
+//	/**
+//	 * 글 등록, 등록시 문제가 발생한다면, mybatis는 {@link PersistenceException}를 throw 함.
+//	 * @param qnaVO
+//	 */
+//	public void createQnA(QnAVO qnaVO);
+//	/**
+//	 * 게시글 상세조회
+//	 * @param qstnNo
+//	 * @return 존재하지 않으면, {@link BoardNotFoundException} 발생, 동시에 404 응답 전송.
+//	 */
+//	public QnAVO retrieveQnA(String qstnNo);
+//	
+//	/**
+//	 * 다운로드를 위해 첨부파일 메타데이터 조회
+//	 * @param qstnattNo
+//	 * @return
+//	 */
+//	public QnAAttatchVO retrieveAttatch(int qstnattNo);
+//	
+//	/**
+//	 * 게시글 목록 조회(검색 및 페이징 지원)
+//	 * @param paging
+//	 */
+//	public void retrieveQnAList(PaginationInfo<QnAVO> paging);
+//	
+//	public void modifyQnA(QnAVO qnaVO);
+//	
+//	public void removeQnA(QnAVO inputData);
+}

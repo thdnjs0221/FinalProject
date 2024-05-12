@@ -1,0 +1,55 @@
+
+package kr.or.ddit.admin.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.or.ddit.admin.service.BsnsLcnsNmbrService;
+import kr.or.ddit.company.vo.CompanyVO;
+import kr.or.ddit.paging.BootstrapPaginationRenderer;
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.paging.vo.SearchVO;
+
+@Controller
+@RequestMapping("/bsnsLcnsNmbr.do")
+public class bsnsLcnsNmbrController {
+	@Inject
+	private BsnsLcnsNmbrService service;
+	
+	@GetMapping
+	public String companyList(
+			Model model
+			, @ModelAttribute("simpleCondition") SearchVO simpleCondition
+			, @RequestParam(value="page", required = false, defaultValue = "1") int currentPage
+		){
+		PaginationInfo<CompanyVO> paging = new PaginationInfo<>();
+		paging.setSimpleCondition(simpleCondition); // 키워드 검색 조건
+		paging.setCurrentPage(currentPage);
+
+		service.retrieveCompanyList(paging);
+		
+		paging.setRenderer(new BootstrapPaginationRenderer());
+		model.addAttribute("paging", paging);
+		
+		return "admin/companyInfo/bsnsLcnsNmbr";
+	}
+	
+	@GetMapping("detail/{companyId}")
+	public String companyDetail(
+			@PathVariable String companyId
+			, Model model
+		) {
+		    CompanyVO company= service.retrieveCompany(companyId);
+			model.addAttribute("company", company);
+			
+			return "admin/companyInfo/bsnsLcnsNmbr";
+	}
+//	
+}

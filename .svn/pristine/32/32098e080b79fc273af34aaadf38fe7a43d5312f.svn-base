@@ -1,0 +1,100 @@
+/**
+ * 
+ */
+
+$(function() {
+
+	const cPath = this.body.dataset.contextPath;
+
+
+	function makeTrTag(cominfo) {
+		/*추후 회사 로고 이미지 및 채용 중인 공고 count해서 넣어야함. - 20231113(이기웅)*/
+		let companyDetailURL = `${cPath}/company/companyDetail/${cominfo.companyId}`;
+		let trTag = ` <div id="default_list_wrap" style="position: relative">
+			<section class="list_recruiting">
+				<div class="list_body">
+					<div id="list_item" class="list_item">
+						<div class="box_item">
+							<div class="col company_nm">
+								<a
+									href="#"
+									class="str_tit" target="_blank"> 이미지 들어갈 부분 </a>
+							</div>
+							<div class="col notification_info">
+								<div class="job_tit">
+									<a class="str_tit " id="${cominfo.companyId}"
+										onclick="s_trackApply(this, 'area_recruit', 'general');"
+										title="${cominfo.companyNm}" 
+										href="${companyDetailURL}" target="_blank"
+										onmousedown=""><span>${cominfo.companyNm}</span></a>
+								</div>
+								<div class="job_meta">
+									<span class="job_sector"> <span>채용중인 공고 ${cominfo.rcrtNo} 건</span>
+									</span>
+								</div>
+								
+							</div>
+							<div class="col recruit_info">
+								<ul>
+									<li>
+										<p class="career">${cominfo.cominfoSectors}</p>
+									</li>
+								</ul>
+							</div>
+							<div class="col recruit_info">
+								<ul>
+									<li>
+										<i class="fa-regular fa-eye"><em>${cominfo.cominfoHit}</em></i>
+									</li>
+								</ul>
+							</div>
+							<div class="col support_info">
+								<button class="sri_btn_md" title="관심 기업으로 등록하여 정보를 손쉽게 확인하세요!">
+									<span class="sri_btn_immediately">관심 기업</span>
+								</button>								
+							</div>
+						</div>					
+					</div>
+				</div>
+			</section>
+		</div>
+			`
+			;
+		return trTag;
+	};
+	
+	
+
+	$(document).ready(function() {			
+		$.getJSON(`${cPath}/company/companyListData`, function(resp) {
+			console.log(resp)
+			let companyList = resp.paging.dataList;
+			let trTags = "";
+			if (companyList.length > 0) {
+				$.each(companyList, function(i, v) {
+					trTags += makeTrTag(v);
+				});
+				$(pagingArea).html(resp.paging.pagingHTML);
+			} else {
+				trTags += `
+					<tr>
+						<td colspan="5" style="text-align : center;">등록된 기업정보가 없습니다.</td>
+					</tr>
+				`;
+				$(pagingArea).empty();
+			}
+			$(".listBody").html(trTags);
+			recordResult = `<em>${resp.paging.totalRecord}</em>건`;
+			$("#total_count").html(recordResult);
+		});
+		return false;
+	});
+
+})
+
+function fn_paging(page){
+    searchForm.page.value = page;
+    searchForm.requestSubmit();
+    searchForm.page.value = "";
+}
+

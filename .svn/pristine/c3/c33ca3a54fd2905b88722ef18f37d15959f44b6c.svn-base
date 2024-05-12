@@ -1,0 +1,318 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+<div id="sri_section" class="has_banner noticeListWrap">
+        <div id="sri_wrap">
+            <div id="content">
+                <div class="wrap_title_recruit">
+    <h1 class="title_common">고객센터</h1>
+</div>
+<div class="navigation_help_depth2">
+    
+</div>
+<div class="navigation_help_depth3">
+    <ul>
+                <li><a class="" href="/zf_user/help/live?listType=notice" data-nav-track="ga_lead|section-gnb|help|notice_notice"><span>공지사항</span></a></li>
+        <li><a class="selected" href="/zf_user/help/live?category=3" data-nav-track="ga_lead|section-gnb|help|notice_event"><span>1:1문의</span></a></li>
+        <li><a class="" href="/zf_user/help/live?category=3" data-nav-track="ga_lead|section-gnb|help|notice_event"><span>이벤트</span></a></li>
+            </ul>
+</div><div class="wrap_board">
+            
+    
+    <div class="search_area">
+        <strong class="count">총
+            <span class="num">
+                1,139            </span>건
+        </strong>
+        <form name="frm" id="frm" method="get" action="/zf_user/help/live">
+            <input type="hidden" name="listType" value="notice" id="listType"><input type="hidden" name="mem_type" value="" id="mem_type">            <div class="search_right">
+                                    <span class="inpSel">
+                            <select name="category" id="category" style="width:100px">
+	<option value="" label="전 체">전 체</option>
+	<option value="week" label="지난 1주일">지난 1주일</option>
+	<option value="1" label="지난 1주일">지난 1개월</option>
+	<option value="3" label="지난 1주일">지난 3개월</option>
+	<option value="6" label="지난 6개월">지난 6개월</option>
+	<option value="12" label="지난 1년">지난 1년</option>
+</select>                        </span>
+                                <div class="searchTypoBox">
+                    <input type="text" name="keyword" id="keyword" class="inpTypo" style="width:276px;" title="검색키워드를 입력하세요" value="" placeholder="검색할 아이디를 입력하세요.">
+                    <button type="submit" class="btnTypoSearch" id="searchBtn">검색</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="tblType">
+        <table>
+            <caption class="blind">
+                 게시판
+            </caption>
+            <colgroup>
+                                    <col width="90">
+                                <col width="">
+                <col width="107">
+            </colgroup>
+            <tbody>
+                                <tr class="notice">
+                                                    <td class="category">
+                                공지                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109204&amp;list_idx=0&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="사람인 취업연계 부트캠프 오픈⭐ 전액 지원받고 개발자로 취업까지!">
+                                사람인 취업연계 부트캠프 오픈⭐ 전액 지원받고 개발자로 취업까지!                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.11.06                        </td>
+                    </tr>
+                                    <tr class="notice">
+                                                    <td class="category">
+                                공지                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109203&amp;list_idx=1&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 채팅왕의 손에 쥐어지는 애플워치 ✨">
+                                [이벤트] 채팅왕의 손에 쥐어지는 애플워치 ✨                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.11.06                        </td>
+                    </tr>
+                                    <tr class="notice">
+                                                    <td class="category">
+                                공지                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109198&amp;list_idx=2&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 출석하고 아이폰15 받자! ⭐출석체크 챌린지⭐">
+                                [이벤트] 출석하고 아이폰15 받자! ⭐출석체크 챌린지⭐                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.11.01                        </td>
+                    </tr>
+                                    <tr class="notice">
+                                                    <td class="category">
+                                공지                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109176&amp;list_idx=3&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 전문가에게 진단받고, 커리어 고민 해결하자!">
+                                [이벤트] 전문가에게 진단받고, 커리어 고민 해결하자!                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.17                        </td>
+                    </tr>
+                                    <tr class="notice">
+                                                    <td class="category">
+                                공지                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109173&amp;list_idx=4&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 멘토링매치 선착순 쿠폰 지급 및 리뷰 이벤트">
+                                [이벤트] 멘토링매치 선착순 쿠폰 지급 및 리뷰 이벤트                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.13                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                오픈                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109186&amp;list_idx=5&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="PC 기업정보 개편✨ NOW에서 NEXT로, 기업정보에서 커리어의 미래를 그려보세요!">
+                                PC 기업정보 개편✨ NOW에서 NEXT로, 기업정보에서 커리어의 미래를 그려보세요!                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.24                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109177&amp;list_idx=6&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 커리어성장 아티클 읽고, 아이패드도 받자! ✨커리어 챌린지✨">
+                                [이벤트] 커리어성장 아티클 읽고, 아이패드도 받자! ✨커리어 챌린지✨                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.18                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109172&amp;list_idx=7&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="10/13(금) 00:00 ~ 07:30 전체 서비스 일시 중지 안내">
+                                10/13(금) 00:00 ~ 07:30 전체 서비스 일시 중지 안내                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.11                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                오픈                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109166&amp;list_idx=8&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 합격의 참견, 당신의 완벽한 이력서를 위한 챗 gpt">
+                                [이벤트] 합격의 참견, 당신의 완벽한 이력서를 위한 챗 gpt                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.10.05                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109163&amp;list_idx=9&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 커리어에 트렌드를 솔솔! 사람인 공식 뉴스레터 " 시즈닝"="" 오픈="" 기념="" 이벤트(마감기한="" 연장)"="">
+                                [이벤트] 커리어에 트렌드를 솔솔! 사람인 공식 뉴스레터 "시즈닝" 오픈 기념 이벤트(마감기한 연장)                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.09.22                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109150&amp;list_idx=10&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="사람인 개인정보 처리방침 개정 내용 사전 안내">
+                                사람인 개인정보 처리방침 개정 내용 사전 안내                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.09.12                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109149&amp;list_idx=11&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="개인회원 약관 개정 사전 안내">
+                                개인회원 약관 개정 사전 안내                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.09.12                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109144&amp;list_idx=12&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="구직자 대상 범죄 피해 방지를 위해 면접 전 주의하세요">
+                                구직자 대상 범죄 피해 방지를 위해 면접 전 주의하세요                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.09.07                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109139&amp;list_idx=13&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="2023 하반기 공채 일정 안내 &amp; 공채 대비 실시간 채팅방 OPEN">
+                                2023 하반기 공채 일정 안내 &amp; 공채 대비 실시간 채팅방 OPEN                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.31                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109138&amp;list_idx=14&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[공지] 이력서 나이 내 " 만"="" 표기="" 제외"="">
+                                [공지] 이력서 나이 내 "만" 표기 제외                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.30                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109137&amp;list_idx=15&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="임금체불 사업자 명단 공개">
+                                임금체불 사업자 명단 공개                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.29                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109135&amp;list_idx=16&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 커리어 조언을 남겨주실 현직자 프로를 모집합니다✨">
+                                [이벤트] 커리어 조언을 남겨주실 현직자 프로를 모집합니다✨                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.28                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109132&amp;list_idx=17&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="커리어마일리지 기프티콘 일부브랜드 사용 중단예정 사전 안내">
+                                커리어마일리지 기프티콘 일부브랜드 사용 중단예정 사전 안내                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.25                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                안내                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109128&amp;list_idx=18&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="커리어마일리지 쿠폰 서비스 일시 중단 안내">
+                                커리어마일리지 쿠폰 서비스 일시 중단 안내                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.21                        </td>
+                    </tr>
+                                    <tr>
+                                                    <td class="category">
+                                오픈                            </td>
+                                                <td class="content_tit">
+                            <a href="/zf_user/help/live/view?idx=109124&amp;list_idx=19&amp;listType=notice&amp;keyword=&amp;menu=1&amp;page=1" title="[이벤트] 입사지원하고 호캉스 체크인✔">
+                                [이벤트] 입사지원하고 호캉스 체크인✔                            </a>
+                                                    </td>
+                        <td class="date">
+                            2023.08.17                        </td>
+                    </tr>
+                                        </tbody>
+        </table>
+    </div>
+    <div>
+    	<input type="button" class="btn btn-primary" value="글등록">
+    </div>
+    <div class="pagination">
+        <!-- Previous page link -->
+                
+        
+            
+            <span class="page">
+                1            </span>
+
+                
+                        <a href="/zf_user/help/live/index/page/2?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>2</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/3?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>3</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/4?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>4</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/5?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>5</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/6?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>6</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/7?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>7</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/8?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>8</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/9?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>9</span>
+            </a>
+                
+                        <a href="/zf_user/help/live/index/page/10?listType=notice&amp;keyword=&amp;menu=1" class="page">
+                <span>10</span>
+            </a>
+                
+        <!-- Next page link -->
+
+
+                    <a href="/zf_user/help/live/index/page/11?listType=notice&amp;keyword=&amp;menu=1" class="btnNext">
+                다음
+            </a>
+            </div>
+</div>
+   

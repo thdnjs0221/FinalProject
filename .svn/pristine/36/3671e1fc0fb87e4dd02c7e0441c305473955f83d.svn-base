@@ -1,0 +1,16 @@
+package kr.or.ddit.users.vo;
+
+import kr.or.ddit.company.vo.CompanyVO;
+import lombok.Data;
+
+@Data
+public class LikeCompanyVO {
+	private int rnum;
+	
+	private String usersId;
+	private String companyId;
+	private String isRecAlarm;
+	private String interDate;
+	
+	private CompanyVO company;
+}

@@ -1,0 +1,29 @@
+package kr.or.ddit.company.service;
+
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.common.vo.MemberVO;
+import kr.or.ddit.company.dao.CompanyMemInfoDAO;
+import lombok.RequiredArgsConstructor;
+
+/**
+ * @author 김태형
+ * @since 2023.11.16
+ * @version 1.0
+ **/
+@Service
+@RequiredArgsConstructor
+public class CompanyMemInfoServiceImpl implements CompanyMemInfoService {
+
+	private final CompanyMemInfoDAO dao;
+	
+	@Override
+	public MemberVO retrieveCompany(String memId) {
+		MemberVO member = dao.selectCompany(memId);
+		if(member == null)
+			throw new UsernameNotFoundException(memId);
+		return member;
+	}
+
+}

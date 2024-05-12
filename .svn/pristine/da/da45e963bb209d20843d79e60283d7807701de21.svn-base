@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.eventEndDetailWrap .wrap_board_view .wrap_content_view .content_tit {
+    color: #222;
+    font-size: 30px;
+    letter-spacing: -1.5px;
+    line-height: 46px
+}
+
+.calendarList .public_recruit_tab.rightside {
+    padding-left: 584px
+}
+

@@ -1,0 +1,19 @@
+package kr.or.ddit.users.vo;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+
+@EqualsAndHashCode( of = "resumeNo")
+@ToString
+@Data
+public class ResumeVO {
+	
+	private String resumeNo;
+	private String usersId;
+	private String resumeTitle;
+	private String resumePortfolio;
+	private String resumeOpenStatus;
+
+}

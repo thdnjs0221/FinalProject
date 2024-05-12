@@ -1,0 +1,14 @@
+package kr.or.ddit.users.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.or.ddit.users.vo.QnAAttatchVO;
+
+@Mapper
+public interface QnAAttatchDAO {
+	public int insertAttatch(QnAAttatchVO attatch);
+	public QnAAttatchVO selectAttatch(int qstnattNo);
+	public int deleteAttatch(int qstnattNo);
+	
+
+}

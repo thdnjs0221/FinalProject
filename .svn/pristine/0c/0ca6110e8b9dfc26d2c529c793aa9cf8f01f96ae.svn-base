@@ -1,0 +1,343 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<div class="likeCompanyWrap">
+    <div class="test">
+        <div id="sri_section">
+            <!-- 메뉴 리스트-->
+            <div id="sri_gnb_wrap">
+                <ul class="gnb">
+                    <li class="only"><a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_14"></use>
+                            </svg> <span class="txt"></span>
+                        </a></li>
+                    <li class="only"><a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_15"></use>
+                            </svg> <span class="txt">MY홈</span>
+                        </a></li>
+                    <li class="only"><a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'mag', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_16"></use>
+                            </svg> <span class="txt">개인정보관리</span>
+                        </a></li>
+                    <li class=""><a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_17"></use>
+                            </svg> <span class="txt">이력서</span>
+                            <button type="button" class="btn_expand">
+                                <svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg>
+                                <span class="blind">더보기</span>
+                            </button>
+                        </a>
+                        <ul>
+                            <li class=""><a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">이력서 등록</span>
+                                </a></li>
+                            <li class=""><a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">이력서 관리</span>
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class="only  selected"><a href="<c:url value='/scrap' />" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'scrap', '')">
+                            <span class="txt">스크랩/관심기업</span>
+                        </a></li>
+                    <li class="only"><a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'alarm', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_19"></use>
+                            </svg> <span class="txt">알림</span>
+                        </a></li>
+                    <li class="only"><a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'apply', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_20"></use>
+                            </svg> <span class="txt">입사지원현황</span>
+                        </a></li>
+                    <li class=""><a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'interview_schedule', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_21"></use>
+                            </svg> <span class="txt">면접현황</span>
+                            <button type="button" class="btn_expand">
+                                <svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg>
+                                <span class="blind">더보기</span>
+                            </button>
+                        </a>
+                        <ul>
+                            <li class=""><a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">면접일정</span>
+                                </a></li>
+                            <li class=""><a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">면접후기</span>
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class="only"><a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'point', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_23"></use>
+                            </svg> <span class="txt">포인트/쿠폰/이용권</span>
+                        </a></li>
+                </ul>
+            </div>
+            <!-- 메뉴 리스트 끝 -->
+
+            <!-- 메뉴명 -->
+            <div id="sri_wrap">
+                <div id="content">
+                    <div class="wrapper_narrow support_announce">
+                        <h1 class="wrap_title">스크랩/관심기업</h1>
+
+                        <!-- 분류 -->
+                        <ul class="TabBox">
+                            <li><a href="<c:url value='/scrap' />" class="BtnType" onmousedown="gaEvent('reclist_tab', 'scrap')"> 스크랩
+                                </a></li>
+                            <li class="Select">
+                            <a href="<c:url value='/likeCompany' />" class="BtnType" onmousedown="gaEvent('reclist_tab', 'favor_company')"> 관심기업
+                            <span id="favorTotalCount" class="Badge">${paging.totalRecord }</span>
+                                </a></li>
+                        </ul>
+                        <div class="top_btns">
+                            <div class="align">
+                                <button type="button" class="BtnType SizeM company_btn" data-bs-toggle="modal" data-bs-target="#cModal">
+                                    <span>관심기업 등록하기</span>
+                                </button>
+                            </div>
+                            <!-- 검색 -->
+                            <div class="search_area">
+                                <div id="searchUI" class="row g-3 d-flex justify-content-center">
+                                    <div class="col-auto">
+                                        <form:input path="simpleCondition.searchWord" class="form-control" placeholder="기업명을 입력하세요" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="button" value="검색" id="searchBtn" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리스트 -->
+                        <div class="tblType">
+                            <span class="blind">공고 리스트</span>
+                            <div class="list_recruit">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 150px;">번호</th>
+                                            <th>회사명</th>
+                                            <th>진행중 공고</th>
+                                            <th>채용소식 알림</th>
+                                            <th>삭제</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:set var="likeCompanyList" value="${paging.dataList }" />
+                                        <c:if test="${empty likeCompanyList }">
+                                            <tr>
+                                                <td colspan="5">관심 설정한 기업이 없습니다.</td>
+                                            </tr>
+                                        </c:if>
+                                        <c:if test="${not empty likeCompanyList }">
+                                            <c:forEach items="${likeCompanyList }" var="like">
+                                                <tr>
+                                                	 <td class="num">
+                                                            ${like.rnum } </a>
+                                                    </td>
+                                                    <td class="name">
+                                                        <a href="">
+                                                            ${like.company.companyNm } </a>
+                                                    </td>
+                                                    <td>
+                                                    	<a href="">
+                                                    		채용중 1개
+                                                    	</a>
+                                                    </td>
+                                                    <td class="">
+                                                        <div class="col col04">
+                                                            <div class="radioOnOff">
+                                                                <!-- [개발] radio 선택시 클래스 chk 추가 -->
+                                                                <span class="radioAlarm chk" id="radioAlarm1_0">
+                                                                    <input type="radio" name="AlramStatus_0" id="AlramStatusOn_0" data-loop="0" data-memsysno="23840682" class="devClickToggleAlarm" value="1">
+                                                                    <label for="AlramStatusOn_0" class="AlramOn">ON</label>
+                                                                </span>
+                                                                <span class="radioAlarm " id="radioAlarm2_0">
+                                                                    <input type="radio" name="AlramStatus_0" id="AlramStatusOff_0" data-loop="0" data-memsysno="23840682" class="devClickToggleAlarm" value="0">
+                                                                    <label for="AlramStatusOff_0" class="AlramOff">OFF</label>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><a href="javascript:;" onclick="deleteFunction();" class="btn btn-outline-info">삭제</a></td>
+                                                </tr>
+                                            </c:forEach>
+                                        </c:if>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- 리스트 끝 -->
+
+                        <!-- 페이징 -->
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">${paging.pagingHTML }</td>
+                            </tr>
+                        </tfoot>
+                        <form:form modelAttribute="simpleCondition" method="get" id="searchForm">
+                            <form:input type="hidden" path="searchType" readonly="readonly" placeholder="searchType" />
+                            <form:input type="hidden" path="searchWord" readonly="readonly" placeholder="searchWord" />
+                            <input type="hidden" name="page" readonly="readonly" placeholder="page" />
+                        </form:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function fn_paging(page) {
+        searchForm.page.value = page;
+        searchForm.requestSubmit();
+    }
+    $(searchUI).on("click", "#searchBtn", function(event) {
+        let inputs = $(this).parents("#searchUI").find(":input[name]");
+        $.each(inputs, function(idx, ipt) {
+            let name = ipt.name;
+            let value = $(ipt).val();
+            $(searchForm).find(`:input[name=\${name}]`).val(value);
+            $(searchForm).submit();
+        });
+    });
+</script>
+
+<!--관심기업 등록하기 Modal 시작 -->
+<div id="cModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="ModalBox layer_favor_new" id="favorcom_manage_layer_list">
+                <h4 class="Tit">
+                    관심기업 등록
+                    </p>
+                </h4>
+                <div class="TblBox">
+                    <table>
+                        <caption class="blind">관심기업 등록 테이블</caption>
+                        <colgroup>
+                            <col style="width: 40px">
+                            <col style="width: 120px">
+                            <col style="width: 400px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="0" name="check_all"> <label class="Lbl" for="0"></label>
+                                        </span>
+                                    </div>
+                                </th>
+                                <th scope="col">관심 등록일 <span class="sort">
+                                        <button class="btn_sort up" data-condition="desc" data-sort="data_insert_dt_desc">오래된 순</button>
+                                        <button class="btn_sort down" data-sort="data_insert_dt_asc">최신
+                                            순</button>
+                                    </span>
+                                </th>
+                                <th scope="col">기업명</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="csn_0" name="csn[]" value="SVZpczlrNTRVaFMwd2N5VXhnNXZ1Zz09"> <label class="Lbl" for="csn_0"></label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>2023.10.26</td>
+                                <td class="ellipsis">삼일제약(주)</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="csn_1" name="csn[]" value="cXpWdDI4bGlhTGIwai9sVGxiWldlZz09"> <label class="Lbl" for="csn_1"></label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>2023.02.17</td>
+                                <td class="ellipsis">(주)시엔느</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="csn_2" name="csn[]" value="UWtWV0xvSzZwTTE5NVRwdWdkVGFUZz09"> <label class="Lbl" for="csn_2"></label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>2023.01.03</td>
+                                <td class="ellipsis">(주)시큐랩</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="csn_3" name="csn[]" value="cEk1Q2pxWjU1VWFjTzhYbmJ3eEdBQT09"> <label class="Lbl" for="csn_3"></label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>2022.12.07</td>
+                                <td class="ellipsis">(주)한독크린텍</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="InpBox">
+                                        <span class="Chk Hide"> <input type="checkbox" id="csn_4" name="csn[]" value="WUd0RlRPZ0xiUXdrUG5EMEJoeXlDZz09"> <label class="Lbl" for="csn_4"></label>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>2022.11.14</td>
+                                <td class="ellipsis">한온시스템(주)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="BtmArea">
+                    <button type="button" class="BtnType SizeS delete-favor-company">선택한
+                        내역 삭제하기</button>
+                    <button type="button" class="BtnType SizeS delete-all-favor-company">일괄삭제</button>
+                </div>
+                <button type="button" class="btnClose BtnClose">
+                    <span class="blind">닫기</span>
+                </button>
+                <div class="PageBox">
+                    <span class="BtnType SizeS" data-page="1">1</span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('2'); return false;">2</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('3'); return false;">3</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('4'); return false;">4</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('5'); return false;">5</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('6'); return false;">6</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('7'); return false;">7</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('8'); return false;">8</button>
+                    <span class="page_num_space"></span>
+                    <button class="BtnType SizeS" href="#" onclick="getFavorCompanyManageLayer('9'); return false;">9</button>
+                    <span class="page_num_space"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 관심기업 등록하기 Modal 끝 -->

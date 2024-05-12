@@ -1,0 +1,81 @@
+	
+	
+	//<<이용권 리스트 데이터 불러오기>>
+	$(document).ready(function() {
+	let cpath = $("body").data("contextPath");
+
+	// 페이지 로드 시 Ajax 호출
+	$.ajax({
+		url: cpath + "/selectTicketList", // 서버의 엔드포인트 주소
+		type: "get",
+		dataType: "json",
+		success: function(data) {
+			// 성공 시 처리
+			//  alert("데이터 가져오기 성공:", data);
+
+			updateTicketList(data);
+		},
+		error: function(xhr, status, error) {
+			// 에러 처리
+			alert("데이터 가져오기 실패:", error);
+			console.error("AJAX 오류 발생", xhr, status, error.responseText);
+		}
+	});
+
+
+
+	//<<이용권 리스트 만들기>>
+	function updateTicketList(data) {
+		for (var i = 0; i < data.length; i++) {
+			var ticket = data[i];
+			var ticketName = ticket.ticketName;
+			var ticketPeriod = ticket.ticketPeriod;
+			var ticketHTML = `
+                	 <div class="talentpool-product-card">
+                        <div class="talentpool-product-card__header">
+                            <strong class="talentpool-product-card__tit">
+                                <a href="" class="talentpool-product-card__link">`+ ticket.ticketName + `</a>
+                            </strong>
+                            <p class="talentpool-product-card__subtit"></p>
+                        </div>
+                        <div class="talentpool-product-card__content">
+                            <div class="talentpool-product-card__infos">
+                                <div class="talentpool-product-card__info-row">
+                                    <span class="talentpool-product-card__info-key">이용기간</span>
+                                    <strong class="talentpool-product-card__info-value">`+ ticket.ticketPeriod + ` 일</strong>
+                                </div>
+                                <div class="talentpool-product-card__price">
+                                    <span class="talentpool-product-card__price-tit">최종 결제 금액</span>
+                                    <div class="talentpool-product-card__price-cont">
+                                        <span class="talentpool-product-card__price-real_red">
+                                            <strong class="talentpool-product-card__price-real_red_bold">`+ ticket.ticketPrice + `</strong>P
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="talentpool-product-card__footer">
+                            <button type="button" class="btn btn--action--outline btn--large talentpool-product-card__buy-btn" id="buyTicket" data-bs-toggle="modal" data-bs-target="#tModal" onclick="TicketPayModal('${ticketName}','${ticketPeriod}')">
+                                상품 구매
+                            </button>
+                        </div>
+                    </div>
+                `;
+			
+			$('#ticketBody').append(ticketHTML);
+			
+		}
+	}
+}); 
+
+
+//	<<'상품구매'모달 버튼 이벤트>>
+	function TicketPayModal(ticketName, ticketPeriod) {
+		let cpath = $("body").data("contextPath");
+		let message01 = `'${ticketName}' ${ticketPeriod}일 권을`;
+		let message02 = `구매하시겠습니까?`;
+		$("#infoPage01").html(message01);
+		$("#infoPage02").html(message02);
+	}
+	
+	

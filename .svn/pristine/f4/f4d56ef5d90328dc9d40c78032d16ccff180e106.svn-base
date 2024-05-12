@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.UsersInfoDAO">
+<resultMap type="MemberVO" id="memberMap" autoMapping="true">
+	<id property="memId" column="MEM_ID"/>
+	<association property="users" autoMapping="true" />
+</resultMap>
+<select id="selectUsers" parameterType="string" resultMap="memberMap">
+	SELECT 
+		MEM_ID 
+		, MEM_PASS
+		, USERS_NM 
+		, TO_CHAR(USERS_BIR, 'YYYY.MM.DD')USERS_BIR
+		, USERS_GEN 
+		, USERS_IMG 
+		, MEM_MAIL
+		, MEM_TEL
+		, MEM_ZIP
+		, MEM_ADDR1
+		, MEM_ADDR2
+		, MEM_DELETE
+	FROM USERS JOIN MEMBER ON(USERS_ID=MEM_ID)
+	WHERE Mem_ID = #{memId}
+</select>
+<update id="updateUsers" parameterType="MemberVO" >
+	UPDATE MEMBER
+	SET
+		MEM_PASS= #{memPass,jdbcType=VARCHAR}
+		, MEM_MAIL = #{memMail,jdbcType=VARCHAR}
+		, MEM_TEL = #{memTel,jdbcType=VARCHAR}
+		, MEM_ZIP= #{memZip,jdbcType=NUMERIC}
+		, MEM_ADDR1= #{memAddr1,jdbcType=VARCHAR}
+		, MEM_ADDR2= #{memAddr2,jdbcType=VARCHAR}
+	WHERE MEM_ID = #{memId}
+</update>
+<delete id="deleteUsers" parameterType="string">
+	UPDATE MEMBER
+	SET
+		MEM_DELETE = 'Y'
+	WHERE MEM_ID = #{memId}
+</delete>
+</mapper>

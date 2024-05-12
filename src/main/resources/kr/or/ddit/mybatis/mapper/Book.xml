@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.book.dao.BookDAO">
+
+
+<!-- 책 생성 -->
+<insert id="insertBook" parameterType="Map">
+<selectKey keyProperty="book_id" resultType="String" order="BEFORE">
+SELECT 'book' || LPAD(APPLY_SEQ.NEXTVAL, 5, '0') AS generated_id FROM dual
+</selectKey>
+insert into book (
+	book_id, 
+	category, 
+	title, 
+	price, 
+	insert_date
+)values (
+	#{book_id},
+	#{category},
+	#{title},
+	#{price},
+	#{insert_date}
+)
+</insert>
+
+<!-- 책 상세 -->
+<select id="selectDetail" parameterType="Map" resultType="Map">
+select
+	title,category,price,insert_date
+from book
+	where book_id = #{book_id}
+</select>
+
+
+<!-- 페이징을 위한 총레코드수 -->
+<select id="selectTotalRecord" parameterType="PaginationInfo" resultType="int">
+select count(*) from book
+</select>
+
+<!-- 페이징 처리한 리스트 -->
+<select id="selectList" parameterType="PaginationInfo" resultType="BookVO">
+with BOOKLIST as (
+	select a.*, ROWNUM RNUM
+	from(
+		SELECT
+		book_id, category, title, price, insert_date
+	FROM book
+		order by book_id DESC
+		)a
+		)
+		select * 
+		from BOOKLIST
+<![CDATA[
+	WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} 
+]]>
+</select>
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

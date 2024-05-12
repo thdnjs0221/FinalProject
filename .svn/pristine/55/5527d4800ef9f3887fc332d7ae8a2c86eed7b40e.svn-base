@@ -1,0 +1,64 @@
+//주연
+package kr.or.ddit.users.vo;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Base64;
+
+import javax.validation.constraints.NotBlank;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import kr.or.ddit.validate.grouphint.DeleteGroup;
+import kr.or.ddit.validate.grouphint.UpdateGroup;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Data
+@EqualsAndHashCode(of = "noticeNo")
+public class NoticeVO implements Serializable{
+	private int rnum;
+
+	@NotBlank(groups = {UpdateGroup.class, DeleteGroup.class})
+	private String noticeNo;
+	@NotBlank
+	private String noticeTitle;
+	@ToString.Exclude
+	private String noticeContent;
+	private String noticeDate;
+	private Integer noticeLno;
+	private String noticeType;
+	
+//	private String noticeImg;
+//	private MultipartFile noticeImage;
+//	public void setNoticeImage(MultipartFile noticeImage) {
+//		if(noticeImage!=null && !noticeImage.isEmpty()) {
+//			this.noticeImage = noticeImage;
+//			noticeImg = UUID.randomUUID().toString();
+//		}
+//	}
+//	
+//	public void saveTo(File saveFolder) throws IllegalStateException, IOException {
+//		if(noticeImage!=null)
+//			noticeImage.transferTo(new File(saveFolder, noticeImg));
+//	}
+//	
+	
+	private byte[] noticeImg;
+	
+	private MultipartFile noticeImage;
+	public void setNoticeImage(MultipartFile noticeImage) throws IOException {
+		if(noticeImage!=null && !noticeImage.isEmpty()) {
+			this.noticeImage = noticeImage;
+			noticeImg = noticeImage.getBytes();
+		}
+	}
+	
+	public String getNoticeImgBase64() {
+		if(noticeImg!=null)
+			return Base64.getEncoder().encodeToString(noticeImg);
+		else
+			return null;
+	}
+}

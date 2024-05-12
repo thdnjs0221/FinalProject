@@ -1,0 +1,106 @@
+package kr.or.ddit.users.service;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import kr.or.ddit.BoardNotFoundException;
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.dao.QnAAttatchDAO;
+import kr.or.ddit.users.dao.QnADAO;
+import kr.or.ddit.users.vo.QnAAttatchVO;
+import kr.or.ddit.users.vo.QnAVO;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class QnAServiceImpl implements QnAService{
+
+//	private final QnADAO qnaDAO;
+//	private final QnAAttatchDAO attatchDAO;
+//	
+//	@Value("#{appInfo.qnaFiles}")
+//	private Resource qnaFiles;
+//	
+//	private void processQnAFiles(QnAVO qnaVO) {
+//		List<QnAAttatchVO> attatchList = qnaVO.getAttatchList();
+//		if(attatchList!=null) {
+//			attatchList.forEach((atch)->{
+//				try {
+//					atch.setQstnNo(qnaVO.getQstnNo());
+//					attatchDAO.insertAttatch(atch);
+//					atch.saveTo(qnaFiles.getFile());
+//				}catch (IOException e) {
+//					throw new RuntimeException(e);
+//				}
+//			});
+//		}
+//	}
+//
+//	@Transactional
+//	@Override
+//	public void createQnA(QnAVO qnaVO) {
+//		qnaDAO.insertQnA(qnaVO);
+//		processQnAFiles(qnaVO);
+//	}
+//
+//	@Override
+//	public QnAVO retrieveQnA(String qstnNo) {
+//		QnAVO qnaVO = qnaDAO.selectQnA(qstnNo);
+//		if(qnaVO==null)
+//			throw new BoardNotFoundException(HttpStatus.NOT_FOUND, String.format("%d 해당 게시글이 없습니다.", qstnNo));
+//		return qnaVO;
+//	}
+//
+//	@Override
+//	public QnAAttatchVO retrieveAttatch(int qstnattNo) {
+//		QnAAttatchVO atch = attatchDAO.selectAttatch(qstnattNo);
+//		if(atch==null)
+//			throw new BoardNotFoundException(HttpStatus.NOT_FOUND, String.format("%d 해당 파일이 없습니다.", qstnattNo));
+//		return null;
+//	}
+//
+//	@Override
+//	public void retrieveQnAList(PaginationInfo<QnAVO> paging) {
+//		int totalRecord = qnaDAO.selectTotalRecord(paging);
+//		paging.setTotalRecord(totalRecord);
+//		List<QnAVO> dataList = qnaDAO.selectQnAList(paging);
+//		paging.setDataList(dataList);
+//		
+//	}
+//
+//	@Transactional
+//	@Override
+//	public void modifyQnA(QnAVO qnaVO) {
+//		qnaDAO.updateQnA(qnaVO);
+//		processQnAFiles(qnaVO);
+//	}
+//	
+//	private void processDeleteAttatches(QnAVO saveQnA) {
+//		saveQnA.getAttatchList().forEach((atch)->{
+//			String saveName = atch.getQstnattSavename();
+//			attatchDAO.deleteAttatch(atch.getQstnattNo());
+//			try {
+//				FileUtils.deleteQuietly(new File(qnaFiles.getFile(), saveName));
+//			} catch (IOException e) {
+//				throw new RuntimeException(e);
+//			}
+//		});
+//	}
+//
+//	@Transactional
+//	@Override
+//	public void removeQnA(QnAVO inputData) {
+//		processDeleteAttatches(inputData);
+//		qnaDAO.deleteQnA(inputData.getQstnNo());
+//	}
+	
+	
+}

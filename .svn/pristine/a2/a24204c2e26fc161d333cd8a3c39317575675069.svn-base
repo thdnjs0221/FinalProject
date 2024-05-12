@@ -1,0 +1,75 @@
+package kr.or.ddit.company.vo;
+
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import kr.or.ddit.validate.grouphint.DeleteGroup;
+import kr.or.ddit.validate.grouphint.UpdateGroup;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(of = "companyId")
+public class ComInfoVO implements Serializable{
+	private int rnum;
+	
+	@NotBlank(groups = {UpdateGroup.class, DeleteGroup.class})
+	private String companyId;
+	@NotBlank
+	private String csalNo;
+	@NotBlank
+	private String cominfoSectors;
+	@NotBlank
+	private String cominfoPage;
+	@NotBlank
+	private String cominfoContent;
+	private String cominfoCeonm;
+	@NotNull
+	private Integer cominfoEmp;
+	@NotNull
+	private Integer cominfoPay;
+	@NotNull
+	private long cominfoSales;
+	private String cominfoBenefit;
+	private String cominfoPerformance;
+	private Integer cominfoHit;
+	
+	private MultipartFile[] comFile;
+	private List<ComInfoAttatchVO> comAttatchList;	// has many
+	
+	public void setComFile(MultipartFile[] comFile) {
+		if(comFile!=null) {
+			this.comFile = Arrays.stream(comFile)
+								 .filter((f)->!f.isEmpty())
+								 .toArray(MultipartFile[]::new);
+		}
+		
+		if(this.comFile!=null) {
+			this.comAttatchList = Arrays.stream(this.comFile)
+										.map((f)->new ComInfoAttatchVO(f))
+										.collect(Collectors.toList());
+		}
+	}
+	
+	@NotBlank
+	private String companyNm;
+	@NotBlank
+	private String rcrtNo;
+	
+	private int memZip;
+	
+	private String memAddr1;
+	
+	private String memAddr2;
+	
+	private String companyDate;
+	
+
+}

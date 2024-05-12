@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.CompanyAdvrtDAO">
+
+<select id="selectCmpAdvrtList" resultType="CompanyAdvrtVO">
+	SELECT
+	    cmpad_no,
+	    cmpad_name,
+	    cmpad_period,
+	    cmpad_price
+	FROM
+   		cmpadmnmt
+</select>
+
+<insert id="sendCmpAdPay" parameterType="cmpAdvrtPayVO">
+	INSERT INTO cmpadpay (
+	    cmpad_pmtno,
+	    cmpad_no,
+	    company_id,
+	    pmt_methdno,
+	    cmpad_pdate,
+	    cmpad_sdate,
+	    cmpad_edate,
+	    cmpad_bprice
+	) VALUES (
+	    'CADP' || TO_CHAR(POINT_PMTNO_SEQ.NEXTVAL, 'FM000000'),
+	    #{cmpadNo},
+	    #{companyId},
+	    #{pmtMethdno},
+	    SYSDATE,
+	    #{cmpadSdate},
+	    #{cmpadEdate},
+	    #{cmpadBprice}
+	)
+</insert>
+</mapper>

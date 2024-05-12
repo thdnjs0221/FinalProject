@@ -1,0 +1,30 @@
+package kr.or.ddit.common.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.or.ddit.company.vo.RecruitVO;
+
+@Mapper
+public interface CompanyMainDAO {
+	/**
+	 * 진행중 채용공고 개수 조회
+	 */
+	public int selectClosedRecruitProcedureCount();
+	
+	/**
+	 * 마감된 채용공고 개수 조회
+	 */
+	public int selectUnclosedRecruitProcedureCount();
+
+	/**
+	 * 진행중 채용공고 제목 조회
+	 */
+	public List<RecruitVO> selectClosedRecruitProcedureList();
+
+	/**
+	 * 마감된 채용공고 제목 조회
+	 */
+	public List<RecruitVO> selectUnclosedRecruitProcedureList();
+}

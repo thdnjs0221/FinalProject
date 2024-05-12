@@ -1,0 +1,31 @@
+package kr.or.ddit.users.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.users.dao.TicketMnmtDAO;
+import kr.or.ddit.users.vo.TicketMnmtVO;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Service
+public class TicketMnmtServiceImpl implements TicketMnmtService{
+	
+	
+	@Inject
+	private final TicketMnmtDAO ticketMnmtDAO;
+	
+	
+	
+	@Override
+	@Transactional
+	public List<TicketMnmtVO> selectTicketList() {
+		List<TicketMnmtVO> ticketList = ticketMnmtDAO.selectTicketList();
+		return ticketList;
+	}
+
+}

@@ -1,0 +1,16 @@
+package kr.or.ddit.users.service;
+
+import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.common.vo.MemberVO;
+
+public interface UsersInfoService {
+	
+	public MemberVO retrieveUsers(String memId);
+	
+	public ServiceResult modifyUsers(MemberVO users);
+	
+	public ServiceResult removeUsers(MemberVO users);
+	
+	
+
+}

@@ -1,0 +1,180 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+<div id="content" class="basic_wide vix_main recruit-content"
+	data-rcrt-no=${rcrtNo } data-rproc-order=${rprocOrder }
+	data-rproc-typeno="${currProcedureInfo.rprocTypeno }">
+	<div class="wrap_content">
+		<%-- 채용 절차 탭 --%>
+		<div class="area_payment">
+			<div class="area_tab">
+				<c:forEach items="${dataList }" var="data" varStatus="status">
+					<c:if test="${status.index%4==0 }">
+						<ul class="tabList recruitTab" role="tablist">
+					</c:if>
+					<li 
+						class="inner <c:if test="${data.rprocOrder eq rprocOrder}">select</c:if>"
+						role="tab"><a
+						onclick="javascript:location.href='${pageContext.request.contextPath }/users/apply/${data.rcrtNo}/${data.rprocOrder }'"
+						class="inTab"> <span>${data.comCodeNm }</span>
+					</a></li>
+					<c:if test="${status.index%4==3 }">
+						</ul>
+					</c:if>
+				</c:forEach>
+			</div>
+
+			<div class="tab_part resume_part">
+				<div class="box_lookup"></div>
+			</div>
+
+			<%-- 리스트 출력 영역 --%>
+			<div id="list_position">
+				<!-- 검색 UI -->
+
+				<div class="tblWrap resumeTbl">
+
+					<c:if test="${currProcedureInfo.rprocTypeno eq 'RE01'}">
+						<table class="sms-breakdown recruitViewTbl">
+							<tr>
+								<td>회사명</td>
+								<td>${apply.company.companyNm}</td>
+							</tr>
+							<tr>
+								<td>공고명</td>
+								<td>${apply.recruit.rcrtTitle}</td>
+							</tr>
+							<tr>
+								<td>기간</td>
+								<td>${apply.procedure_r.rprocSdate}~
+									${apply.procedure_r.rprocEdate }</td>
+							</tr>
+							<tr>
+								<td>제출일</td>
+								<td>${apply.procedure_a.aprocDate }</td>
+							</tr>
+							<tr>
+								<td>이력서</td>
+								<td>${apply.resumeTitle }</td>
+							</tr>
+							<tr>
+								<td>진행상황</td>
+								<td>${apply.procedure_r.rprocEnd == 'N' ? "진행중" : apply.procedure_a.aprocPass == 'Y' ? "합격" : "불합격" }</td>
+							</tr>
+						</table>
+						<c:if test="${apply.procedure_r.rprocEnd eq 'Y' && apply.procedure_a.aprocPass eq 'Y'}">
+						<div class="rcrtApply">
+						<div class="wrap_recruit_frm">
+							<div class="wrap_step_recruit">
+								<!-- 등록 완료 버튼 -->
+									<div class="wrap_bottom_btn rcrtApply">										
+										<button type="submit"
+											class="BtnType SizeML btn_entry_complete btn_next_step ga_data_layer"
+											data-ga_data_layer="ga_lead|pc_recruit_step|btn_entry_complete">
+											지원하기</button>								
+									</div>
+								</div>
+							</div>
+						</div>
+						</c:if>
+					</c:if>
+
+
+					<c:if test="${currProcedureInfo.rprocTypeno eq 'RE02'}">
+						<table class="sms-breakdown recruitViewTbl">
+							<tr>
+								<td>회사명</td>
+								<td>${apply.company.companyNm}</td>
+							</tr>
+							<tr>
+								<td>공고명</td>
+								<td>${apply.recruit.rcrtTitle}</td>
+							</tr>
+							<tr>
+								<td>기간</td>
+								<td>${apply.procedure_r.rprocSdate}~
+									${apply.procedure_r.rprocEdate }</td>
+							</tr>
+							<tr>
+								<td>제출일</td>
+								<td>${apply.procedure_a.aprocDate }</td>
+							</tr>
+							<tr>
+								<td>진행상황</td>
+								<td>${apply.procedure_r.rprocEnd == 'N' ? "진행중" : apply.procedure_a.aprocPass == 'Y' ? "합격" : "불합격" }</td>
+							</tr>
+						</table>
+					</c:if>
+
+
+					<c:if test="${currProcedureInfo.rprocTypeno eq 'RE03'}">
+						<table class="sms-breakdown recruitViewTbl">
+							<tr>
+								<td>회사명</td>
+								<td>${apply.company.companyNm}</td>
+							</tr>
+							<tr>
+								<td>공고명</td>
+								<td>${apply.recruit.rcrtTitle}</td>
+							</tr>
+							<tr>
+								<td>기간</td>
+								<td>${apply.procedure_r.rprocSdate}~
+									${apply.procedure_r.rprocEdate }</td>
+							</tr>
+							<tr>
+								<td>제출일</td>
+								<td>${apply.procedure_a.aprocDate }</td>
+							</tr>
+							<tr>
+								<td>진행상황</td>
+								<td>${apply.procedure_r.rprocEnd == 'N' ? "진행중" : apply.procedure_a.aprocPass == 'Y' ? "합격" : "불합격" }</td>
+							</tr>
+						</table>
+					</c:if>
+
+
+					<c:if test="${currProcedureInfo.rprocTypeno eq 'RE04'}">
+						<table class="sms-breakdown recruitViewTbl">
+							<tr>
+								<td>회사명</td>
+								<td>${apply.company.companyNm}</td>
+							</tr>
+							<tr>
+								<td>공고명</td>
+								<td>${apply.recruit.rcrtTitle}</td>
+							</tr>
+							<tr>
+								<td>면접유형</td>
+								<td>${apply.interviewVO.intrTypeNm }</td>
+							</tr>
+							<tr>
+								<td>면접일자</td>
+								<td>${apply.interviewVO.intrDate }</td>
+							</tr>
+							<tr>
+								<td>면접장소</td>
+								<td>${apply.interviewVO.intrPlace }</td>
+							</tr>
+							<tr>
+								<td>제출일</td>
+								<td>${apply.procedure_a.aprocDate }</td>
+							</tr>
+							<tr>
+								<td>진행상황</td>
+								<td>${apply.procedure_r.rprocEnd == 'N' ? "진행중" : apply.procedure_a.aprocPass == 'Y' ? "합격" : "불합격" }</td>
+							</tr>
+						</table>
+					</c:if>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

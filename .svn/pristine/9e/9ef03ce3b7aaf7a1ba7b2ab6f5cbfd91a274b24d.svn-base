@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.ImageAdvrtDAO">
+
+
+	<select id="selectImageAdvrtList" resultType="ImageAdvrtVO">
+		SELECT
+		    imgad_no,
+		    imgad_name,
+		    imgad_period,
+		    imgad_price,
+		    imgad_loc
+		FROM
+		    imgadmnmt
+		WHERE
+			imgad_loc = 'L01'
+	</select>
+
+	<select id="selectBannerAdvrtList" resultType="ImageAdvrtVO">
+		SELECT
+		    imgad_no,
+		    imgad_name,
+		    imgad_period,
+		    imgad_price,
+		    imgad_loc
+		FROM
+		    imgadmnmt
+		WHERE
+			imgad_loc = 'L02'
+	</select>
+	
+	<select id="selectCmpPass" parameterType="String" resultType="CompanyVO">
+		SELECT
+	    	company_num
+		FROM
+	    	company
+		WHERE company_id=#{authId}
+	</select>
+	
+	<insert id="sendImgAdPay" parameterType="ImgAdvrtPayVO">
+		INSERT INTO imgadpay (
+		    imgad_pmtno,
+		    imgad_no,
+		    company_id,
+		    pmt_methdno,
+		    imgad_pdate,
+		    imgad_sdate,
+		    imgad_edate,
+		    imgad_bprice,
+		    imgad_title,
+		    imgad_content,
+		    imgad_file,
+		    imgad_loc
+		) VALUES (
+		    'IADP' || TO_CHAR(POINT_PMTNO_SEQ.NEXTVAL, 'FM000000'),
+		    #{imgadNo},
+		    #{companyId},
+		    #{pmtMethdno},
+		    SYSDATE,
+		    #{imgadSdate},
+		    #{imgadEdate},
+		    #{imgadBprice},
+		    #{imgadTitle},
+		    #{imgadContent},
+		    #{imgadFile},
+		    #{imgadLoc}
+		)
+	</insert>
+
+</mapper>

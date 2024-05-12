@@ -1,0 +1,199 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+	
+<div id="sri_section">
+	<div id="content" class="basic_wide vix_main">
+		<div class="main_content">
+    		<div class="section_concierge">
+           		<ul class="concierge_dashboard cmpnyBox">
+                	<li class="item">
+                   		<div class="concierge_header">
+                        	<strong class="title"><span class="ico ico_prod"></span>공지사항</strong>
+                        </div>
+                    	<div class="concierge_cont">
+	                        <ul class="board_list">
+							    <li>
+							        <a href="/zf_user/help/live/view?idx=109227" class="board_link">
+							            <span class="type">공지</span>
+							            <p class="tit">[사전안내] 기업회원 휴면해제 안내</p>
+							            <span class="date">2023.11.21</span>
+							        </a>
+							    </li>
+							
+							    <li>
+							        <a href="/zf_user/help/live/view?idx=109215" class="board_link">
+							            <span class="type">공지</span>
+							            <p class="tit">[SSAFY X 사람인] 사람인 기업회원 대상 SSAFY 채용박람회 신청</p>
+							            <span class="date">2023.11.09</span>
+							        </a>
+							    </li>
+							
+							    <li>
+							        <a href="/zf_user/help/live/view?idx=109208" class="board_link">
+							            <span class="type">공지</span>
+							            <p class="tit">채용광고 재구매 최대 60% 할인</p>
+							            <span class="date">2023.11.07</span>
+							        </a>
+							    </li>
+							    
+							    <li>
+							        <a href="/zf_user/help/live/view?idx=109208" class="board_link">
+							            <span class="type">공지</span>
+							            <p class="tit">채용광고 재구매 최대 60% 할인</p>
+							            <span class="date">2023.11.07</span>
+							        </a>
+							    </li>
+							    
+							    <li>
+							        <a href="/zf_user/help/live/view?idx=109208" class="board_link">
+							            <span class="type">공지</span>
+							            <p class="tit">채용광고 재구매 최대 60% 할인</p>
+							            <span class="date">2023.11.07</span>
+							        </a>
+							    </li>
+							</ul>                  
+                        </div>
+                   </li>
+                   <li class="item">
+	                   <div class="concierge_header">
+	                        <strong class="title"><span class="ico ico_recruit"></span>기업정보</strong>                                 
+	                   </div>
+	                   <div class="concierge_cont">
+							<div class="company_info">
+							    <div class="company_top">
+							        <div class="logo_box TipBox">
+							            <button type="button" class="logo">
+							                <span class="thumb"><img class="mainLogo" src="<%=request.getContextPath() %>/resources/images/mainLogo.png" alt="Logo"></span>
+							            </button>
+							            <div class="TipCont LeftBottom logo_tip blind">
+							                <span class="Tail">
+							                    <svg class="icon_tail">
+							                        <use xlink:href="#TipBox_tail_side"></use>
+							                    </svg>
+							                </span>
+							                <div class="TipTxt">
+							                    로고를 등록해주세요!
+							                </div>
+							            </div>
+							        </div>
+							        <h2 class="name">주식회사 대덕전자</h2>
+							        <span class="member_condition certify"><a href="/zf_user/memcom/certification">인증</a></span>
+							    </div>
+							    <div class="company_name">
+							        <p class="person">
+							            담당자<strong>김담당</strong>
+							        </p>      
+							        <button type="button" class="btn_set">
+							            <span class="blind">설정하기</span>
+							            <span><i class="fa-solid fa-gear"></i> </span>
+							        </button>
+							    </div>
+							</div>                         
+	                   </div>
+                   </li>
+                </ul>
+    		</div>
+        
+			<div class="section_status">
+				<div class="recruit">
+			    	<div class="box">
+			        	<h2 class="section_title">공고 현황</h2>
+			            	<div class="progress">
+							    <div class="title">
+							        <strong>
+							            <span class="type">진행중 공고</span>
+							            <a href="${pageContext.request.contextPath }/company/recruitListUI" class="more"><span class="count unclosedRecruitProcedureCount">2</span>
+							            <span class="unit">건</span>전체보기</a>
+							        </strong>
+							    </div>
+							    <ul class="board_list bdLst">
+								    <li>
+								        <a href="/zf_user/help/live/view?idx=109227" class="board_link">
+								            <p class="tit">[사전안내] 기업회원 휴면해제 안내</p>
+								        </a>
+								    </li>
+								
+								    <li>
+								        <a href="/zf_user/help/live/view?idx=109215" class="board_link">
+								            <p class="tit">[SSAFY X 사람인] 사람인 기업회원 대상 SSAFY 채용박람회 신청</p>
+								        </a>
+								    </li>
+								
+								</ul>
+							</div>                            
+							<div class="progress">
+							    <div class="title">
+							        <strong>
+							            <span class="type">마감된 공고</span>
+							            <a href="${pageContext.request.contextPath }/company/recruitListUI" class="more"><span class="count closedRecruitProcedureCount">16</span>
+							            <span class="unit">건</span>전체보기</a>
+							        </strong>
+							    </div>
+			   				
+								<ul class="board_list bdLst">
+								    <li>
+								        <a href="/zf_user/help/live/view?idx=109227" class="board_link">
+								            <p class="tit">[사전안내] 기업회원 휴면해제 안내</p>
+								        </a>
+								    </li>
+								
+								    <li>
+								        <a href="/zf_user/help/live/view?idx=109215" class="board_link">
+								            <p class="tit">[SSAFY X 사람인] 사람인 기업회원 대상 SSAFY 채용박람회 신청</p>
+								        </a>
+								    </li>
+								
+								</ul>   
+							</div>
+							<a href="${pageContext.request.contextPath }/company/testListUI" class="btnSizeL colorWhite testLink"><i class="fa-solid fa-pencil"></i>시험지 보기</a>
+			         </div>
+				</div>
+			    <div class="position">
+			    	<div class="box">
+				        <h2 class="section_title">내 프로모션</h2>
+				       	<div class="progresses progress">
+						    <div class="title">
+						        <strong>
+						            <span class="type">진행중 이미지광고</span>
+						            <a href="/zf_user/company/recruit-manage?mode=ing" class="more"><span class="count">2</span>
+						            <span class="unit">건</span>전체보기</a>
+						        </strong>
+						    </div>
+						</div>
+						<div class="progresses progress">
+						    <div class="title">
+						        <strong>
+						            <span class="type">진행중 기업광고</span>
+						            <a href="/zf_user/company/recruit-manage?mode=ing" class="more"><span class="count">2</span>
+						            <span class="unit">건</span>전체보기</a>
+						        </strong>
+						    </div>
+						</div> 
+						<div class="progresses progress">
+						    <div class="title">
+						        <strong>
+						            <span class="type">진행중 리스트업</span>
+						            <a href="/zf_user/company/recruit-manage?mode=ing" class="more"><span class="count">2</span>
+						            <span class="unit">건</span>전체보기</a>
+						        </strong>
+						    </div>
+						</div>    
+						<div class="no_data"></div>
+			        </div>
+				</div>
+			</div>
+
+			<div class="banner_box" style="">
+			    <a href="https://billing.saramin.co.kr/products/recruit-package" target="_blank" onmousedown="pushDataLayer('ga_lead', 'company_main', 'content_banner', 'center_banner');">
+			        <div class="banner_txt">
+			            <h3 class="tit" style="color: #fff">NEW 채용광고 패키지</h3>
+			            <p class="txt" style="color: #fff">#고민말고 #잘모를땐 패키지,  특별 할인 최대 58%</p>
+			        </div>
+			        <img src="https://www.saraminbanner.co.kr/new/sub/2023/11/s4eob0_l233-1brdx6z_.png" alt="NEW 채용광고 패키지">
+			    </a>
+			</div>
+		</div>
+    </div>
+</div>

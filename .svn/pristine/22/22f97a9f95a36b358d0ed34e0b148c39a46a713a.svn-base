@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.admin.dao.BsnsLcnsNmbrDAO">
+	<select id="selectCompany" parameterType="String"
+		resultType="CompanyVO">
+		SELECT
+		    COMPANY_ID,
+			COMPANY_NUM,
+			COMPANY_FILE,
+			COMPANY_DNM,
+			COMPANY_NM,
+			TO_CHAR(COMPANY_DATE, 'YYYY.MM.DD') AS COMPANY_DATE,
+			COMPANY_PERMISSION
+		FROM COMPANY
+		WHERE COMPANY_ID = #{companyId}
+	</select>
+
+	<sql id="searchFrag">
+		<where>
+			<if test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="simpleCondition.searchType eq 'companyId'">
+						INSTR(COMPANY_ID, #{simpleCondition.searchWord}) > 0
+					</when>
+					<otherwise>
+						INSTR(COMPANY_ID, #{simpleCondition.searchWord}) > 0
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</sql>
+	<select id="selectTotalRecord" parameterType="PaginationInfo"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM COMPANY
+		<include refid="searchFrag" />
+	</select>
+	<select id="selectCompanyList" parameterType="PaginationInfo"
+		resultType="CompanyVO">
+		WITH ORDEREDBRD AS (
+		SELECT A.*, ROWNUM RNUM
+		FROM (
+		SELECT
+		    COMPANY_ID,
+			COMPANY_NUM,
+			COMPANY_FILE,
+			COMPANY_DNM,
+			COMPANY_NM,
+			TO_CHAR(COMPANY_DATE, 'YYYY.MM.DD') AS COMPANY_DATE,
+			COMPANY_PERMISSION
+		FROM COMPANY
+		<include refid="searchFrag" />
+		ORDER BY COMPANY_DATE DESC
+		)A
+		)
+		SELECT *
+		FROM ORDEREDBRD
+		<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} 
+		]]>
+	</select>
+</mapper>
+
+
+

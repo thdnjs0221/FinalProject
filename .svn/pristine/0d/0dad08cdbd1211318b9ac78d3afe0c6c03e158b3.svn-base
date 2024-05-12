@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.PointPayDAO">
+
+	<insert id="savePointPay" parameterType="PointPayVO">
+		<selectKey keyProperty="pointRemain" order="BEFORE" resultType="int">
+			SELECT POINT_REMAIN
+			  FROM (
+			    SELECT POINT_REMAIN, ROW_NUMBER() OVER (ORDER BY POINT_PDATE DESC) AS rn
+			    FROM POINTPAY
+			    WHERE USERS_ID = #{usersId}
+			    ORDER BY POINT_PDATE DESC
+  			)
+ 			 WHERE rn = 1
+		</selectKey>
+		INSERT INTO POINTPAY (
+			POINT_PMTNO,
+			USERS_ID,
+			TICKET_NO,
+			PMT_METHDNO,
+			POINT_PDATE,
+			POINT_HOLD,
+			POINT_CHARGE,
+			POINT_USE,
+			POINT_REMAIN,
+			POINT_RECORD
+			)
+		VALUES (
+			'PTP' || TO_CHAR(POINT_PMTNO_SEQ.NEXTVAL, 'FM000000'), 
+			#{usersId},
+			NULL,
+			#{pmtMethdno},
+			TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), 'YYYY-MM-DD HH24:MI:SS'), 
+			#{pointRemain},
+			#{pointCharge},
+			0,
+			#{pointRemain} + #{pointCharge},
+			#{pointRecord}
+		)
+	</insert>
+
+
+</mapper>

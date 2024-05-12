@@ -1,0 +1,1699 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<div class="resumeFormlWrap">
+    <div class="resume_wrap">
+
+            <div class="resume_snb">
+                <div class="snb_container">
+    <div class="snb_box">
+                    
+
+            <div class="progress_bar per100">
+                <span class="blind">진행률</span>
+            </div>
+            <p class="txt">이력서 항목</p>
+                    <ul class="item_list">
+                            <li class="item essential">
+                    <a href="#career" class="BtnType con_link">
+                        경력                    </a>
+                </li>
+                                <li class="item essential">
+                    <a href="#school" class="BtnType con_link">
+                        학력                    </a>
+                </li>
+                                
+                                
+                                <li class="item add">
+                    <a href="#activity" class="BtnType con_link">
+                        경험/활동/교육                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item add active">
+                    <a href="#license" class="BtnType con_link">
+                        자격/어학/수상                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item add">
+                    <a href="#attach_files" class="BtnType con_link">
+                        포트폴리오 및 기타문서                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item">
+                    <a href="#career_profile" class="BtnType con_link">
+                        경력기술서                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item">
+                    <a href="#introduce" class="BtnType con_link">
+                        자기소개서                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item">
+                    <a href="#svq" class="BtnType con_link">
+                        사람인 인·적성검사                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                                <li class="item">
+                    <a href="#personal" class="BtnType con_link">
+                        취업우대사항                    </a>
+                    <button type="button" class="con_ctrl">
+                        <span class="blind">제거하기</span>
+                    </button>
+                </li>
+                        </ul>
+        
+    </div>
+        <div class="ModalBox layer_talent_tag" style="display:none;" id="talentPoolPreviewModal"></div>
+            <button type="button" class="resume_snb_guide evtNudgeGuide">
+            이력서 이용 방법을 알려드릴께요!
+        </button>
+        </div>
+            </div>
+
+            <div class="resume_con">
+                <section id="basic" class="resume_basic">
+    <div class="resume_view" style="display: block;">
+        <div class="resume_top">
+            <h1 class="user_name">박주연</h1>
+            <div class="InpBox SizeS user_career">
+                <label for="careerCd" class="blind">경력구분</label>
+                <select name="career_cd" id="careerCd">
+                                        <option value="1">신입</option>
+                    <option value="2" selected="selected">경력</option>
+                </select>
+            </div>
+        </div>
+                    <p class="user_desc">여, 1998 (25세)</p>
+            
+        <p class="user_hide">
+            <span class="showPrivacy">가려진 정보 보기</span>
+            비노출(마스킹) 처리된 개인정보는 기업이 이력서 열람/제안 시 정상 노출됩니다.
+        </p>
+                    <ul class="user_info">
+                                    <li value="resumeBasic_1699600273376" class="user_email">juy******@naver.com</li>
+                                        <li value="resumeBasic_1699600273376" class="user_phone">010-****-8975</li>
+                                        <li value="resumeBasic_1699600273376" class="user_number">010-****-8975</li>
+                                        <li value="resumeBasic_1699600273376" class="user_address">대전 대덕구 동춘당로114번길 47 209동1701호</li>
+                                </ul>
+                    <div class="picture_box">
+            <div class="picture"><img alt="" src="https://pds.saramin.co.kr/person/photo/2023/11/s3iu93_53of-jkzph_s3iu92175vjkzphs3iu918nhmjkzph3832e2bfae3bd00216cc322bfc1c4819.jpg"></div>        </div>
+
+        <button type="button" value="resumeBasic_1699600273376" class="BtnType user_modify evtWrite">
+            <span class="blind">수정하기</span>
+        </button>
+    </div>
+
+    <div class="resume_tit layerReverseItem" style="display: none;">
+        <div class="box_tit">
+            <h2 class="tit">기본정보<span class="must">필수</span>
+            </h2>
+        </div>
+    </div>
+
+    <div id="resumeBasic_1699600273376" class="resume_edit wrapHiddenForm" data-tpl="basic" style="display: none;">
+    <input type="hidden" id="seqSms_1699600273376" value="seq1699600272">
+    <input type="hidden" id="seqEmail_1699600273376" value="seq1699600272">
+    <input type="hidden" id="userSelectedType_1699600273376" name="user_selected_type" value="R">
+    <input type="hidden" id="sido_1699600273376" name="sido" value="">
+    <input type="hidden" id="sigungu_1699600273376" name="sigungu" value="">
+    <input type="hidden" id="latitude_1699600273376" name="latitude" value="">
+    <input type="hidden" id="longitude_1699600273376" name="longitude" value="">
+    <input type="hidden" id="oldZipcode_1699600273376" name="old_zipcode" value="306-776">
+    <input type="hidden" id="newZipcode_1699600273376" name="new_zipcode" value="34400">
+    <input type="hidden" id="newAddress_extra_1699600273376" name="new_address_extra" value="(송촌동,  선비마을2단지아파트)">
+    <input type="hidden" id="livingOverseasFl_1699600273376" name="living_overseas_fl" value="">
+    <input type="hidden" id="cellConfirmYn_1699600273376" name="cell_confirm_yn" value="y">
+    <input type="hidden" id="emailConfirmYn_1699600273376" name="email_confirm_yn" value="y">
+    <input type="hidden" id="jobhuntingSt_1699600273376" name="jobhunting_st" value="2">
+    <input type="hidden" id="masking_user_nm_1699600273376" value="박**">
+
+    <div class="item_row">
+        <div class="TypoBox LblTop item_m">
+            <label for="userNm_1699600273376" class="Lbl">이름 *</label>
+            <input type="text" name="user_nm" value="박주연" id="userNm_1699600273376" class="Typo SizeL" maxlength="20" required="">
+        </div>
+        <div class="InpBox SizeL item_s">
+            <label for="sex_1699600273376" class="blind">성별</label>
+            <select name="sex" id="sex_1699600273376">
+                <option value="">성별</option>
+                <option value="male">남</option>
+                <option value="female" selected="selected">여</option>
+            </select>
+        </div>
+        <div class="TypoBox item_s LblTop">
+            <label for="userBirth_1699600273376" class="Lbl">생년월일 *</label>
+            <input type="text" name="user_birth" value="19980319" id="userBirth_1699600273376" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymmdd" maxlength="8" required="">
+        </div>
+    </div>
+
+    <div class="item_row">
+        <div class="ability_box item_m privacy">
+            <div class="TypoBox TypeBtn LblTop">
+                <label for="encEmail_1699600273376" class="Lbl">이메일 *</label>
+                <input type="text" name="enc_email" value="juy******@naver.com" id="encEmail_1699600273376" class="Typo SizeL" readonly="" required="">
+                <button type="button" class="badge_privacy"><span class="blind">가려진 정보 보기</span></button>                <span class="badge complete">인증</span>            </div>
+        </div>
+        <button type="button" value="email" class="BtnType SizeL btn_gray evtContactModify">수정</button>
+    </div>
+
+    <div class="item_row item_center">
+        <div class="ability_box item_m privacy">
+            <div class="TypoBox TypeBtn LblTop">
+                <label for="encCell_1699600273376" class="Lbl">휴대폰 *</label>
+                <input type="text" name="enc_cell" value="010****8975" id="encCell_1699600273376" class="Typo SizeL" maxlength="11" readonly="" required="">
+                <button type="button" class="badge_privacy"><span class="blind">가려진 정보 보기</span></button>                <span class="badge complete">인증</span>            </div>
+        </div>
+        <button type="button" value="cell" class="BtnType SizeL btn_gray evtContactModify">수정</button>
+    </div>
+
+    <div class="item_row">
+        <div class="TypoBox LblTop item_m">
+            <label for="userTel_1699600273376" class="Lbl">전화번호</label>
+            <input type="text" name="user_tel" value="01063508975" id="userTel_1699600273376" class="Typo SizeL onlyNumber" maxlength="11" required="" data-allow_dot="false">
+        </div>
+    </div>
+
+    <div class="item_row item_center">
+        <div class="TypoBox LblTop item_m">
+            <label for="oldAddress_1699600273376" class="Lbl">주소 *</label>
+            <input type="text" name="old_address" value="대전 대덕구 송촌동" id="oldAddress_1699600273376" class="Typo SizeL" title="기본주소" readonly="" required="" placeholder="주소를 입력해주세요" style="display:none;">
+            <input type="text" name="new_address" value="대전 대덕구 동춘당로114번길" id="newAddress_1699600273376" class="Typo SizeL" title="기본주소" readonly="" required="" placeholder="주소를 입력해주세요" style="display:">
+            <select name="oversea" id="oversea_1699600273376" style="display:none;"></select>
+        </div>
+
+        <div class="TypoBox LblTop item_m">
+            <label for="oldAddressDetails_1699600273376" class="Lbl">상세주소</label>
+            <input type="text" name="old_address_details" value="444" id="oldAddressDetails_1699600273376" class="Typo SizeL" required="" style="display:none;">
+            <input type="text" name="new_address_details" value="47 209동1701호" id="newAddressDetails_1699600273376" class="Typo SizeL" required="" style="display:">
+        </div>
+
+        <div class="InpBox item_check">
+            <span class="Chk SizeL">
+                <input type="checkbox" name="btn_oversea" id="btnOversea_1699600273376">
+                <label class="Lbl" for="btnOversea_1699600273376">해외지역</label>
+            </span>
+        </div>
+    </div>
+    <!-- picture -->
+            <div class="picture_box">
+            <div class="picture"><img alt="" src="https://pds.saramin.co.kr/person/photo/2023/11/s3iu93_53of-jkzph_s3iu92175vjkzphs3iu918nhmjkzph3832e2bfae3bd00216cc322bfc1c4819.jpg"></div>
+            <button type="button" class="btn_delete evtClickDeletePhoto">
+                <svg>
+                    <use xlink:href="#search_delete"></use>
+                </svg>
+            </button>
+            <button type="button" class="BtnType SizeS btn_modify evtClickEditPhoto">사진 수정</button>
+        </div>
+        </div>
+</section>
+<section id="career" class="resume_career">
+    <input type="hidden" name="saved_career_cd" value="2">
+
+    <input type="hidden" name="career_user_input" value="n">
+    <input type="hidden" name="career_repetition_removal" value="n">
+    <input type="hidden" name="career_period_year" value="0">
+    <input type="hidden" name="career_period_month" value="9">
+    <input type="hidden" name="abroad_work_fl" value="n">
+    <input type="hidden" name="nation_kcd" value="">
+    <input type="hidden" name="abroad_career_year" value="">
+    <input type="hidden" name="abroad_career_month" value="">
+
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">경력<span class="must">필수</span></h2>
+
+                            <p class="career_txt">
+                    <span><em>총 경력 9개월</em></span>
+                    <button type="button" class="btn_modify evtTotalPeriod">
+                        <svg>
+                            <use xlink:href="#view_modify"></use>
+                        </svg>
+                    </button>
+                </p>
+                
+
+        </div>
+        <div class="TipBox">
+            
+            <div class="TipCont RightCenter">
+                <span class="Tail"></span>
+                <div class="TipTxt">
+                    <em> 내 경력을 <strong>빠르게</strong> 등록할 수 있어요! </em>
+                    건강보험공단에서 정보를 불러와<br>
+                    내 경력을 빠르게 등록할 수 있어요
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn_add evtWriteItem" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'call_career_pc','event-flow': 'resume_write','event-label': 'write_career'});}catch(e){}">
+            <svg>
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            추가
+        </button>
+    </div>
+
+            <ul class="resume_list">
+                            <li class="list">
+                    <div class="contents">
+                        <h3 class="tit">
+                            씨제이프레시웨이                            <p class="date">2021.10 ~ 2022.06 <span class="period">9개월</span></p>                        </h3>
+
+                        <p class="desc">부서명 </p>                        <div class="project"><p class="desc">업무&nbsp;및&nbsp;사무보조</p></div>                        <dl class="faculty"><dt>퇴사사유</dt><dd>업직종 전환</dd><dt>근무지역</dt><dd>대전</dd></dl>                    </div>
+                    <div class="contents_edit">
+                        <button type="button" value="resumeCareerItem_1699600273377" class="BtnType view_modify evtEditItem">
+                            <svg><use xlink:href="#view_modify"></use></svg>
+                            <span class="blind">수정하기</span>
+                        </button>
+
+                                            </div>
+
+                </li>
+                        </ul>
+        <div id="resumeCareerItem_1699600273377" class="resume_edit wrapHiddenForm" data-tpl="career-item" style="display:none;">
+    <input type="hidden" id="careerMcomIdx_1699600273377" name="career_mcom_idx[]" value="0">
+    <input type="hidden" id="careerComIdx_1699600273377" name="career_com_idx[]" value="0">
+    <input type="hidden" id="careerCsn1_1699600273377" name="career_csn1[]" value="603">
+    <input type="hidden" id="careerCsn2_1699600273377" name="career_csn2[]" value="81">
+    <input type="hidden" id="careerCsn3_1699600273377" name="career_csn3[]" value="11270">
+    <input type="hidden" id="careerExnlSource_1699600273377" name="career_exnl_source[]" value="saramin">
+    <input type="hidden" id="careerComnmOpenFl_1699600273377" name="career_comnm_open_fl[]" value="y">
+    <input type="hidden" id="careerStartYear_1699600273377" name="career_start_year[]" value="2021">
+    <input type="hidden" id="careerStartMonth_1699600273377" name="career_start_month[]" value="10">
+    <input type="hidden" id="careerEndYear_1699600273377" name="career_end_year[]" value="2022">
+    <input type="hidden" id="careerEndMonth_1699600273377" name="career_end_month[]" value="06">
+    <input type="hidden" id="careerJobGrade_1699600273377" name="career_job_grade[]" value="직접입력">
+    <input type="hidden" id="careerJobDuties_1699600273377" name="career_job_duties[]" value="">
+    <input type="hidden" id="careerJobTextInput_1699600273377" name="career_job_text_input[]" value="계약직">
+    <input type="hidden" id="careerYear_1699600273377" name="career_year[]" value="0">
+
+        <div class="item_row item_center">
+                    <div class="TypoBox TypeBtn item_m">
+                <label for="careerCompanyNm_1699600273377" class="blind">회사명</label>
+                <input type="text" name="career_company_nm[]" value="씨제이프레시웨이" id="careerCompanyNm_1699600273377" class="Typo SizeL" placeholder="회사명 *" maxlength="80" data-auto_complete_item_group="input[name^='career_csn']">
+            </div>
+            <div class="InpBox SizeL item_s">
+                <label for="careerRetireFl_1699600273377" class="blind">재직여부</label>
+                <select name="career_retire_fl[]" id="careerRetireFl_1699600273377">
+                    <option value="">재직여부 *</option>
+                    <option value="n">재직중</option>
+                    <option value="y" selected="selected">퇴사</option>
+                </select>
+            </div>
+            <div class="TypoBox item item_s LblTop">
+                <label for="careerStart_1699600273377" class="Lbl">입사년월 *</label>
+                <input type="text" name="career_start[]" value="202110" id="careerStart_1699600273377" class="Typo SizeL onlyNumber DatePic datePicker" placeholder="YYYYMM" maxlength="6" data-dateformat="yymm" required="">
+            </div>
+            <div class="TypoBox item item_s LblTop">
+                <label for="careerEnd_1699600273377" class="Lbl">퇴사년월 *</label>
+                <input type="text" name="career_end[]" value="202206" id="careerEnd_1699600273377" class="Typo SizeL onlyNumber DatePic datePicker" placeholder="YYYYMM" maxlength="6" data-dateformat="yymm" required="">
+            </div>
+                </div>
+
+
+    <div class="item_row item_center">
+        <div class="TypoBox TypeBtn item_m">
+            <label for="careerJobGradeDuties_1699600273377" class="blind">직급/직책</label>
+            <input type="text" name="career_job_grade_duties[]" value="계약직" id="careerJobGradeDuties_1699600273377" class="Typo SizeL" placeholder="직급/직책" autocomplete="off">
+            <button type="button" class="btn_input evtTriggerJobGradeDuties">선택하기</button>
+        </div>
+
+        <div class="TypoBox item_m LblTop">
+            <label for="careerDeptNm_1699600273377" class="Lbl">근무부서</label>
+            <input type="text" name="career_dept_nm[]" value="건양대학교병원 영양팀" id="careerDeptNm_1699600273377" class="Typo SizeL" placeholder="근무부서" maxlength="25" required="">
+        </div>
+
+        <div class="InpBox item_check company_tip">
+            <span class="Chk SizeL">
+                <input type="checkbox" name="dumi_career_comnm_open_fl[]" id="dumiCareerComnmOpenfl_1699600273377" value="y">
+                <label class="Lbl" for="dumiCareerComnmOpenfl_1699600273377">회사명 비공개</label>
+            </span>
+            <div class="TipBox">
+                <button type="button" class="company_none">
+                    <span class="blind">회사명 비공개</span>
+                </button>
+                <div class="TipCont TopRight">
+                    <span class="Tail"></span>
+                    <div class="TipTxt">
+                        [안내] 제안받기 상태시에만 적용되는 기능<br>
+                        - 제안받기 상태 시 : 회사명이 비노출된 이력서를 보고 기업이 제안을 보냅니다.<br>
+                        - 입사지원 시 : 회사명이 노출된 이력서로 입사지원 됩니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="career_txt">직급(직책)을 등록하면 제안 확률 UP👍</p>
+    <h5 class="tit_sub">담당업무</h5>
+    <div class="item_row">
+        <div class="InpBox letter_box item item_full">
+            <label for="careerContents_1699600273377" class="blind"></label>
+            <textarea name="career_contents[]" id="careerContents_1699600273377" class="ScrollBar charCount" placeholder="담당업무를 입력해주세요.
+- 진행한 업무를 다 적기 보다는 경력사항 별로 중요한 내용만 엄선해서 작성하는 것이 중요합니다!
+- 담당한 업무 내용을 요약해서 작성해보세요!
+- 경력별 프로젝트 내용을 적을 경우, 역할/팀구성/기여도/성과를 기준으로 요약해서 작성해보세요!">OCS 업무 및 사무보조</textarea>
+        </div>
+    </div>
+
+    <div class="item_row">
+        <div class="TypoBox item_s LblTop">
+            <label for="careerSalary_1699600273377" class="Lbl">연봉</label>
+            <input type="text" name="career_salary[]" value="" id="careerSalary_1699600273377" class="Typo SizeL onlyNumber additionalItem" placeholder="연봉" data-additional_item_group=":input[name='career_currency[]']" maxlength="6" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="careerCurrency_1699600273377" class="blind">금액 단위</label>
+            <select name="career_currency[]" id="careerCurrency_1699600273377">
+                <option value="">금액 단위</option>
+                                    <option value="KRW" selected="selected">만원</option>
+                                        <option value="USD">달러</option>
+                                        <option value="JPY">엔</option>
+                                </select>
+        </div>
+
+        <div class="InpBox SizeL item_m">
+            <label for="careerRetireReasonSbox_1699600273377" class="blind">퇴사사유</label>
+            <select name="career_retire_reason_sbox[]" id="careerRetireReasonSbox_1699600273377" class="additionalItem" data-additional_item_group=":input[name='career_retire_reason_text[]']">
+                <option value="">퇴사사유</option>
+                                    <option value="업직종 전환" selected="selected">업직종 전환</option>
+                                        <option value="근무조건">근무조건</option>
+                                        <option value="경영악화">경영악화</option>
+                                        <option value="계약만료">계약만료</option>
+                                        <option value="출산/육아">출산/육아</option>
+                                        <option value="학업">학업</option>
+                                        <option value="유학">유학</option>
+                                        <option value="개인사정">개인사정</option>
+                                    <option value="직접입력">직접입력</option>
+            </select>
+        </div>
+
+        <div class="TypoBox item_m LblTop" style="display:none">
+            <label for="careerRetireReasonText_1699600273377" class="Lbl">퇴사사유 직접입력</label>
+            <input type="text" name="career_retire_reason_text[]" value="" id="careerRetireReasonText_1699600273377" class="Typo SizeL" placeholder="퇴사사유 직접입력" maxlength="20" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="careerAreaCd_1699600273377" class="blind">근무지역</label>
+            <select name="career_area_cd[]" id="careerAreaCd_1699600273377" class="additionalItem">
+                <option value="">근무지역</option>
+                                    <option value="1">서울</option>
+                                        <option value="2">강원</option>
+                                        <option value="3">경기</option>
+                                        <option value="4">경남</option>
+                                        <option value="5">경북</option>
+                                        <option value="6">광주</option>
+                                        <option value="7">대구</option>
+                                        <option value="8" selected="selected">대전</option>
+                                        <option value="9">부산</option>
+                                        <option value="10">울산</option>
+                                        <option value="11">인천</option>
+                                        <option value="12">전남</option>
+                                        <option value="13">전북</option>
+                                        <option value="14">제주</option>
+                                        <option value="15">충남</option>
+                                        <option value="16">충북</option>
+                                        <option value="17">전국</option>
+                                        <option value="47">세종</option>
+                                        <option value="18">미국</option>
+                                        <option value="19">일본</option>
+                                        <option value="20">프랑스</option>
+                                        <option value="21">인도네시아</option>
+                                        <option value="22">중국</option>
+                                        <option value="23">캐나다</option>
+                                        <option value="24">해외</option>
+                                        <option value="25">대만</option>
+                                        <option value="26">러시아</option>
+                                        <option value="27">말레이시아</option>
+                                        <option value="28">방글라데시</option>
+                                        <option value="29">싱가포르</option>
+                                        <option value="30">인도</option>
+                                        <option value="31">인도네시아</option>
+                                        <option value="32">필리핀</option>
+                                        <option value="33">홍콩</option>
+                                        <option value="34">독일</option>
+                                        <option value="35">영국</option>
+                                        <option value="36">호주</option>
+                                        <option value="37">베트남</option>
+                                        <option value="38">스페인</option>
+                                        <option value="39">브라질</option>
+                                        <option value="40">이탈리아</option>
+                                        <option value="41">스위스</option>
+                                        <option value="42">네덜란드</option>
+                                        <option value="43">필리핀</option>
+                                        <option value="44">그리스</option>
+                                        <option value="45">대만</option>
+                                        <option value="46">멕시코</option>
+                                        <option value="99">기타</option>
+                                </select>
+        </div>
+    </div>
+</div>
+</section>
+<section id="school" class="resume_school">
+    <input type="hidden" name="education_cd" value="2">
+    <input type="hidden" name="education_status" value="1">
+    <input type="hidden" name="education_type" value="school">
+    <input type="hidden" name="education_seq" value="1">
+    <input type="hidden" name="lastschool_nm" value="대전보건대학교">
+    <input type="hidden" id="school_type" value="university">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">학력<span class="must">필수</span></h2>
+
+                        <p class="career_txt">
+                <span>대학교(2,3년) 졸업</span>
+                <button type="button" class="btn_modify evtOpenLastSchoolNudge">
+                    <svg>
+                        <use xlink:href="#view_modify"></use>
+                    </svg>
+                </button>
+            </p>
+                    </div>
+        <button type="button" class="btn_add evtWriteItem">
+            <svg>
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            추가
+        </button>
+    </div>
+
+            <ul class="resume_list">
+                            <li class="list">
+                    <div class="contents">
+                        <span class="school_badge">최종학력</span>                        <h3 class="tit">
+                            <span>대전보건대학교</span>
+                            (2,3년제)
+                                                            <span class="state">(주간)</span>
+                                                            <span class="date">2017.03~2020.02(졸업)</span>
+                                                    </h3>
+                                                    <p class="desc">화장품과학과</p>
+                                                    <dl class="faculty">
+                                                                                                                                    <dt>지역</dt>
+                                    <dd>대전</dd>
+                                                                                            </dl>
+                                            </div>
+                    <div class="contents_edit">
+                        <button type="button" value="resumeSchoolItem_1699600273378" class="BtnType view_modify evtEditItem">
+                            <svg>
+                                <use xlink:href="#view_modify"></use>
+                            </svg>
+                            <span class="blind">수정하기</span>
+                        </button>
+                                            </div>
+                </li>
+                                <li class="list">
+                    <div class="contents">
+                                                <h3 class="tit">
+                            <span>대전송촌고등학교</span>
+                            
+                                                            <span class="date">2014.03~2017.02(졸업)</span>
+                                                    </h3>
+                                                    <p class="desc">문과계열 </p>
+                                            </div>
+                    <div class="contents_edit">
+                        <button type="button" value="resumeSchoolItem_1699600273379" class="BtnType view_modify evtEditItem">
+                            <svg>
+                                <use xlink:href="#view_modify"></use>
+                            </svg>
+                            <span class="blind">수정하기</span>
+                        </button>
+                                                    <button type="button" value="resumeSchoolItem_1699600273379" class="BtnType view_delete evtDeleteItem">
+                                <svg>
+                                    <use xlink:href="#view_delete"></use>
+                                </svg>
+                                <span class="blind">삭제하기</span>
+                            </button>
+                                            </div>
+                </li>
+                        </ul>
+
+        <input type="hidden" id="lastschool_id" value="resumeSchoolItem_1699600273378">
+        <div id="resumeSchoolItem_1699600273378" class="resume_edit wrapHiddenForm" data-tpl="school-university" style="display:none;">
+    <input type="hidden" name="school_seq[]" value="1">
+    <input type="hidden" name="school_cd[]" value="38716">
+    <input type="hidden" name="school_open_fl[]" value="y">
+    <input type="hidden" name="school_direct[]" value="n">
+    <input type="hidden" name="school_major_cd[]" value="">
+    <input type="hidden" name="school_major_department[]">
+    <input type="hidden" name="school_major_department_text[]">
+    <input type="hidden" name="school_minor_check_value[]" value="n">
+    <input type="hidden" name="school_minor_department[]">
+    <input type="hidden" name="school_minor_department_text[]">
+    <input type="hidden" name="school_thesis_category[]" value="both">
+    <input type="hidden" name="school_entrance_year[]" value="2017">
+    <input type="hidden" name="school_entrance_month[]" value="03">
+    <input type="hidden" name="school_graduation_year[]" value="2020">
+    <input type="hidden" name="school_graduation_month[]" value="02">
+    <input type="hidden" name="qualification_gb[]">
+
+    <!-- item -->
+    <div class="item_row item_center">
+        <div class="InpBox SizeL item_m">
+            <label for="schoolType_1699600273378" class="blind">학력구분</label>
+            <select name="school_type" id="schoolType_1699600273378" class="evtChangeSchoolType">
+                <option value="">학력 구분 선택 *</option>
+                <option value="primary">초등학교 졸업</option>
+                <option value="middle">중학교 졸업</option>
+                <option value="high">고등학교 졸업</option>
+                <option value="university" selected="selected">대학ㆍ대학원 이상 졸업</option>
+                <option value="academy">기타 학력 졸업</option>
+            </select>
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolGb_1699600273378" class="blind">대학구분</label>
+            <select name="school_gb[]" id="schoolGb_1699600273378">
+                <option value="">대학구분 *</option>
+                                    <option value="college" selected="selected">대학(2,3년)</option>
+                                    <option value="university">대학교(4년)</option>
+                                    <option value="master">대학원(석사)</option>
+                                    <option value="doctor">대학원(박사)</option>
+                            </select>
+        </div>
+
+        <div class="TypoBox TypeBtn item_m">
+            <label class="blind" for="schoolNm_1699600273378">학교명 *</label>
+            <input type="text" name="school_nm[]" value="대전보건대학교" id="schoolNm_1699600273378" class="Typo SizeL" maxlength="100" placeholder="학교명 *" required="">
+        </div>
+
+        <div class="InpBox item_check">
+            <span class="Chk SizeL">
+                <input type="checkbox" id="btnEntranceGb_1699600273378" class="evtClickEntranceGb">
+                <label for="btnEntranceGb_1699600273378" class="Lbl">편입</label>
+            </span>
+            <input type="hidden" name="school_entrance_gb[]" value="1">
+        </div>
+    </div>
+
+    <div class="item_row">
+        <div class="TypoBox item_m LblTop">
+            <label class="Lbl" for="schoolMajor_1699600273378">전공 *</label>
+            <input type="text" name="school_major[]" value="화장품과학과" id="schoolMajor_1699600273378" class="Typo SizeL" maxlength="50" placeholder="전공 *" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolGraduationGb_1699600273378" class="blind"></label>
+            <select name="school_graduation_gb[]" id="schoolGraduationGb_1699600273378" required="">
+                <option value="">졸업여부 *</option>
+                                    <option value="1" selected="selected">졸업</option>
+                                    <option value="2">재학중</option>
+                                    <option value="3">휴학중</option>
+                                    <option value="4">수료</option>
+                                    <option value="5">중퇴</option>
+                                    <option value="7">자퇴</option>
+                                    <option value="6">졸업예정</option>
+                            </select>
+        </div>
+
+        <div class="TypoBox item_s LblTop">
+            <label for="schoolEntranceDt_1699600273378" class="Lbl">입학년월</label>
+            <input type="text" name="school_entrance_dt[]" value="201703" id="schoolEntranceDt_1699600273378" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" placeholder="YYYYMM" inputmode="decimal" pattern="[0-9]*" required="">
+        </div>
+
+        <div class="TypoBox item_s LblTop">
+            <label for="schoolGraduationDt_1699600273378" class="Lbl">졸업년월</label>
+            <input type="text" name="school_graduation_dt[]" value="202002" id="schoolGraduationDt_1699600273378" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" placeholder="YYYYMM" inputmode="decimal" pattern="[0-9]*" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolDayNight_1699600273378" class="blind">주/야간</label>
+            <select name="school_day_night[]" id="schoolDayNight_1699600273378" class="additionalItem">
+                <option value="">주/야간 선택</option>
+                                    <option value="day" selected="selected">주간</option>
+                                    <option value="night">야간</option>
+                            </select>
+        </div>
+    </div>
+
+    <div class="item_row item_center">
+        <div class="TypoBox item_m LblTop">
+            <label for="schoolMinor_1699600273378" class="Lbl">추가전공</label>
+            <input type="text" name="school_minor[]" value="" id="schoolMinor_1699600273378" class="Typo SizeL additionalItem" placeholder="추가전공" maxlength="50" data-additional_item_group=":input[name='school_minor_cd[]']" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolMinorCd_1699600273378" class="blind"></label>
+            <select name="school_minor_cd[]" id="schoolMinorCd_1699600273378">
+                <option value="" selected="selected">전공구분</option>
+                                    <option value="1">부전공</option>
+                                    <option value="2">복수전공</option>
+                                    <option value="3">이중전공</option>
+                            </select>
+        </div>
+        <div class="TypoBox item_s LblTop">
+            <label for="schoolMajorAvg_1699600273378" class="Lbl">학점</label>
+            <input type="text" name="school_major_avg[]" value="" id="schoolMajorAvg_1699600273378" class="Typo SizeL onlyNumber additionalItem" maxlength="5" placeholder="학점" data-additional_item_group=":input[name='school_major_perfect[]']" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <lavel for="schoolMajorPerfect_1699600273378" class="blind">기준학점</lavel>
+            <select name="school_major_perfect[]" id="schoolMajorPerfect_1699600273378">
+                <option value="" selected="selected">기준학점</option>
+                                    <option value="4.0">4.0</option>
+                                    <option value="4.3">4.3</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5.0">5.0</option>
+                                    <option value="7.0">7.0</option>
+                                    <option value="100">100</option>
+                            </select>
+        </div>
+        <button type="button" class="BtnType SizeM btn_ghost" onclick="window.open('/zf_user/tools/grade-converter-pop', '_blank', 'width=1045,height=515,scrollbars=no')">학점 변환기</button>
+    </div>
+
+    <div class="item_row">
+        <div class="InpBox SizeL item_s">
+            <label for="schoolAreaCode_1699600273378" class="blind">지역</label>
+            <select name="school_area_code[]" id="schoolAreaCode_1699600273378" class="additionalItem">
+                <option value="">지역</option>
+                                    <option value="101000">서울</option>
+                                    <option value="102000">경기</option>
+                                    <option value="103000">광주</option>
+                                    <option value="104000">대구</option>
+                                    <option value="105000" selected="selected">대전</option>
+                                    <option value="106000">부산</option>
+                                    <option value="107000">울산</option>
+                                    <option value="108000">인천</option>
+                                    <option value="109000">강원</option>
+                                    <option value="110000">경남</option>
+                                    <option value="111000">경북</option>
+                                    <option value="112000">전남</option>
+                                    <option value="113000">전북</option>
+                                    <option value="114000">충북</option>
+                                    <option value="115000">충남</option>
+                                    <option value="116000">제주</option>
+                                    <option value="117000">전국</option>
+                                    <option value="118000">세종</option>
+                                    <option value="210000">아시아·중동</option>
+                                    <option value="220000">북·중미</option>
+                                    <option value="230000">남미</option>
+                                    <option value="240000">유럽</option>
+                                    <option value="250000">오세아니아</option>
+                                    <option value="260000">아프리카</option>
+                                    <option value="270000">남극대륙</option>
+                                    <option value="280000">기타해외</option>
+                            </select>
+        </div>
+    </div>
+
+    <div class="item_row">
+        <div class="InpBox letter_box item_full">
+            <label class="blind" for="schoolThesisTitle_1699600273378">논문 &amp; 졸업작품</label>
+            <textarea name="school_thesis_title[]" id="schoolThesisTitle_1699600273378" class="ScrollBar school_textarea additionalItem charCount" placeholder="논문 &amp; 졸업작품"></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="resumeSchoolItem_1699600273379" class="resume_edit wrapHiddenForm" data-tpl="school-high" style="display:none;">
+    <input type="hidden" name="school_seq[]" value="2">
+    <input type="hidden" name="school_gb[]" value="high">
+    <input type="hidden" name="school_cd[]" value="19661">
+    <input type="hidden" name="school_direct[]" value="n">
+    <input type="hidden" name="school_entrance_year[]" value="2014">
+    <input type="hidden" name="school_entrance_month[]" value="03">
+    <input type="hidden" name="school_graduation_year[]" value="2017">
+    <input type="hidden" name="school_graduation_month[]" value="02">
+
+    <input type="hidden" name="school_minor_check_value[]" value="n">
+    <input type="hidden" name="school_major_avg[]">
+    <input type="hidden" name="school_major_perfect[]">
+    <input type="hidden" name="school_major_department[]">
+    <input type="hidden" name="school_major_department_text[]">
+    <input type="hidden" name="school_minor[]">
+    <input type="hidden" name="school_minor_cd[]">
+    <input type="hidden" name="school_minor_department[]">
+    <input type="hidden" name="school_minor_department_text[]">
+    <input type="hidden" name="school_stopout_reason[]">
+    <input type="hidden" name="school_thesis_category[]">
+    <input type="hidden" name="school_thesis_title[]">
+    <input type="hidden" name="school_day_night[]">
+    <input type="hidden" name="qualification" value="">
+    <input type="hidden" name="qualification_gb[]" value="">
+
+    <input type="hidden" name="school_area_code[]" value="">
+
+    <!-- item -->
+    <div class="item_row item_center item_career" data-row_type="none">
+        <div class="InpBox SizeL item_m">
+            <label for="schoolType_1699600273379" class="blind">학력구분</label>
+            <select name="school_type" id="schoolType_1699600273379" class="evtChangeSchoolType">
+                <option value="">학력 구분 선택 *</option>
+                <option value="primary">초등학교 졸업</option>
+                <option value="middle">중학교 졸업</option>
+                <option value="high" selected="selected">고등학교 졸업</option>
+                <option value="university">대학ㆍ대학원 이상 졸업</option>
+                <option value="academy">기타 학력 졸업</option>
+            </select>
+        </div>
+
+        <div class="InpBox item_check">
+            <span class="Chk SizeL">
+                <input type="checkbox" value="n" id="qualificationN_1699600273379" class="evtChangeQualification">
+                <label class="Lbl" for="qualificationN_1699600273379">대입 검정고시</label>
+            </span>
+        </div>
+
+        <div class="InpBox item_check">
+            <span class="Chk SizeL">
+                <input type="checkbox" id="btnEntranceGb_1699600273379" class="evtClickEntranceGb">
+                <label for="btnEntranceGb_1699600273379" class="Lbl">편입</label>
+            </span>
+            <input type="hidden" name="school_entrance_gb[]" value="1">
+        </div>
+    </div>
+
+    <div class="item_row item_center" data-row_type="qualification" style="display:none">
+        <div class="InpBox SizeL item_m">
+            <label for="schoolTypeQualification_1699600273379" class="blind">최종 학력</label>
+            <select name="school_type" id="schoolTypeQualification_1699600273379" class="evtChangeSchoolType">
+                <option value="">학력 구분 선택 *</option>
+                <option value="primary">초등학교 졸업</option>
+                <option value="middle">중학교 졸업</option>
+                <option value="high" selected="selected">고등학교 졸업</option>
+                <option value="university">대학ㆍ대학원 이상 졸업</option>
+                <option value="academy">기타 학력 졸업</option>
+            </select>
+        </div>
+
+        <div class="TypoBox item item_s LblTop">
+            <label for="qualGraduationDt_1699600273379" class="Lbl">합격년월 *</label>
+            <input type="text" name="qual_graduation_dt[]" value="201702" id="qualGraduationDt_1699600273379" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" inputmode="decimal" pattern="[0-9]*" placeholder="YYYYMM" required="">
+        </div>
+
+        <div class="InpBox item_check">
+            <span class="Chk SizeL">
+                <input type="checkbox" value="y" id="qualificationY_1699600273379" class="evtChangeQualification" checked="">
+                <label class="Lbl" for="qualificationY_1699600273379">대입 검정고시</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="item_row " data-row_type="none">
+        <div class="TypoBox TypeBtn item_m">
+            <label class="blind" for="schoolNm_1699600273379">학교명 *</label>
+            <input type="text" name="school_nm[]" value="대전송촌고등학교" id="schoolNm_1699600273379" class="Typo SizeL" maxlength="100" placeholder="학교명 *">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolGraduationGb_1699600273379" class="blind">졸업여부</label>
+            <select name="school_graduation_gb[]" id="schoolGraduationGb_1699600273379" required="">
+                <option value="">졸업여부 *</option>
+                                    <option value="1" selected="selected">졸업</option>
+                                    <option value="2">재학중</option>
+                                    <option value="3">휴학중</option>
+                                    <option value="4">수료</option>
+                                    <option value="5">중퇴</option>
+                                    <option value="7">자퇴</option>
+                                    <option value="6">졸업예정</option>
+                            </select>
+        </div>
+        <div class="TypoBox item_s LblTop">
+            <label for="schoolEntranceDt_1699600273379" class="Lbl">입학년월</label>
+            <input type="text" name="school_entrance_dt[]" value="201403" id="schoolEntranceDt_1699600273379" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" inputmode="decimal" pattern="[0-9]*" placeholder="YYYYMM" required="">
+        </div>
+
+        <div class="TypoBox item_s LblTop">
+            <label for="schoolGraduationDt_1699600273379" class="Lbl">졸업년월</label>
+            <input type="text" name="school_graduation_dt[]" value="201702" id="schoolGraduationDt_1699600273379" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" inputmode="decimal" pattern="[0-9]*" placeholder="YYYYMM" required="">
+        </div>
+
+        <div class="InpBox SizeL item_s">
+            <label for="schoolMajorCd_1699600273379" class="blind">전공계열</label>
+            <select name="school_major_cd[]" id="schoolMajorCd_1699600273379">
+                <option value="">전공계열</option>
+                                    <option value="1" selected="selected">문과계열</option>
+                                    <option value="3">이과계열</option>
+                                    <option value="2">전문(실업)계</option>
+                                    <option value="4">예체능계</option>
+                                    <option value="5">특성화/마이스터고</option>
+                                    <option value="6">특수목적고</option>
+                            </select>
+        </div>
+    </div>
+    <div class="item_row" data-row_type="none">
+        <div class="TypoBox item_m LblTop">
+            <label class="Lbl" for="schoolMajor_1699600273379">전공</label>
+            <input type="text" name="school_major[]" value="" id="schoolMajor_1699600273379" class="Typo SizeL" maxlength="50" placeholder="전공" required="">
+        </div>
+    </div>
+</div>
+</section>
+
+
+<section id="activity" class="resume_edu" style="">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">경험/활동/교육</h2>
+        </div>
+        <div class="TipBox" style="display: block;">
+            <button type="button" class="btn_blue evtLoadExnlItem" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'edu_list','event-label': 'comento'});}catch(e){};" style="display: flex;">
+                <svg>
+                    <use xlink:href="#resume_plus"></use>
+                </svg>
+                직무캠프 수료 내역 불러오기
+            </button>
+            <div class="TipCont RightCenter">
+                <span class="Tail">
+                    <svg class="icon_tail">
+                        <use xlink:href="#TipBox_tail"></use>
+                    </svg>
+                </span>
+                <div class="TipTxt">
+                    <em><strong>코멘토</strong> 직무부트캠프 수료 내역을 불러오세요</em>
+                    코멘토 로그인만 하면 직무부트캠프 강의 내역을<br>
+                    한 번에 등록할 수 있어요.
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn_add evtWriteItem" style="display: flex;">
+            <svg class="size_small">
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            추가
+        </button>
+    </div>
+
+            <div class="resume_none" style="display: block;">
+            교육이수내역, 해외연수, 대내외활동 등의 경험을 작성해보세요!
+        </div>
+        </section>
+<section id="license" class="resume_license" style="">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">자격/어학/수상</h2>
+        </div>
+        <button type="button" class="btn_blue evtImportNaver" style="display: flex;">
+            <svg>
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            네이버 정보 불러오기
+        </button>
+        <button type="button" class="btn_add evtWriteItem" style="display: flex;">
+            <svg class="size_small">
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            추가
+        </button>
+    </div>
+
+            <div class="resume_none" style="display: block;">
+            자격/어학/수상 내역을 입력해주세요
+        </div>
+    </section>
+<section id="attach_files" class="resume_etc" style="">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">포트폴리오 및 기타문서</h2>
+        </div>
+                    <button type="button" value="resumeAttachFiles_1699600273382" class="btn_add evtWrite">
+                <svg>
+                    <use xlink:href="#resume_plus"></use>
+                </svg>
+                추가
+            </button>
+                </div>
+            <div class="resume_none" style="display:;">
+            포트폴리오 및 기타문서를 추가해주세요
+        </div>
+        <div id="resumeAttachFiles_1699600273382" class="resume_edit wrapHiddenForm" data-tpl="attach-files" style="display:none;">
+            <h5 class="tit_sub">
+            포트폴리오 및 기타문서
+            <span class="txt_sub">내 포트폴리오 및 추가로 제출할 문서를 첨부해보세요.</span>
+        </h5>
+        
+    <div class="item_row">
+        <div class="item item_full">
+            <button type="button" class="BtnType SizeL btn_file_add evtOpenNudgeAttachFile">
+                <svg>
+                    <use xlink:href="#resume_plus"></use>
+                </svg>
+                포트폴리오 및 기타문서 추가            </button>
+        </div>
+    </div>
+
+    <ul class="file_box">
+            </ul>
+</div>
+</section>
+<section id="career_profile" class="resume_career_letter" style="display:none;">
+    <!-- 보기 -->
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">경력기술서</h2>
+        </div>
+                    <button type="button" value="resumeCareerProfile_1699600273383" class="btn_add evtWrite">
+                <svg>
+                    <use xlink:href="#resume_plus"></use>
+                </svg>
+                추가
+            </button>
+                </div>
+            <div class="resume_none" style="display:;">
+            경력기술서를 입력해주세요.
+        </div>
+        <div id="resumeCareerProfile_1699600273383" class="resume_edit wrapHiddenForm" data-tpl="career-profile" style="display:none;">
+    <div class="form_box">
+        <h5 class="tit">양식 추천</h5>
+        <ul class="form_list">
+            <li class="list">
+                <button type="button" value="project" class="evtExample">프로젝트형</button>
+                <button type="button" value="develop" class="evtExample">개발 기술형</button>
+                <button type="button" value="designer" class="evtExample">디자이너형</button>
+                <button type="button" value="sales" class="evtExample">영업 성과형</button>
+            </li>
+        </ul>
+    </div>
+    <!-- item -->
+    <div class="item_row">
+        <div class="InpBox letter_box item_full">
+            <label for="careerProfile_1699600273383" class="blind">경력기술서</label>
+            <textarea name="career_profile" id="careerProfile_1699600273383" class="ScrollBar charCount autoHeight" placeholder="최근 경력부터 역순으로 작성하며, 주요업무, 내용 단위로 본인의 역할과 객관적인 성과를 작성해보세요.
+(업무 주요내용, 기간, 역할, 기여도, 성과 등을 작성하며 본인의 역량과 업무 능숙도를 어필해보세요.)"></textarea>
+        </div>
+    </div>
+</div>
+</section><section id="introduce" class="resume_letter" style="display:none;">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">자기소개서</h2>
+        </div>
+        <button type="button" class="btn_add evtWriteItem">
+            <svg>
+                <use xlink:href="#resume_plus"></use>
+            </svg>
+            추가
+        </button>
+    </div>
+        <div class="resume_none">
+        자기소개서를 작성해주세요.
+    </div>
+    </section>
+<section id="svq" class="resume_exam" style="display:none;">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">
+                사람인 인∙적성검사
+                <div class="TipBox">
+                    <svg><use xlink:href="#resume_ex"></use></svg>
+                    <div class="TipCont LeftCenter">
+                        <span class="Tail">
+                            <svg class="icon_tail">
+                                <use xlink:href="#TipBox_tail"></use>
+                            </svg>
+                        </span>
+                        <div class="TipTxt">
+                            <p class="person_txt">응시 완료한 사람인 인∙적성 검사 결과를 각 1개씩 첨부할 수 있습니다.</p>
+                            <p class="person_txt">사람인 인성검사, 적성검사는 최초 응시일로부터 1년간 최대 4회 응시할 수 있으며 검사 완료 30일 후 재응시가 가능합니다.</p>
+                            <p class="person_txt">선택한 인∙적성검사 결과는 입사지원 시 이력서에 첨부되어 제출됩니다.</p>
+                            <p class="person_txt">응시한 인∙적성검사는 응시 시작일로부터 3년간 확인할 수 있고, 만료된 인∙적성검사가 포함된 경우 입사지원이 불가능합니다.</p>
+                            <p class="person_txt">단, 입사지원 시 제출된 인∙적성검사 결과는 응시일과 관계없이 입사지원서 열람 기준 내 인사담당자가 확인할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </h2>
+        </div>
+                    <button type="button" value="resumeSvq_1699600273384" class="btn_add evtWriteItem">
+                <svg><use xlink:href="#resume_plus"></use></svg>
+                추가
+            </button>
+            </div>
+
+            <div class="resume_none">
+            인적성검사를 추가해보세요.
+        </div>
+    <div id="resumeSvq_1699600273384" class="resume_edit wrapHiddenForm" data-tpl="svq" style="display:none;">
+    <input type="hidden" name="svq_exam_seq" value="">
+    <input type="hidden" name="svq_exam_apply_dt" value="">
+    <input type="hidden" name="aptitude_exam_seq" value="">
+    <input type="hidden" name="aptitude_exam_apply_dt" value="">
+    
+        <h5 class="tit_sub tit_exam svqTitle>">
+            인성검사            <span class="txt_sub">인성검사 응시하고 검증된 소프트스킬을 이력서에 어필해보세요!</span>
+        </h5>
+
+                    <ul class="person_box">
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="3370279" id="svq3370279_1699600273384">
+                                <label for="svq3370279_1699600273384" class="Lbl">
+                                    <em>응시일 2023-02-18</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||3370279" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="2983335" id="svq2983335_1699600273384">
+                                <label for="svq2983335_1699600273384" class="Lbl">
+                                    <em>응시일 2022-08-20</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||2983335" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="2887360" id="svq2887360_1699600273384">
+                                <label for="svq2887360_1699600273384" class="Lbl">
+                                    <em>응시일 2022-06-29</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||2887360" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="2182779" id="svq2182779_1699600273384">
+                                <label for="svq2182779_1699600273384" class="Lbl">
+                                    <em>응시일 2021-05-27</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||2182779" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="2082400" id="svq2082400_1699600273384">
+                                <label for="svq2082400_1699600273384" class="Lbl">
+                                    <em>응시일 2021-04-06</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||2082400" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_svq_exam_seq" value="2015386" id="svq2015386_1699600273384">
+                                <label for="svq2015386_1699600273384" class="Lbl">
+                                    <em>응시일 2021-03-07</em>응시완료・진행률 100%
+                                    <button type="button" value="svq||result||2015386" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                            </ul>
+                        <div class="item_row">
+                <div class="item item_full">
+                    <button type="button" value="svq||apply||88" class="BtnType SizeL btn_file_add evtOpenExamPopup">
+                        <svg><use xlink:href="#resume_plus"></use></svg>
+                        무료 인성검사 응시하기
+                    </button>
+                </div>
+            </div>
+            
+        <h5 class="tit_sub aptitudeTitle>">
+            적성검사            <span class="txt_sub">적성검사 응시하고 직무적합도를 확인해보세요!</span>
+        </h5>
+
+                    <ul class="person_box">
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_aptitude_exam_seq" value="3370259" id="aptitude3370259_1699600273384">
+                                <label for="aptitude3370259_1699600273384" class="Lbl">
+                                    <em>응시일 2023-02-18</em>응시완료・진행률 100%
+                                    <button type="button" value="aptitude||result||3370259" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_aptitude_exam_seq" value="2182793" id="aptitude2182793_1699600273384" disabled="">
+                                <label for="aptitude2182793_1699600273384" class="Lbl">
+                                    <em>응시일 2021-05-27</em>응시중・진행률 0%
+                                    <button type="button" value="aptitude||continue||2182793" class="evtOpenExamPopup">
+                                        이어보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                                    <li class="list">
+                        <div class="InpBox Bg Center">
+                            <span class="Rdo SizeM">
+                                <input type="checkbox" name="dumi_aptitude_exam_seq" value="2065856" id="aptitude2065856_1699600273384">
+                                <label for="aptitude2065856_1699600273384" class="Lbl">
+                                    <em>응시일 2021-03-30</em>응시완료・진행률 100%
+                                    <button type="button" value="aptitude||result||2065856" class="evtOpenExamPopup">
+                                        결과보기                                    </button>
+                                </label>
+                            </span>
+                        </div>
+                    </li>
+                            </ul>
+                        <div class="item_row">
+                <div class="item item_full">
+                    <button type="button" value="aptitude||apply||101" class="BtnType SizeL btn_file_add evtOpenExamPopup">
+                        <svg><use xlink:href="#resume_plus"></use></svg>
+                        무료 적성검사 응시하기
+                    </button>
+                </div>
+            </div>
+            </div>
+</section>
+<section id="personal" class="resume_veterans" style="display:none;">
+    <div class="resume_tit">
+        <div class="box_tit">
+            <h2 class="tit">취업우대사항</h2>
+        </div>
+                    <button type="button" value="resumePersonal_1699600273385" class="btn_add evtWrite">
+                <svg>
+                    <use xlink:href="#resume_plus"></use>
+                </svg>
+                추가
+            </button>
+                </div>
+
+            <div class="resume_none">취업우대사항을 추가해주세요.</div>
+        <div id="resumePersonal_1699600273385" class="resume_edit wrapHiddenForm" data-tpl="personal" style="display:none;">
+    <input type="hidden" name="bohun_fl" value="n">
+    <input type="hidden" name="hire_support_fl" value="n">
+
+    <input type="hidden" name="military_start_year" value="">
+    <input type="hidden" name="military_start_month" value="">
+    <input type="hidden" name="military_end_year" value="">
+    <input type="hidden" name="military_end_month" value="">
+
+    <div class="item_row check_row">
+        <div class="InpBox">
+            <span class="Chk SizeL">
+                <input type="checkbox" id="bohunUi_1699600273385">
+                <label for="bohunUi_1699600273385" class="Lbl">보훈대상</label>
+            </span>
+        </div>
+        <div class="InpBox">
+            <span class="Chk SizeL">
+                <input type="checkbox" id="militaryUi_1699600273385">
+                <label for="militaryUi_1699600273385" class="Lbl">병역대상</label>
+            </span>
+        </div>
+        <div class="InpBox">
+            <span class="Chk SizeL">
+                <input type="checkbox" id="hireSupportUi_1699600273385">
+                <label for="hireSupportUi_1699600273385" class="Lbl">고용지원금대상</label>
+            </span>
+        </div>
+    </div>
+
+    <h5 class="tit_sub" style="display:none">보훈사유</h5>
+    <div class="item_row bohunRow" style="display:none">
+        <div class="TypoBox item item_full">
+            <label for="bohunContents_1699600273385" class="blind">보훈사유 입력</label>
+            <input type="text" name="bohun_contents" value="" id="bohunContents_1699600273385" class="Typo SizeL" placeholder="보훈사유 입력" maxlength="22">
+        </div>
+    </div>
+
+    <h5 class="tit_sub" style="display:none;">병역대상</h5>
+    <div class="item_row militaryRow" style="display:none;">
+        <div class="InpBox SizeL item_s">
+            <label for="militaryCd_1699600273385" class="blind">병역구분</label>
+            <select name="military_cd" id="militaryCd_1699600273385">
+                                    <option value="" selected="selected">대상아님</option>
+                                        <option value="1">군필</option>
+                                        <option value="2">미필</option>
+                                        <option value="3">면제</option>
+                                        <option value="4">복무중</option>
+                                </select>
+        </div>
+
+        <div class="TypoBox item item_full" style="display:none;">
+            <label for="militaryContents_1699600273385" class="blind">사유 입력</label>
+            <input type="text" name="military_contents" value="" id="militaryContents_1699600273385" class="Typo SizeL" placeholder="사유 입력" maxlength="100">
+        </div>
+
+        <div class="TypoBox item_s" style="display:none;">
+            <label for="militaryStartDt_1699600273385" class="blind">입대년월</label>
+            <input type="text" name="military_start_dt" value="" id="militaryStartDt_1699600273385" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" placeholder="YYYYMM">
+        </div>
+        <div class="TypoBox item_s" style="display:none;">
+            <label for="militaryEndDt_1699600273385" class="blind">제대년월</label>
+            <input type="text" name="military_end_dt" value="" id="militaryEndDt_1699600273385" class="Typo SizeL onlyNumber DatePic datePicker" data-dateformat="yymm" maxlength="6" placeholder="YYYYMM">
+        </div>
+        <div class="InpBox SizeL item_s" style="display:none;">
+            <label for="militaryKindCd_1699600273385" class="blind">군별</label>
+            <select name="military_kind_cd" id="militaryKindCd_1699600273385">
+                                    <option value="" selected="selected">군별선택</option>
+                                        <option value="1">육군</option>
+                                        <option value="2">해군</option>
+                                        <option value="3">공군</option>
+                                        <option value="4">해병</option>
+                                        <option value="5">의경</option>
+                                        <option value="6">전경</option>
+                                        <option value="7">기타</option>
+                                        <option value="8">사회복무요원</option>
+                                        <option value="9">의무소방</option>
+                                </select>
+        </div>
+        <div class="InpBox SizeL item_s" style="display:none;">
+            <label for="militaryClassCd_1699600273385" class="blind">제대계급</label>
+            <select name="military_class_cd" id="militaryClassCd_1699600273385">
+                                    <option value="" selected="selected">계급선택</option>
+                                        <option value="1">이병</option>
+                                        <option value="2">일병</option>
+                                        <option value="3">상병</option>
+                                        <option value="4">병장</option>
+                                        <option value="5">하사</option>
+                                        <option value="6">중사</option>
+                                        <option value="7">상사</option>
+                                        <option value="8">원사</option>
+                                        <option value="9">준위</option>
+                                        <option value="10">소위</option>
+                                        <option value="11">중위</option>
+                                        <option value="12">대위</option>
+                                        <option value="13">소령</option>
+                                        <option value="14">중령</option>
+                                        <option value="15">대령</option>
+                                        <option value="16">준장</option>
+                                        <option value="17">소장</option>
+                                        <option value="18">중장</option>
+                                        <option value="19">대장</option>
+                                        <option value="20">기타</option>
+                                </select>
+        </div>
+        <div class="InpBox SizeL item_s" style="display:none">
+            <label for="militaryEndCd_1699600273385" class="blind">전역사유</label>
+            <select name="military_end_cd" id="militaryEndCd_1699600273385">
+                                    <option value="" selected="selected">전역사유 선택</option>
+                                        <option value="1">만기전역</option>
+                                        <option value="2">의가사전역</option>
+                                        <option value="3">의병전역</option>
+                                        <option value="4">소집해제</option>
+                                        <option value="5">불명예전역</option>
+                                        <option value="6">상이전역</option>
+                                        <option value="7">기타</option>
+                                </select>
+        </div>
+    </div>
+
+    <h5 class="tit_sub" style="display:none;">
+        고용지원금 대상
+        <a href="https://www.ei.go.kr/ei/eih/eg/eb/ebEntrprBnef/retrieveEb0401Info.do" target="_blank" class="btn_more">고용지원금 제도 보기</a>
+    </h5>
+    <div class="item_row item_nowrap hireSupportRow" style="display:none;">
+        <ul class="subsidy_box">
+                            <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs1" id="hireSupporths1_1699600273385">
+                            <label for="hireSupporths1_1699600273385" class="Lbl">
+                                <em>고령자</em>
+                                                            </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs3" id="hireSupporths3_1699600273385">
+                            <label for="hireSupporths3_1699600273385" class="Lbl">
+                                <em>중증장애인</em>
+                                                            </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs4" id="hireSupporths4_1699600273385">
+                            <label for="hireSupporths4_1699600273385" class="Lbl">
+                                <em>장애인</em>
+                                                            </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs2" id="hireSupporths2_1699600273385">
+                            <label for="hireSupporths2_1699600273385" class="Lbl">
+                                <em>여성가장</em>
+                                                            </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs5" id="hireSupporths5_1699600273385">
+                            <label for="hireSupporths5_1699600273385" class="Lbl">
+                                <em>장기구직자</em>
+                                                            </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs6" id="hireSupporths6_1699600273385">
+                            <label for="hireSupporths6_1699600273385" class="Lbl">
+                                <em>청년취업대상자</em>
+                                                                    <div class="TipBox">
+                                        <svg><use xlink:href="#resume_tooltip"></use></svg>
+                                        <div class="TipCont TopCenter">
+                                            <span class="Tail">
+                                                <svg class="icon_tail">
+                                                    <use xlink:href="#TipBox_tail"></use>
+                                                </svg>
+                                            </span>
+                                            <div class="TipTxt">취업프로그램 이수</div>
+                                        </div>
+                                    </div>
+                                                                </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs7" id="hireSupporths7_1699600273385">
+                            <label for="hireSupporths7_1699600273385" class="Lbl">
+                                <em>여성근로자</em>
+                                                                    <div class="TipBox">
+                                        <svg><use xlink:href="#resume_tooltip"></use></svg>
+                                        <div class="TipCont TopCenter">
+                                            <span class="Tail">
+                                                <svg class="icon_tail">
+                                                    <use xlink:href="#TipBox_tail"></use>
+                                                </svg>
+                                            </span>
+                                            <div class="TipTxt">임신, 출산, 육아로 이직</div>
+                                        </div>
+                                    </div>
+                                                                </label>
+                        </span>
+                    </div>
+                </li>
+                                <li>
+                    <div class="InpBox Bg Center">
+                        <span class="Chk SizeM">
+                            <input type="checkbox" name="hire_support[]" value="hs8" id="hireSupporths8_1699600273385">
+                            <label for="hireSupporths8_1699600273385" class="Lbl">
+                                <em>농어업인</em>
+                                                                    <div class="TipBox">
+                                        <svg><use xlink:href="#resume_tooltip"></use></svg>
+                                        <div class="TipCont TopCenter">
+                                            <span class="Tail">
+                                                <svg class="icon_tail">
+                                                    <use xlink:href="#TipBox_tail"></use>
+                                                </svg>
+                                            </span>
+                                            <div class="TipTxt">폐업지원금 대상자 및 수령 경험자</div>
+                                        </div>
+                                    </div>
+                                                                </label>
+                        </span>
+                    </div>
+                </li>
+                        </ul>
+        <div class="InpBox SizeL item_full">
+            <label for="disabledCd_1699600273385" class="blind">장애등급</label>
+            <select name="disabled_cd" id="disabledCd_1699600273385" disabled="">
+                                    <option value="" selected="selected">장애등급</option>
+                                        <option value="11">경증</option>
+                                        <option value="12">중증</option>
+                                        <option value="1">장애1급</option>
+                                        <option value="2">장애2급</option>
+                                        <option value="3">장애3급</option>
+                                        <option value="4">장애4급</option>
+                                        <option value="5">장애5급</option>
+                                        <option value="6">장애6급</option>
+                                        <option value="7">장애7급</option>
+                                        <option value="8">장애8급</option>
+                                        <option value="9">장애9급</option>
+                                        <option value="10">장애10급</option>
+                                </select>
+        </div>
+    </div>
+
+    <div class="item_row item_border" style="display:none;">
+        <div class="InpBox">
+            <span class="Chk SizeL">
+                <input type="checkbox" name="personal_agree" value="y" id="personalAgree_1699600273385" disabled="">
+                <label for="personalAgree_1699600273385" class="Lbl">민감정보 수집 및 이용에 동의합니다.</label>
+            </span>
+        </div>
+        <div class="TipBox personal_tip">
+            <div class="tip_icon">
+                <span class="blind">이력서 제목 추천</span>
+            </div>
+            <div class="TipCont TopCenter">
+                <span class="Tail">
+                    <svg class="icon_tail">
+                        <use xlink:href="#TipBox_tail"></use>
+                    </svg>
+                </span>
+                <div class="TipTxt">
+                    [민감정보 수집·이용에 대한 안내]<br>
+                    ① 수집항목 : 보훈, 병역, 고용지원금 관련 사항<br>
+                    ② 수집목적 : 이력서 등록을 통한 입사지원<br>
+                    ③ 보유기간 : 동의 철회 및 회원 탈퇴 시 까지<br>
+                    <br>
+                    민감정보 수집·이용 동의에 거부할 권리가 있으며, 동의하지 않으실 경우<br>
+                    입력하지 않더라도 이력서 등록을 통한 입사지원에 제한이 없습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<section id="open_status" class="resume_open">
+    <input type="hidden" name="open_fl" value="n" id="open_fl"><input type="hidden" name="recomnd_status" value="n" id="recomnd_status"><input type="hidden" name="re_consent" value="" id="re_consent"><input type="hidden" name="allow_company_codes" value="" id="allow_company_codes"><input type="hidden" name="cell_open_fl" value="n" id="cell_open_fl"><input type="hidden" name="email_open_fl" value="n" id="email_open_fl"><input type="hidden" name="tel_open_fl" value="y" id="tel_open_fl"><input type="hidden" name="cell_privacy" value="n" id="cell_privacy">
+    <div class="offer_setting">
+        <h2 class="tit_setting">기업으로부터 제안을 받으시겠어요?</h2>
+
+        <p class="txt_setting resume_contact_close">
+            <strong><span class="evtOpenNudgeAgreement">기업</span> 또는 <span class="evtOpenNudgeAgreement">사람인 리크루터</span>에게 먼저 포지션 제안을 받고 있어요.</strong>
+            &nbsp;받은 제안에 답변하고&nbsp;<a href="/zf_user/member/career-mileage/intro" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'offer_status_intro','event-label': 'career_mileage'});}catch(e){}"> 커리어 마일리지</a>
+            도 쌓아 보세요!
+        </p>
+
+        <p class="txt_setting resume_close" style="display:none;">
+            <strong>제안을 놓치고 계시네요! 기업에게 먼저 포지션 제안을 받을 수 있어요.</strong>
+            &nbsp;제안받기로 설정하시고&nbsp;<a href="/zf_user/member/career-mileage/intro" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'offer_status_intro','event-label': 'career_mileage'});}catch(e){}">커리어 마일리지</a>도 쌓아 보세요!
+        </p>
+
+        <ul class="resume_open_option">
+                            <li>
+                    <div class="InpBox Bg White">
+                    <span class="Rdo">
+                        <input type="radio" id="openStatusActive" name="open_status" value="active" class="inp_check">
+                        <label class="Lbl" for="openStatusActive" onmousedown="pushDataLayer('ga_lead', 'resume_PC', 'offer_status_b', 'opened_resume_actively')">
+                            적극 구직 중이에요<br><span>제안 받을래요</span>
+                        </label>
+                    </span>
+                    </div>
+                </li>
+                            
+                        <li>
+                <div class="InpBox Bg White">
+                    <span class="Rdo">
+                        <input type="radio" id="openStatusClose" name="open_status" value="close" class="inp_check">
+                        <label class="Lbl" for="openStatusClose" onmousedown="pushDataLayer('ga_lead', 'resume_PC', 'offer_status_b', 'closed_resume')">
+                            제안 받지 않을래요<br><br>
+                        </label>
+                    </span>
+                </div>
+            </li>
+        </ul>
+                    <div class="tooltip_area">
+                <button type="button" onmousedown="pushDataLayer('ga_lead', 'resume_PC', 'offer_status_intro', 'process_intro')"><svg><use xlink:href="#svg_info"></use></svg><span>수락 전까지 회원님의 연락처가 공개되지 않으니 안심하세요.</span></button>
+            </div>
+            </div>
+
+    <div class="offer_contacts contact_config" style="display:none;">
+        <div class="top_contacts">
+            <strong class="tit_contacts">포지션 제안 받는 연락처입니다</strong>
+            <div class="TipBox">
+                <svg class="size_2">
+                    <use xlink:href="#svg_my_29"></use>
+                </svg>
+                <div class="TipCont LeftTop">
+                    <span class="Tail"></span>
+                    <div class="TipTxt">연락가능한 실제 연락처를 하나 이상 선택해주셔야 됩니다.</div>
+                </div>
+            </div>
+            <button type="button" class="BtnType SizeS contacts_modify evtShowContactConfig" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'resume_write','event-label': 'btn_edit_contact'});}catch(e){}">수정</button>
+        </div>
+
+        <ul class="info_contacts">
+                            <li>
+                    <h5 class="info_tit">전화번호</h5>
+                                        <p class="info_txt">010-****-8975</p>
+                                    </li>
+                        </ul>
+
+        <div class="resume_open_setting" style="display:none;">
+            <ul class="contact_list">
+                <li>
+                    <div class="col_status">
+                        <span class="ChkSw Reverse">
+                            <input type="checkbox" id="dumiCellOpenFl">
+                            <label for="dumiCellOpenFl" class="Lbl">휴대폰</label>
+                        </span>
+                    </div>
+
+                    <div class="col_modify">
+                        <div class="modify_conts">
+                            <div class="default">
+                                <strong class="data_exist">010-****-8975</strong><span class="btn_confirm done">인증</span><div class="InpBox confirming_check" style="display:none">
+    <span class="Chk">
+        <input type="checkbox" id="cellPrivacyUi" value="y">
+        <label class="Lbl" for="cellPrivacyUi">
+            안심번호 사용하기
+        </label>
+    </span>
+    <div class="TipBox cell_privacy_tip">
+        <svg class="cell_privacy_icon">
+            <use xlink:href="#svg_my_29"></use>
+        </svg>
+        <div class="TipCont TopCenter">
+                    <span class="Tail">
+                        <svg class="icon_tail">
+                            <use xlink:href="#TipBox_tail"></use>
+                        </svg>
+                    </span>
+
+            <div class="TipTxt">
+                회원님의 연락처에 가상의 전화번호를 부여하는 방식으로<br>
+                안심번호 서비스를 이용하시면 실제 연락처를 공개하지<br>
+                않고도 통화가 가능합니다.<br>
+                <span>(이력서를 삭제, 비공개 또는 6개월 미수정 시 해제됩니다.)</span>
+            </div>
+        </div>
+    </div>
+</div>                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col_btn">
+                                                    <button type="button" value="cell" class="btn_privacy evtShowPrivacy off"><span>가려진 정보 보기</span></button>
+                                                <button type="button" value="cell" class="BtnType SizeS btnModifyContact evtContactModify">수정</button>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="col_status">
+                        <span class="ChkSw Reverse">
+                            <input type="checkbox" id="dumiEmailOpenFl">
+                            <label for="dumiEmailOpenFl" class="Lbl">이메일</label>
+                        </span>
+                    </div>
+                    <div class="col_modify">
+                        <div class="modify_conts">
+                            <div class="default">
+                                <strong class="data_exist">juy******@naver.com</strong><span class="btn_confirm done">인증</span>                            </div>
+                        </div>
+                    </div>
+                    <div class="col_btn">
+                                                    <button type="button" value="email" class="btn_privacy evtShowPrivacy off"><span>가려진 정보 보기</span></button>
+                                                <button type="button" value="email" class="BtnType SizeS btnModifyContact evtContactModify">수정</button>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="col_status">
+                        <span class="ChkSw Reverse">
+                            <input type="checkbox" id="dumiTelOpenFl" checked="">
+                            <label for="dumiTelOpenFl" class="Lbl">전화번호</label>
+                        </span>
+                    </div>
+                    <div class="col_modify">
+                        <div class="modify_conts">
+                            <div class="default">
+                                <strong class="data_exist">010-****-8975</strong>                            </div>
+                        </div>
+                    </div>
+                    <div class="col_btn">
+                                                    <button type="button" value="tel" class="btn_privacy evtShowPrivacy off"><span>가려진 정보 보기</span></button>
+                                                <button type="button" value="tel" class="BtnType SizeS btnModifyContact evtContactModify">수정</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="block_setting">
+            <p class="block_tit">현 직장 또는 특정 기업이 내 이력서를 열람하는게 부담스러운가요?</p>
+            <div class="block_btns">
+                <button type="button" class="block_company evtOpenNudgeBlockCompany" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'resume_write','event-label': 'block_company'});}catch(e){}">열람제한 기업 등록</button>
+                <button type="button" class="block_industry evtOpenNudgeBlockIndustry" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'resume_PC','event-flow': 'resume_write','event-label': 'block_industry'});}catch(e){}">열람제한 업종 등록</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume_open_notice">
+        
+    </div>
+</section>
+
+<div class="ModalBox position_process">
+    <h4 class="Tit">포지션 제안 수락 이후 프로세스</h4>
+    <div class="ModalCont">
+        <ol>
+            <li>
+                <strong>1</strong>
+                <p>제안받기로 설정하시면<br>사람인 인재풀에 회원님의<br>이력서가 노출됩니다.</p>
+            </li>
+            <li>
+                <strong>2</strong>
+                <p>채용담당자가 확인 후<br>작성해주신 이력에 맞는<br>포지션 제안을 드립니다.</p>
+            </li>
+            <li>
+                <strong>3</strong>
+                <p>제안에 수락하시면 채용 담당자는<br>회원님이 선택하신 연락처를<br>확인할 수 있습니다.</p>
+            </li>
+            <li>
+                <strong>4</strong>
+                <p>제안 받을 연락처를 통해<br>채용 담당자와 채용 프로세스를<br>진행하게 됩니다.</p>
+            </li>
+        </ol>
+        <p>제안에 수락하기 전까지 채용담당자에게 회원님의 연락처가 공개되지 않으니 안심하세요.</p>
+    </div>
+    <div class="BtmArea">
+        <button type="button" class="BtnType SizeM">확인</button>
+    </div>
+    <button type="button" class="BtnClose" data-dismiss="modal_ex"><span class="blind">닫기</span></button>
+</div>
+
+<script>
+    $j('.ModalBox.position_process .BtnClose, .ModalBox.position_process .BtnType').click(()=> {
+        $j('.ModalBox.position_process').css('display','none')
+        $j('.sri_dimmed').css('display','none')
+    })
+
+    $j('.tooltip_area button').click(()=>{
+        $j('.ModalBox.position_process').css('display','block')
+        $j('.sri_dimmed').css('display','block')
+    })
+</script><!-- 희망 근무조건 -->
+<section id="desire_work" class="resume_career_letter" style="display:none;">
+    <input type="hidden" name="apply_dept" value="" id="apply_dept"><input type="hidden" name="applycareer_gb" value="" id="applycareer_gb"><input type="hidden" name="main_job_category_code" value="" id="main_job_category_code"><input type="hidden" name="main_area_code" value="" id="main_area_code"><input type="hidden" name="job_category_code" value="" id="job_category_code"><input type="hidden" name="job_category_keyword" value="" id="job_category_keyword"><input type="hidden" name="job_category_recommend" value="" id="job_category_recommend"><input type="hidden" name="apply_work_stat" value="regular" id="apply_work_stat"><input type="hidden" name="possible_work_day" value=",," id="possible_work_day"><input type="hidden" name="hope_salary_cd" value="0" id="hope_salary_cd"><input type="hidden" name="welfare_cd" value="" id="welfare_cd"><input type="hidden" name="work_area1_1" value="105000" id="work_area1_1"><input type="hidden" name="work_area1_2" value="105000" id="work_area1_2"><input type="hidden" name="work_area1_3" value="" id="work_area1_3"><input type="hidden" name="work_area2_1" value="" id="work_area2_1"><input type="hidden" name="work_area2_2" value="" id="work_area2_2"><input type="hidden" name="work_area2_3" value="" id="work_area2_3"><input type="hidden" name="work_area3_1" value="" id="work_area3_1"><input type="hidden" name="work_area3_2" value="" id="work_area3_2"><input type="hidden" name="work_area3_3" value="" id="work_area3_3"><input type="hidden" name="industry_code" value="216" id="industry_code"><input type="hidden" name="industry_keyword" value="21601" id="industry_keyword"><input type="hidden" name="job_category[]" value="993|CD_NO" id="job_category_993|CD_NO"><input type="hidden" name="job_category[]" value="405|CD_NO" id="job_category_405|CD_NO"><input type="hidden" name="job_category[]" value="389|CD_NO" id="job_category_389|CD_NO"><input type="hidden" name="job_category[]" value="403|CD_NO" id="job_category_403|CD_NO"><input type="hidden" name="job_category[]" value="386|CD_NO" id="job_category_386|CD_NO"><input type="hidden" name="job_category[]" value="395|CD_NO" id="job_category_395|CD_NO"><input type="hidden" name="job_category[]" value="367|CD_NO" id="job_category_367|CD_NO"></section>            </div>
+        </div>
+</div>

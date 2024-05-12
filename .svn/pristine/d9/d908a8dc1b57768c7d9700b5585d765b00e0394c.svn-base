@@ -1,0 +1,18 @@
+package kr.or.ddit.common.service;
+
+import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.common.vo.MemberVO;
+
+public interface MemberService {
+	
+	
+	/**
+	 * 
+	 * 회원가입 (공통)
+	 * @param membervo
+	 * @return
+	 */
+	public ServiceResult CreateMember(MemberVO membervo);
+	
+
+}

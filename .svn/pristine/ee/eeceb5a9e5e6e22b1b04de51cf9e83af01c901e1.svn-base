@@ -1,0 +1,12 @@
+package kr.or.ddit.users.service;
+
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.vo.ResumeVO;
+
+public interface ComInfoResumeService {
+	
+	public void retrieveResumeList(PaginationInfo<ResumeVO> paging);
+	
+	public ResumeVO retrieveResumeDetail(String resumeNo);
+
+}

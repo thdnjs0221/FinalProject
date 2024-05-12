@@ -1,0 +1,16 @@
+package kr.or.ddit.users.dao;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.or.ddit.users.vo.PointPayVO;
+@Mapper
+public interface PointPayDAO {
+	
+	
+	/**
+	 * 유저에 포인트 결제 내역을 저장
+	 * @param pointpayVO
+	 */
+	public int savePointPay(PointPayVO pointpayVO);
+}
+

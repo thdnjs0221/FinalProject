@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* companyList.jsp  */
+
+.companyList .wrap_main_panel .tab_section button {
+	 width: 379px !important;
+}
+
+.companyList .wrap_main_panel .tab_section li:first-child button {
+	
+}
+
+.companyList {
+	width:1260px !important;
+	min-height: 100px;
+	margin: 56px auto 80px auto !important;
+}
+
+.companyList .common_recruilt_list .list_info {
+	justify-content: end;
+}
+
+.companyList .list_recruiting .list_body .list_item .recruit_info>ul>li p {
+	line-height: 60px;
+}
+
+.companyList .list_recruiting .list_body .list_item .support_info {
+	margin-top: 18px;
+}
+
+.companyList i {
+	line-height: 5.2;
+    color: #a7a7a7;
+    font-size: 13px;
+    letter-spacing: 4.5px;
+}
+
+.companyList .sri_btn_md span.sri_btn_immediately, .sri_btn_md span.sri_btn_recruitin_apply {
+	border: 1px solid #73b0e5;
+    color: #0472d1;
+}
+
+.companyDetail .wrap_company_view .sidebar {
+	background: #f4f6fa;
+}

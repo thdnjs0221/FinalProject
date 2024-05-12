@@ -1,0 +1,50 @@
+package kr.or.ddit.company.controller;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.common.vo.MemberVO;
+import kr.or.ddit.company.service.ImageAdvrtService;
+import kr.or.ddit.company.vo.CompanyVO;
+import kr.or.ddit.company.vo.ImageAdvrtVO;
+
+@Controller
+public class ImageAdvrtController {
+	
+	@Inject
+	private ImageAdvrtService imageAdvrtService;
+	
+	// 비동기로 db에 있는 이미지 광고 목록 가져오기
+	@GetMapping("/selectImageAdvrtList")
+	@ResponseBody
+	public List<ImageAdvrtVO> selectImageAdvrtList() {
+			List<ImageAdvrtVO> ImageAdvrtList = imageAdvrtService.selectImageAdvrtList();
+			return ImageAdvrtList;
+	}
+	
+	
+	// 비동기로 db에 있는 배너 광고 목록 가져오기
+	@GetMapping("/selectBannerAdvrtList")
+	@ResponseBody
+	public List<ImageAdvrtVO> selectBannerAdvrtList() {
+		List<ImageAdvrtVO> ImageAdvrtList = imageAdvrtService.selectBannerAdvrtList();
+		return ImageAdvrtList;
+	}
+	
+	// 비동기로 사업자 등록번호 가져오기
+		@PostMapping("/selectCmpPass")
+		public String selectCmpPass(Model model, @RequestParam("id") String authId) {
+			CompanyVO cmpPass = imageAdvrtService.selectCmpPass(authId);
+			model.addAttribute("cmpPass", cmpPass.getCompanyNum());
+			return "jsonView";
+		}
+		
+}

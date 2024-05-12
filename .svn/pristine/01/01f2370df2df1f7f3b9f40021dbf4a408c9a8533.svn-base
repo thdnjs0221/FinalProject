@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.QnADAO">
+	<resultMap type="QnAVO" id="qnaMap" autoMapping="true">
+		<id property="qstnNo" column="AQSTN_NO"/>
+		<association property="reply" autoMapping="true" />
+		<collection property="attatchList" ofType="QnAAttatchVO" autoMapping="true" />
+	</resultMap>
+	<select id="selectQnA" parameterType="string" resultMap="qnaMap">
+		SELECT 
+			A.QSTN_NO AQSTN_NO, MEM_ID, QSTN_CONTENT
+			, QSTN_DATE, QSTN_TITLE
+			, QSTNATT_NO, QSTNATT_ORIGINALNM
+			, QSTNATT_SAVENAME
+			, B.QSTN_NO
+			, REP_NO, REP_CONTENT, REP_DATE
+		FROM M_QUESTION A 
+		JOIN QUESTION_ATTATCH B ON(A.QSTN_NO=B.QSTN_NO)
+		JOIN REPLY C ON(A.QSTN_NO=C.QSTN_NO)
+		WHERE A.QSTN_NO = #{qstnNo};
+	</select>
+	<insert id="insertQnA" parameterType="QnAVO">
+		INSERT INTO M_QUESTION(
+			QSTN_NO
+			, MEM_ID
+			, QSTN_TITLE
+			, QSTN_CONTENT
+			, QSTN_DATE
+		) VALUES(
+			('QNA'||TRIM(TO_CHAR(M_QUESTION_SEQ.NEXTVAL, '0000'))
+			, {memId,jdbcType=VARCHAR}
+			, {qstnTitle,jdbcType=VARCHAR}
+			, {qstnContent,jdbcType=VARCHAR}
+			, SYSDATE
+		)
+	</insert>
+	
+</mapper>

@@ -1,0 +1,61 @@
+package kr.or.ddit.users.controller;
+
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.or.ddit.users.service.TicketMnmtService;
+import kr.or.ddit.users.vo.CouponVO;
+import kr.or.ddit.users.vo.TicketMnmtVO;
+
+
+@Controller
+public class TicketMnmtController {
+
+	@Inject
+	private TicketMnmtService ticketMnmtService;
+
+	
+	// 비동기로 db에 있는 이용권 목록 가져오기
+	@GetMapping("/selectTicketList")
+	@ResponseBody
+	public List<TicketMnmtVO> selectTicketList() {
+			List<TicketMnmtVO> ticketList = ticketMnmtService.selectTicketList();
+			// JSON 형식으로 응답 -- @ResponseBody를 붙여야한다.
+			return ticketList;
+	}
+	
+	
+	// 비동기로 db에 있는 이용권 상세 내용 가져오기
+	@GetMapping("/selectTicketDetail/{ticketNo}")
+	public String selectTicketDetail(Model model,  @PathVariable String ticketNo) {
+		TicketMnmtVO TicketDetail = ticketMnmtService.selectTicketDetail(ticketNo);
+		
+		model.addAttribute("ticketName", TicketDetail.getTicketName()); //상품명
+		model.addAttribute("ticketPrice", TicketDetail.getTicketPrice()); //상품가격
+		model.addAttribute("ticketPeriod", TicketDetail.getTicketPeriod()); //상품가격
+		
+		return "jsonView";
+	}
+	
+	
+	// 비동기로 사용자에 따른 db에 있는 쿠폰 목록 가져오기
+	@GetMapping("/selectCouponDetail/{authId}")
+	@ResponseBody
+	public List<CouponVO> selectCouponDetail(@PathVariable String authId){
+		List<CouponVO> couponList = ticketMnmtService.selectCouponDetail(authId);
+		return couponList;
+	}
+	
+	
+}

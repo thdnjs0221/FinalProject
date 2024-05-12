@@ -1,0 +1,39 @@
+package kr.or.ddit.common.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.common.dao.CompanyMainDAO;
+import kr.or.ddit.company.vo.RecruitVO;
+
+@Service
+public class CompanyMainServiceImpl implements CompanyMainService{
+	@Inject
+	private CompanyMainDAO dao;
+	
+	/* 진행중 채용공고 개수 조회*/
+	@Override
+	public int retrieveClosedRecruitProcedureCount() {
+		return dao.selectClosedRecruitProcedureCount();
+	}
+	/* 마감된 채용공고 개수 조회*/
+	@Override
+	public int retrieveUnclosedRecruitProcedureCount() {
+		return dao.selectUnclosedRecruitProcedureCount();
+	}
+	 /* 진행중 채용공고 제목 조회*/
+	@Override
+	public List<RecruitVO> retrieveClosedRecruitProcedureList() {
+		return dao.selectClosedRecruitProcedureList();
+	}
+	/* 마감된 채용공고 제목 조회*/
+	@Override
+	public List<RecruitVO> retrieveUnclosedRecruitProcedureList() {
+		return dao.selectUnclosedRecruitProcedureList();
+	}
+
+	
+}

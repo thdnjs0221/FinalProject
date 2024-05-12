@@ -1,0 +1,196 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+	
+	
+	
+	<div class="recruit_hot_header hot100">
+        <div class="recruit_hot_title">
+         
+            <div class="toolTipWrap click">
+                <button type="button" class="btn_tooltip"><span class="blind">클릭시 툴팁이 열립니다.</span></button>
+                <div class="toolTip" style="top: -31px; left: 33px; margin-left: -5px; width: 230px;"> <!-- 툴팁의 위치, 크기 기입 -->
+                    <span class="tail tail_left_center"></span>
+                    <div class="toolTipCont">
+                        <p>일간 서비스 이용량 중 공고 조회수와 스크랩 횟수를 반영한 차트입니다.<br>매일 0시부터 30분간 순위집계로 서비스 반영이 지연될 수 있습니다.</p>
+                    </div>
+                    <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+                </div>
+            </div>
+        </div>
+        <div id="search_panel_wrapper" class="recruit_search_panel">
+            <form id="" method="" name="">
+                <fieldset>
+                    <ul class="tab_section">
+                        <li class="on" data-tab="cat_mcls" data-panel="option" onclick="try{ pushDataLayer('ga_lead', 'hot100', 'tab', 'job') } catch(e){}"><button type="button" class="inner_btn job"><span>직업별</span></button></li>
+                        <li class="" data-tab="loc_mcd" data-panel="option" onclick="try{ pushDataLayer('ga_lead', 'hot100', 'tab', 'area') } catch(e){}"><button type="button" class="inner_btn area"><span>지역별</span></button></li>
+                        <li class="" data-tab="edu_cd" data-panel="option" onclick="try{ pushDataLayer('ga_lead', 'hot100', 'tab', 'education') } catch(e){}"><button type="button" class="inner_btn grade"><span>학력별</span></button></li>
+                        <li class="" data-tab="company_type" data-panel="option" onclick="try{ pushDataLayer('ga_lead', 'hot100', 'tab', 'companyscale') } catch(e){}"><button type="button" class="inner_btn company"><span>기업규모</span></button></li>
+                    </ul>
+                    <div class="wrap_section_contents">
+                                                                                    <div class="option_content on" data-tab="cat_mcls">
+                                    <h2 class="blind">직업 선택</h2>
+                                    <div class="wrap_depth_category">
+                                        <div class="box_jobs"><button type="button" class="btn_job on" data-code="0" param="cat_mcls=0">직업전체</button><button type="button" class="btn_job " data-code="16" param="cat_mcls=16">기획·전략</button><button type="button" class="btn_job " data-code="14" param="cat_mcls=14">마케팅·홍보·조사</button><button type="button" class="btn_job " data-code="3" param="cat_mcls=3">회계·세무·재무</button><button type="button" class="btn_job " data-code="5" param="cat_mcls=5">인사·노무·HRD</button><button type="button" class="btn_job " data-code="4" param="cat_mcls=4">총무·법무·사무</button><button type="button" class="btn_job " data-code="2" param="cat_mcls=2">IT개발·데이터</button><button type="button" class="btn_job " data-code="15" param="cat_mcls=15">디자인</button><button type="button" class="btn_job " data-code="8" param="cat_mcls=8">영업·판매·무역</button><button type="button" class="btn_job " data-code="21" param="cat_mcls=21">고객상담·TM</button><button type="button" class="btn_job " data-code="18" param="cat_mcls=18">구매·자재·물류</button><button type="button" class="btn_job " data-code="12" param="cat_mcls=12">상품기획·MD</button><button type="button" class="btn_job " data-code="7" param="cat_mcls=7">운전·운송·배송</button><button type="button" class="btn_job " data-code="10" param="cat_mcls=10">서비스</button><button type="button" class="btn_job " data-code="11" param="cat_mcls=11">생산</button><button type="button" class="btn_job " data-code="22" param="cat_mcls=22">건설·건축</button><button type="button" class="btn_job " data-code="6" param="cat_mcls=6">의료</button><button type="button" class="btn_job " data-code="9" param="cat_mcls=9">연구·R&amp;D</button><button type="button" class="btn_job " data-code="19" param="cat_mcls=19">교육</button><button type="button" class="btn_job " data-code="13" param="cat_mcls=13">미디어·문화·스포츠</button><button type="button" class="btn_job " data-code="17" param="cat_mcls=17">금융·보험</button><button type="button" class="btn_job " data-code="20" param="cat_mcls=20">공공·복지</button></div>
+                                    </div>
+                                </div>
+                            
+                                                            <div class="option_content" data-tab="loc_mcd">
+                                    <h2 class="blind">지역 선택</h2>
+                                    <div class="depth1">
+                                        <ul class="category_list"></ul>
+                                    </div>
+                                </div>
+                            
+                                                            <div class="option_content" data-tab="edu_cd">
+                                    <h2 class="blind">학력 카테고리 선택</h2>
+                                    <div class="depth1">
+                                        <ul class="category_list"></ul>
+                                    </div>
+                                </div>
+                            
+                                                            <div class="option_content" data-tab="company_type">
+                                    <h2 class="blind">기업규모 카테고리 선택</h2>
+                                    <div class="depth1">
+                                        <ul class="category_list"></ul>
+                                    </div>
+                                </div>
+                                                                        </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+<!-- 100 채용공고 리스트 -->
+<div class="list_recruiting list_hot_type">
+	<div class="list_body">
+		<div id="rec-46892871" class="list_item">
+			<div class="box_item">
+				<div class="col ranking_info">
+					<strong class="tit">1</strong> <span class="rank_change"> <span
+						class="num">-</span>
+					</span>
+				</div>
+				<div class="col company_nm">
+					<a
+						href="/zf_user/company-info/view-inner-recruit?csn=cWVVRmhTMmlTN3R2UkxSTGZIRkhrUT09"
+						class="str_tit" target="_blank"> 삼성SDI(주) </a>
+				</div>
+				<div class="col notification_info">
+					<div class="job_tit">
+						<a class="str_tit " id="rec_link_46892871"
+							onclick="s_trackApply(this, 'hot100', 'job');" title="5급 신입사원 채용"
+							href="/zf_user/jobs/relay/view?view_type=list&amp;rec_idx=46892871"
+							target="_blank" onmousedown=""><span>5급 신입사원 채용</span></a>
+						<button type="button"
+							onclick="Saramin.btnJob('scrap',this,'','list');" title="스크랩"
+							scraped="n" rec_idx="46892871" imgtype="button"
+							class="spr_scrap btn_scrap scrap-46892871 off">
+							<span class="blind">스크랩</span>
+						</button>
+					</div>
+					<div class="job_meta">
+						<span class="job_sector"> <span>생산관리</span><span>품질검사원</span><span>품질관리</span><span>생산</span><span>제조</span>
+						</span>
+					</div>
+					<div class="job_badge">
+						<span> 생산 지원 TOP100 </span>
+					</div>
+				</div>
+				<div class="col recruit_info">
+					<ul>
+						<li>
+							<p class="work_place">전국</p>
+						</li>
+						<li>
+							<p class="career">신입 · 정규직</p>
+						</li>
+						<li>
+							<p class="education">고졸↑</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col support_info">
+					<a class="sri_btn_md"
+						href="/zf_user/jobs/relay/view?view_type=list&amp;rec_idx=46892871"
+						target="_blank" title="홈페이지 지원"
+						onclick="try{s_trackApply(this, 'hot100', 'job');}catch(e){};"><span
+						class="sri_btn_homepage_apply">홈페이지 지원</span></a>
+					<p class="support_detail">
+						<span class="date">D-2</span> <span class="deadlines">5일 전
+							등록</span>
+					</p>
+				</div>
+			</div>
+			<div class="similar_recruit"></div>
+		</div>
+
+
+		<div id="rec-46892871" class="list_item">
+
+			<div class="box_item">
+				<div class="col ranking_info">
+					<strong class="tit">1</strong> <span class="rank_change"> <span
+						class="num">-</span>
+					</span>
+				</div>
+
+
+				<div class="col company_nm">
+					<a
+						href="/zf_user/company-info/view-inner-recruit?csn=cWVVRmhTMmlTN3R2UkxSTGZIRkhrUT09"
+						class="str_tit" target="_blank"> 삼성SDI(주) </a>
+
+				</div>
+				<div class="col notification_info">
+					<div class="job_tit">
+						<a class="str_tit " id="rec_link_46892871"
+							onclick="s_trackApply(this, 'hot100', 'job');" title="5급 신입사원 채용"
+							href="/zf_user/jobs/relay/view?view_type=list&amp;rec_idx=46892871"
+							target="_blank" onmousedown=""><span>5급 신입사원 채용</span></a>
+						<button type="button"
+							onclick="Saramin.btnJob('scrap',this,'','list');" title="스크랩"
+							scraped="n" rec_idx="46892871" imgtype="button"
+							class="spr_scrap btn_scrap scrap-46892871 off">
+							<span class="blind">스크랩</span>
+						</button>
+					</div>
+					<div class="job_meta">
+						<span class="job_sector"> <span>생산관리</span><span>품질검사원</span><span>품질관리</span><span>생산</span><span>제조</span>
+						</span>
+					</div>
+					<div class="job_badge">
+						<span> 생산 지원 TOP100 </span>
+					</div>
+				</div>
+				<div class="col recruit_info">
+					<ul>
+						<li>
+							<p class="work_place">전국</p>
+						</li>
+						<li>
+							<p class="career">신입 · 정규직</p>
+						</li>
+						<li>
+							<p class="education">고졸↑</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col support_info">
+					<a class="sri_btn_md"
+						href="/zf_user/jobs/relay/view?view_type=list&amp;rec_idx=46892871"
+						target="_blank" title="홈페이지 지원"
+						onclick="try{s_trackApply(this, 'hot100', 'job');}catch(e){};"><span
+						class="sri_btn_homepage_apply">홈페이지 지원</span></a>
+					<p class="support_detail">
+						<span class="date">D-2</span> <span class="deadlines">5일 전
+							등록</span>
+					</p>
+				</div>
+			</div>
+			<div class="similar_recruit"></div>
+		</div>
+
+	</div>
+</div>

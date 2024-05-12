@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.CompanyMemInfoDAO">
+<!-- 
+ * @author 김태형
+ * @since 2023.11.16
+ * @version 1.0
+ -->
+
+	<resultMap type="MemberVO" id="memberMap" autoMapping="true">
+	<id property="memId" column="MEM_ID" />
+	<association property="company" autoMapping="true" />
+	</resultMap>
+	<select id="se;ectCompany" parameterType="String" resultMap="memberMap">
+		SELECT
+			MEM_ID
+			, MEM_PASS
+			, COMPANY_NUM
+			, COMPANY_PERMISSION
+			, COMPANY_DNM
+			, MEM_TEL
+			, MEM_MAIL
+		FROM MEMBER JOIN COMPANY ON(MEM_ID=COMPANY_ID)
+		WHERE MEM_ID=#{memId}
+	</select>
+</mapper>

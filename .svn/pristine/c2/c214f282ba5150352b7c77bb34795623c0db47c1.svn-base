@@ -1,0 +1,309 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<div class="interviewScheduleWrap">
+    <div class="test">
+        <div id="sri_section">
+        <!-- 메뉴 리스트-->
+            <div id="sri_gnb_wrap">
+                <ul class="gnb">
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_14"></use>
+                            </svg>
+                            <span class="txt"></span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_15"></use>
+                            </svg>
+                            <span class="txt">MY홈</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'mag', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_16"></use>
+                            </svg>
+                            <span class="txt">개인정보관리</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_17"></use>
+                            </svg>
+                            <span class="txt">이력서</span>
+                            <button type="button" class="btn_expand"><svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg><span class="blind">더보기</span></button>
+                        </a>
+                        <ul>
+                            <li class="">
+                                <a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">이력서 등록</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">이력서 관리</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'scrap', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_18"></use>
+                            </svg>
+                            <span class="txt">스크랩/관심기업</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'alarm', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_19"></use>
+                            </svg>
+                            <span class="txt">알림</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'apply', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_20"></use>
+                            </svg>
+                            <span class="txt">입사지원현황</span>
+                        </a>
+                    </li>
+                    <li class="selected">
+                        <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'interview_schedule', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_21"></use>
+                            </svg>
+                            <span class="txt">면접현황</span>
+                            <button type="button" class="btn_expand"><svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg><span class="blind">더보기</span></button>
+                        </a>
+                        <ul>
+                            <li class="">
+                                <a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">면접일정</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">면접후기</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'qna', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_22"></use>
+                            </svg>
+                            <span class="txt">1:1문의내역</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'point', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_23"></use>
+                            </svg>
+                            <span class="txt">포인트/쿠폰/이용권</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 메뉴 리스트 끝 -->
+           <div id="sri_wrap">
+        <div id="content">
+            
+<!-- 면접 현황 -->
+<div class="wrapper_narrow my_interview">
+    <h1 class="wrap_title">면접 일정</h1>
+    <!-- 상단 카드 영역 -->
+    <div class="briefing_wrap">
+        <ul class="briefing_list">
+    <li class="main">
+        <div class="card">
+            <strong class="tit">
+                오늘 예정된<br>면접 일정이 있어요
+            </strong>
+            <span class="total">
+                <strong>0</strong>건
+            </span>
+            <div class="count_area">
+                <div class="count">
+                    신규요청<strong>0</strong>
+                </div>
+                <div class="count">
+                    면접취소<strong>0</strong>
+                </div>
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="card txt_only">
+            <div class="text_only_con">
+                <span class="txt_only_tit">미리 면접후기 확인해보실래요?</span>
+                <p class="text_btn">
+                    <a class="text_btn" target="_blank" href="/zf_user/interview-review" onclick="promotionPushDataLayer('promotionClick', 'pc_my', 'pc_my', 'interview', 'interview-review')">면접경험 공유 보러가기</a>
+                </p>
+            </div>
+        </div>
+    </li>
+        <li>
+        <div class="card txt_only">
+            <div class="text_only_con">
+                <span class="txt_only_tit">면접에 대한 궁금한 점이 있으신가요?</span>
+                <p class="text_btn">
+                    <a class="text_btn" target="_blank" href="/zf_user/company-review-qst-and-ans/sub?keyword=%EB%A9%B4%EC%A0%91&amp;searchType=hashtag" onclick="promotionPushDataLayer('promotionClick', 'pc_my', 'pc_my', 'interview', 'qstandans')">커뮤니티 보러가기</a>
+                </p>
+            </div>
+        </div>
+    </li>
+        <li class="code" style="">
+        
+    </li>
+</ul>
+
+<script>
+    (function ($) {
+        $(document).ready(function() {
+            // 최초 노출퇼 카드 4개에 대해서만 view-gtm 체크
+            var $slides = $('.briefing_list li');
+            for(var i=0; i<4; i++) {
+                cardViewTracking($($slides[i]));
+            }
+        });
+    })(jQuery);
+
+    /**
+     * 슬라이드 카드가 노출 될 경우 view 트레킹할 함수
+     * interview-schedule-list.js에서도 사용
+     * @param $element
+     */
+    function cardViewTracking($element) {
+        var viewGtmData = $element.data('view-gtm');
+        if (!viewGtmData) {
+            return;
+        }
+
+        $element.data('view-gtm', null);
+        $element.removeAttr('data-view-gtm');
+        viewGtmData = viewGtmData.split(',');
+        if (viewGtmData.length !== 4) {
+            console.log('트레킹 코드 에러', viewGtmData);
+            return;
+        }
+        promotionPushDataLayer('promotionView', viewGtmData[0].trim(), viewGtmData[1].trim(), viewGtmData[2].trim(), viewGtmData[3].trim());
+    }
+</script>    </div>
+    <!-- // 상단 카드 영역 -->
+
+    <div class="interview_list_header">
+        <div class="total_interviews">
+    총 0건
+</div>
+<!-- 면접 리스트 소트/검색 -->
+<div class="search_interview">
+    <form action="/zf_user/member/interview-schedule/list" id="form_search">
+        <div class="InpBox">
+            <select name="search_period" id="search_period" title="면접 일정">
+                                <option value="week">지난 1주일</option>
+                <option value="1">지난 1개월</option>
+                <option value="2">지난 2개월</option>
+                <option value="3">지난 3개월</option>
+                <option value="6" selected="">지난 6개월</option>
+                <option value="12">지난 1년</option>
+                <option value="period">기간 설정</option>
+            </select>
+        </div>
+        <div class="period ">
+            <div class="date TypoBox">
+                <input type="text" id="start_date" name="start_date" class="Typo DatePic hasDatepicker" placeholder="YY-MM-DD" value="" autocomplete="off"><button type="button" class="ui-datepicker-trigger">Calendar</button>
+                <button type="button" class="ui-datepicker-trigger">Calendar</button>
+            </div>
+            <span>~</span>
+            <div class="date TypoBox">
+                <input type="text" id="end_date" name="end_date" class="Typo DatePic hasDatepicker" placeholder="YY-MM-DD" value="" autocomplete="off"><button type="button" class="ui-datepicker-trigger">Calendar</button>
+                <button type="button" class="ui-datepicker-trigger">Calendar</button>
+            </div>
+        </div>
+        <div class="InpBox search_order">
+            <!-- 응답유형 -->
+            
+        </div>
+        <div class="InpBox">
+            <!-- 면접유형 -->
+            <select id="search_type" name="search_type" title="면접 유형">
+                                    <option value="" selected="">유형 전체</option>
+                                    <option value="itc001">대면면접</option>
+                                    <option value="itc002">영상면접</option>
+                                    <option value="itc003">전화면접</option>
+                                    <option value="itc004">AI면접</option>
+                            </select>
+        </div>
+        <div class="InpBox search_order">
+            <!-- 정렬순서 -->
+            <select id="search_order" name="search_order" title="정렬 순서">
+                                <option value="reg_dt" selected="">면접요청일순</option>
+                <option value="near_dt">면접임박순</option>
+                <option value="interview_dt">면접일순</option>
+            </select>
+        </div>
+        <div class="TypoBox search_area">
+            <input type="text" class="Typo search" id="search_keyword" name="search_keyword" value="" placeholder="키워드 입력">
+            <button type="button" id="keyword_search">
+                <svg class="icon_search">
+                    <use xlink:href="#svg_my_8"></use>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>
+<!-- // 면접 리스트 소트/검색 -->    </div>
+    <!-- 면접일정 리스트 영역 -->
+    <div class="interview_list">
+    <!-- 면접 요청 리스트 -->
+    <span class="blind">면접 요청 리스트</span>
+        <!-- 면접 요청 리스트 없을 경우 -->
+    <div class="empty_data">
+        <img src="//www.saraminimage.co.kr/sri/person/resume/img_empty_announce.png">
+        <strong class="tit">요청받은 면접이 없습니다</strong>
+        <div class="txt">박주연님에게 맞는 공고를 추천해줄게요!</div>
+        <a href="/zf_user/member/avatar/list" class="btnText none_txt">
+            <span>나에게 맞는 공고 보러가기</span>
+        </a>
+    </div>
+    <!-- // 면접 요청 리스트 없을 경우 -->
+    </div>
+    <!-- // 면접일정 리스트 영역 -->
+</div>
+
+<!-- 기존 면접 요청 레이어 -->
+<div id="interview_layer">
+</div>
+<!-- // 기존 면접 요청 레이어 -->
+
+<!-- 시계 아이콘 svg -->
+<svg xmlns="http://www.w3.org/2000/svg" class="img_svg_hidden">
+    <symbol id="icon-time" viewBox="0 0 16 16">
+        <g fill="none" fill-rule="evenodd">
+            <g fill="currentColor" fill-rule="nonzero">
+                <path d="M6.458 0c3.567 0 6.459 2.91 6.459 6.5 0 .276-.223.5-.497.5-.275 0-.497-.224-.497-.5 0-3.038-2.447-5.5-5.465-5.5S.994 3.462.994 6.5 3.44 12 6.458 12c.275 0 .497.224.497.5s-.222.5-.497.5C2.891 13 0 10.09 0 6.5S2.891 0 6.458 0zm0 2c.244 0 .447.177.49.41l.007.09V6h3.478c.244 0 .446.177.488.41l.008.09c0 .245-.175.45-.407.492l-.09.008H6.459c-.244 0-.446-.177-.488-.41l-.008-.09v-4c0-.276.222-.5.496-.5z" transform="translate(-880 -809) translate(800 589) translate(80 216) translate(0 4) translate(1.987 2)"></path>
+            </g>
+        </g>
+    </symbol>
+</svg>
+<!-- // 시계 아이콘 svg -->
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>

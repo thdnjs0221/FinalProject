@@ -1,0 +1,26 @@
+package kr.or.ddit.users.service;
+
+import kr.or.ddit.users.vo.PointPayVO;
+
+public interface PointPaySerivce {
+
+	/**
+	 * 유저에 포인트 결제 내역을 저장
+	 * @param pointpayVO
+	 */
+	public void savePointPay(PointPayVO pointpayVO);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+

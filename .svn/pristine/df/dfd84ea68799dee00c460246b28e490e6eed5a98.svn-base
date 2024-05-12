@@ -1,0 +1,32 @@
+package kr.or.ddit.users.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.dao.ComInfoResumeDAO;
+import kr.or.ddit.users.vo.ResumeVO;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class ComInfoResumeServiceImpl implements ComInfoResumeService {
+	
+	private final ComInfoResumeDAO dao;
+
+	@Override
+	public void retrieveResumeList(PaginationInfo<ResumeVO> paging) {
+		int totalRecord = dao.selectTotalRecord(paging);
+		paging.setTotalRecord(totalRecord);
+		List<ResumeVO> dataList = dao.selectResumeViewList(paging);
+		paging.setDataList(dataList);
+
+	}
+
+	@Override
+	public ResumeVO retrieveResumeDetail(String resumeNo) {
+		return dao.selectResumeViewDetail(resumeNo);
+	}
+
+}

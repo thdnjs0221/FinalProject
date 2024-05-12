@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.ComInfoDAO">
+	<select id="selectTotalRecord" resultType="int" parameterType="PaginationInfo">
+		SELECT COUNT(*) FROM COMINFO
+	</select>
+	
+	<!-- 기업 정보 LIST 출력 -->
+	<select id="selectCominfoList" resultType="ComInfoVO" parameterType="PaginationInfo">	
+	SELECT
+        A.COMPANY_NM
+        ,B.COMINFO_SECTORS
+        ,B.COMINFO_HIT
+        ,COALESCE(COUNT(C.RCRT_NO), 0) AS RCRT_NO
+    FROM COMPANY A
+    JOIN
+        COMINFO B ON A.COMPANY_ID = B.COMPANY_ID
+    LEFT JOIN
+        RECRUIT C ON A.COMPANY_ID = C.COMPANY_ID
+    GROUP BY
+        A.COMPANY_NM, B.COMINFO_SECTORS, B.COMINFO_HIT
+    ORDER BY
+    	A.COMPANY_NM
+	</select>
+	
+	<!-- 기업 정보 상세정보 출력 -->
+	<select id="selectCominfo" parameterType="String" resultType="ComInfoVO">
+		SELECT
+			A.COMPANY_NM
+			, TO_CHAR(A.COMPANY_DATE, 'YYYY/MM/DD') AS COMPANY_DATE
+			, B.COMINFO_SECTORS
+			, B.COMINFO_PAGE
+			, B.COMINFO_CONTENT
+			, B.COMINFO_CEONM
+			, B.COMINFO_EMP
+			, B.COMINFO_SALES
+			, B.COMINFO_BENEFIT
+			, B.COMINFO_HIT
+            , C.MEM_ZIP
+            , C.MEM_ADDR1
+            , C.MEM_ADDR2
+		FROM COMPANY A, COMINFO B, MEMBER C
+		WHERE A.COMPANY_ID = B.COMPANY_ID
+        AND B.COMPANY_ID = C.MEM_ID
+		AND A.COMPANY_ID = 'lg001'
+	</select>
+</mapper>

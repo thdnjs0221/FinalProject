@@ -1,0 +1,34 @@
+package kr.or.ddit.company.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import kr.or.ddit.common.vo.MemberVO;
+import kr.or.ddit.company.service.CompanyMemInfoService;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/companyMemInfo")
+public class CompanyMemInfoController {
+
+	@Inject
+	private CompanyMemInfoService service;
+	
+	@GetMapping
+	public String companyMemInfo(
+			Model model
+			, @SessionAttribute("authId") String memId
+	)	{
+		log.info("아이디 : " + memId);
+		MemberVO company = service.retrieveCompany(memId);
+		model.addAttribute("company", company);
+		
+		return "company/companymypage/companyMemInfo";
+	}
+}

@@ -1,0 +1,166 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<div class="scrapcalendarList">
+<div id="sri_section" class="  has_banner">
+        <div id="sri_wrap">
+            <div id="content">
+                
+<div class="wrap_title_recruit title_type2">
+    <h1 class="title_common">채용달력 <span class="value">2023년 11월</span></h1>
+</div>
+<div class="public_recruit_calendar_top">
+    <ul class="public_recruit_tab tab02 rightside">
+        <li><a href="javascript:goSearch('cal_cd', '1');" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'public-calendar', '');}catch(e){}">채용달력</a></li>
+            <li class="on"><a href="javascript:goSearch('scrap', '');" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'scrap-calendar', '');}catch(e){}"><span class="icon star"></span>내 스크랩 달력</a></li>
+        </ul>
+    <div class="public_recruit_calendar_title">
+        <h2><span>2023.11</span></h2>
+        <button type="button" class="public_recruit_imgbtn prev top_btn" data_dt="2023-10">이전 월</button>
+        <button type="button" class="public_recruit_imgbtn next top_btn" data_dt="2023-12">다음 월</button>
+        <button type="button" class="public_recruit_btn today top_btn" data_dt="2023-11" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'today', '');}catch(e){}"><span>오늘</span></button>
+    </div>
+</div>
+<div class="public_con_box srch_wrap ">
+<form id="searchForm" method="get">
+    <input type="hidden" name="cal_cd" value="1" autocomplete="off" id="cal_cd">    <input type="hidden" name="cal_dt" value="2023-11" autocomplete="off" id="cal_dt">    <input type="hidden" name="scrap" value="1" autocomplete="off" id="scrap">    <input type="hidden" name="keyword" value="" autocomplete="off" id="keyword">    </form>
+
+<script type="text/javascript">
+    jQuery(function($){
+        $j(document).ready(function() {
+            var SEARCH_PANEL = new SearchPanel();
+            var flag = '';
+
+            // input checkbox click catch
+            $j('div.category_area, div.area_condition').on('change', 'input', function(){
+                SEARCH_PANEL.clickElements(this);
+            });
+
+            $j('div.category_area, div.area_condition').on('click', 'button', function(){
+                SEARCH_PANEL.clickElements(this);
+            });
+
+            $('#btn_company_search').click(function(){
+                if(flag=='') {
+                    $('div.category_area input:checked').prop("checked",false);
+                    $('div.area_condition>ul').remove();
+                }
+                $('#keyword').val($('#company_nm').val());
+                SEARCH_PANEL.sendFormData();
+            });
+
+            $('#company_nm').keydown(function(event) {
+                var keyCode = (event.keyCode ? event.keyCode : event.which);
+                if (keyCode == 13) {
+                    $('#btn_company_search').click();
+                    return false;
+                }
+            });
+
+            $('.top_btn').click(function(){
+                if(flag=='') {
+                    $('div.category_area input:checked').prop("checked",false);
+                    $('div.area_condition>ul').remove();
+                }
+                $('#cal_dt').val($(this).attr('data_dt'));
+                SEARCH_PANEL.sendFormData();
+            });
+
+            if (flag != '') {
+                SEARCH_PANEL.setSearchPannelnTrackEvent('calendar');
+            }
+        });
+    });
+</script>
+</div>
+
+<div class="public_recruit_calendar_btns">
+    <button type="button" class="public_recruit_btn calenda_type selected" onclick="location.href='/zf_user/calendar?cal_cd=1&amp;cal_dt=2023-11&amp;scrap=1&amp;keyword=';" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'monthly', '');}catch(e){}"><span>월간</span></button>
+    <button type="button" class="public_recruit_btn calenda_type" onclick="location.href='/zf_user/calendar/week?cal_cd=1&amp;cal_dt=2023-11&amp;scrap=1&amp;keyword=';" onmousedown="try{n_trackEvent('calendar', 'calendar' , 'weekly', '');}catch(e){}"><span>주간</span></button>
+    <a href="/zf_user/calendar/excel-month-save?cal_cd=1&amp;cal_dt=2023-11&amp;scrap=1&amp;keyword=" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'download', '');}catch(e){}"><button type="button" class="public_recruit_btn calenda_download cal_btn"><span>달력 다운로드</span></button></a>
+    <div class="searchTypoBox">
+        <input type="text" class="inpTypo" name="company_nm" id="company_nm" value="" placeholder="기업명으로 검색">
+        <button type="submit" class="btnTypoSearch" id="btn_company_search" onmousedown="try{n_trackEvent('public-recruit', 'calendar' , 'company_search', '');}catch(e){}"><span>검색</span></button>
+        <button type="button" class="btnTypoReset" id="resetBtn" data-action="">선택초기화</button>
+    </div>
+</div>
+
+<div class="public_recruit_calendar_wrap">
+    <table class="public_recruit_calendar" summary="">
+        <colgroup>
+            <col style="width:136px;">
+            <col style="width:136px;">
+            <col style="width:136px;">
+            <col style="width:136px;">
+            <col style="width:136px;">
+            <col style="width:136px;">
+            <col style="width:136px;">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="sun"><span>일</span></th>
+            <th><span>월</span></th>
+            <th><span>화</span></th>
+            <th><span>수</span></th>
+            <th><span>목</span></th>
+            <th><span>금</span></th>
+            <th class="sat"><span>토</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--
+            td 클래스 요약
+            sun : 일요일
+            sat : 토요일
+            dis : 해당 월이 아닐때
+            today : 오늘
+        -->
+        <tr><td class="dis  sun"><div class="day"><span class="date">29</span></div></td><td class="dis "><div class="day"><span class="date">30</span></div></td><td class="dis "><div class="day"><span class="date">31</span></div></td><td class=""><div class="day " data-day="1"><span class="date">1</span></div></td><td class=""><div class="day " data-day="2"><span class="date">2</span></div></td><td class=""><div class="day " data-day="3"><span class="date">3</span></div></td><td class=" sat"><div class="day " data-day="4"><span class="date">4</span></div></td></tr><tr><td class=" sun"><div class="day " data-day="5"><span class="date">5</span></div></td><td class=""><div class="day " data-day="6"><span class="date">6</span></div></td><td class=""><div class="day " data-day="7"><span class="date">7</span></div></td><td class=""><div class="day " data-day="8"><span class="date">8</span></div></td><td class=""><div class="day " data-day="9"><span class="date">9</span></div></td><td class=""><div class="day " data-day="10"><span class="date">10</span></div></td><td class=" sat today"><div class="day " data-day="11"><span class="date">11</span></div></td></tr><tr><td class=" sun"><div class="day " data-day="12"><span class="date">12</span></div></td><td class=""><div class="day " data-day="13"><span class="date">13</span></div></td><td class=""><div class="day " data-day="14"><span class="date">14</span></div></td><td class=""><div class="day " data-day="15"><span class="date">15</span></div></td><td class=""><div class="day " data-day="16"><span class="date">16</span></div></td><td class=""><div class="day " data-day="17"><span class="date">17</span></div></td><td class=" sat"><div class="day " data-day="18"><span class="date">18</span></div></td></tr><tr><td class=" sun"><div class="day " data-day="19"><span class="date">19</span></div></td><td class=""><div class="day " data-day="20"><span class="date">20</span></div></td><td class=""><div class="day " data-day="21"><span class="date">21</span></div></td><td class=""><div class="day " data-day="22"><span class="date">22</span></div></td><td class=""><div class="day " data-day="23"><span class="date">23</span></div></td><td class=""><div class="day " data-day="24"><span class="date">24</span></div></td><td class=" sat"><div class="day " data-day="25"><span class="date">25</span></div></td></tr><tr><td class=" sun"><div class="day " data-day="26"><span class="date">26</span></div></td><td class=""><div class="day " data-day="27"><span class="date">27</span></div></td><td class=""><div class="day " data-day="28"><span class="date">28</span></div></td><td class=""><div class="day " data-day="29"><span class="date">29</span></div></td><td class=""><div class="day " data-day="30"><span class="date">30</span></div></td><td class="dis "><div class="day"><span class="date">1</span></div></td><td class="dis  sat"><div class="day"><span class="date">2</span></div></td>
+        </tr></tbody>
+    </table>
+</div>
+<div style="margin-top:30px;"></div>
+<script type="text/javascript">
+</script>
+                            </div>
+        </div>
+                    <div id="sri_banner">
+        <div id="sri_banner_fixed" style="display: none;">
+        <div class="data_list">
+        <strong class="tit_data">최근본 공고<a href="/zf_user/jobs/read-jobs" class="num track_event" data-track_event="ADs|Click-116C" title="최근 본 공고로 이동" onmousedown="try{dataLayer.push({'event' : 'ga_lead', 'category': 'job_pg','event-flow': 'right_wing','event-label': 'recent_go'})}catch(e){}"><em id="recently-recruit-count">0</em><span class="blind">건 이상</span></a></strong>
+        <ul class="list_data" id="right_wing_lately_read_job_list" style="display: none">
+        </ul>
+        <a href="/zf_user/jobs/read-jobs" class="link_more lately_read_job_list_more_btn" style="display: none" onmousedown="try{dataLayer.push({'event' : 'ga_lead', 'category': 'job_pg','event-flow': 'right_wing','event-label': 'recent_more'})}catch(e){}">더보기</a>
+    </div>
+            <div class="data_list">
+            <strong class="tit_data">스크랩한 공고<a href="/zf_user/persons/scrap-recruit" class="num" target="_blank" title="스크랩한 공고로 이동" onmousedown="try{dataLayer.push({'event' : 'ga_lead', 'category': 'job_pg','event-flow': 'right_wing','event-label': 'scrap_go'})}catch(e){}"><em id="side_scrap_count">0</em><span class="blind">건</span><em style="display:none;" id="side_hidden_scrap_count">0</em></a></strong>
+            <ul class="list_data" id="right_wing_lately_scrap_job_list" style="display: none">
+            </ul>
+            <a href="/zf_user/persons/scrap-recruit" class="link_more lately_scrap_job_list_more_btn" style="display: none" onmousedown="try{dataLayer.push({'event' : 'ga_lead', 'category': 'job_pg','event-flow': 'right_wing','event-label': 'scrap_more'})}catch(e){}">더보기</a>
+        </div>
+                <div class="data_list" id="right_wing_recommend_job_list" style="display: none">
+        </div>
+        <a href="#sri_section" id="btn_go_top" class="sri_lnb_icon btn_go_top"><span class="blind">브라우저상단으로 이동</span></a>
+</div>
+<div id="sri_banner_scrolled" style="margin-top: 15px; display: none;">
+        <div>
+<a href="https://www.saramin.co.kr/zf_user/help/live/view?idx=109176?inner_source=saramin&amp;inner_medium=banner&amp;inner_campaign=pc_wigs&amp;inner_term=mycareer_exam" target="_blank" class="app-setup-btn">
+    <img src="https://www.saraminbanner.co.kr/mobile_sv/rbc/2023/10/s2r1ug_4hly-1bqufdt_PC.png" alt="10만 원대의 커리어 선물 받으세요" id="rightwing_banner_img">
+</a>
+</div>                        <div id="div-gpt-ad-1400664864294-10-wrapper" class="google-adsense doctype">
+            <div class="google-standby-banner" style="display: none;">
+                                                            <img src="https://www.saraminbanner.co.kr/adserver/default/2021/06/qv2zn0_nq88-2so1pt_PC120600.png" alt="">
+                                                </div>
+            <div id="div-gpt-ad-1400664864294-10-inner" style="">
+                <div id="div-gpt-ad-1400664864294-10" data-google-query-id="CMyslY_5uoIDFQ1YKgodAE0Ggg">
+                    <div id="google_ads_iframe_/61280259/etc_120x600_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/61280259/etc_120x600_0" name="google_ads_iframe_/61280259/etc_120x600_0" title="3rd party ad content" width="120" height="600" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" role="region" aria-label="Advertisement" tabindex="0" allow="attribution-reporting" data-load-complete="true" data-google-container-id="1" style="border: 0px; vertical-align: bottom;"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        <footer id="sri_footer" class="sri_footer">
+    
+</footer>
+    </div>
+</div>

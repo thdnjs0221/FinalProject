@@ -1,0 +1,617 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<div class="applicationListWrap">
+    <div class="test">
+        <div id="sri_section">
+        <!-- 메뉴 리스트-->
+            <div id="sri_gnb_wrap">
+                <ul class="gnb">
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_14"></use>
+                            </svg>
+                            <span class="txt"></span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'main', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_15"></use>
+                            </svg>
+                            <span class="txt">MY홈</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/member/persons/main" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'mag', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_16"></use>
+                            </svg>
+                            <span class="txt">개인정보관리</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_17"></use>
+                            </svg>
+                            <span class="txt">이력서</span>
+                            <button type="button" class="btn_expand"><svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg><span class="blind">더보기</span></button>
+                        </a>
+                        <ul>
+                            <li class="">
+                                <a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">이력서 등록</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">이력서 관리</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'scrap', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_18"></use>
+                            </svg>
+                            <span class="txt">스크랩/관심기업</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'alarm', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_19"></use>
+                            </svg>
+                            <span class="txt">알림</span>
+                        </a>
+                    </li>
+                    <li class="only selected">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'apply', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_20"></use>
+                            </svg>
+                            <span class="txt">입사지원현황</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'interview_schedule', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_21"></use>
+                            </svg>
+                            <span class="txt">면접현황</span>
+                            <button type="button" class="btn_expand"><svg>
+                                    <use xlink:href="#svg_gnb_arrow"></use>
+                                </svg><span class="blind">더보기</span></button>
+                        </a>
+                        <ul>
+                            <li class="">
+                                <a href="/zf_user/member/resume-manage/write?template_cd=1" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_add', '')">
+                                    <span class="txt">면접일정</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="/zf_user/resume/resume-manage" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'resume_manage', '')">
+                                    <span class="txt">면접후기</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'qna', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_22"></use>
+                            </svg>
+                            <span class="txt">1:1문의내역</span>
+                        </a>
+                    </li>
+                    <li class="only">
+                        <a href="/zf_user/persons/scrap-recruit" onmousedown="pushDataLayer('ga_lead', 'pc_my_gnb', 'point', '')">
+                            <svg>
+                                <use xlink:href="#svg_my_23"></use>
+                            </svg>
+                            <span class="txt">포인트/쿠폰/이용권</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 메뉴 리스트 끝 -->
+           <div id="sri_wrap">
+        <div id="content">
+            
+
+
+<div class="wrap_my_apply" id="apply_status_div">
+    <h1 class="wrap_title">입사지원 현황</h1>
+    <ul class="TabBox">
+        <li class="Select"><a href="/zf_user/persons/apply-status-list" class="BtnType" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': ''});}catch(e){}">전체<span class="Badge">2</span></a></li>
+        <li></li>
+    </ul>
+    <div class="wrap_list" id="apply_status_list_div"><!-- 내역숨기기 edit_mode 클래스 추가 -->
+        <div class="status_board">
+            <div class="item  _dashboardDiv ">
+                <button type="button" class="dash_tab _dashboardBtn" data-type="waiting" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'applied'});}catch(e){}">
+                    <em>지원완료</em>
+                    <span class="num">0</span>
+                </button>
+                            </div>
+            <div class="item  _dashboardDiv ">
+                <button type="button" class="dash_tab _dashboardBtn" data-type="ing" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'ing'});}catch(e){}">
+                    <em>전형 진행중</em>
+                    <span class="num">0</span>
+                </button>
+                            </div>
+            <div class="item  _dashboardDiv ">
+                <button type="button" class="dash_tab _dashboardBtn" data-type="result" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'end'});}catch(e){}">
+                    <em>최종발표</em>
+                    <span class="num">0</span>
+                </button>
+                            </div>
+        </div>
+
+<!--검색영역-->
+<form name="list_search_form" id="list_search_form">
+    <input type="hidden" name="status_type" value="">
+    <div class="top_btns" id="apply_status_list_search">
+        <div class="align">
+                        <div class="InpBox">
+                
+            </div>
+                        <div class="InpBox">
+                
+            </div>
+            <div class="InpBox">
+                
+            </div>
+            <div class="period ">
+                <div class="TypoBox TypeBtn">
+                    <input type="text" id="start_date" name="start_date" class="Typo DatePic type_calendar  hasDatepicker" maxlength="10" value="2023-10-10" placeholder="YYYY-MM-DD" autocomplete="off"><button type="button" class="ui-datepicker-trigger">Calendar</button>
+                </div>
+                <span>~</span>
+                <div class="TypoBox TypeBtn">
+                    <input type="text" id="end_date" name="end_date" class="Typo DatePic type_calendar  hasDatepicker" maxlength="10" value="2023-11-10" placeholder="YYYY-MM-DD" autocomplete="off"><button type="button" class="ui-datepicker-trigger">Calendar</button>
+                </div>
+            </div>
+        </div>
+        <div class="align">
+            <div class="InpBox">
+                <select name="order_type" id="order_type" title="업데이트순" class="_auto_search">
+                    <option value="apply_reg">입사지원순</option>
+                    <option value="update" selected="">업데이트순</option>
+                </select>
+            </div>
+            <div class="TypoBox search_area">
+                <input type="text" class="Typo search" id="keyword" name="keyword" value="" placeholder="키워드 입력">
+                <button type="button" id="keyword_search">
+                    <svg class="icon_search">
+                        <use xlink:href="#svg_my_8"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+    <!--검색영역-->
+
+
+    <form name="list_form" id="list_form">
+        <div class="list_status">
+                        <div class="row _apply_list disabled" id="apply_list_352730578" data-name="박주연" data-recruitapply_idx="352730578" data-layer_check_status="n" data-csn="3081351102" data-rec_idx="46884331" data-company_nm="스타닥" data-recruittitle="[연봉 최고 대우] 2023 하반기 공개채용" data-rec_division="마케터" data-logo="" data-is_ai_head_hunting="n" data-jumpit_rec_idx=""><!-- disabled 추가시 비활성 -->
+            <div class="InpBox">
+                <span class="Chk Hide">
+                    <input type="checkbox" name="recruitapply_idxs[]" id="chk_352730578" value="352730578" class="_recruitapply_chk">
+                    <label class="Lbl" for="chk_352730578">선택</label>
+                </span>
+            </div>
+
+            <div class="col_date">2023.11.10 16:50</div>
+            <div class="col_summary">
+                <strong class="corp">
+                                            <a href="/zf_user/company-info/view?csn=3081351102" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'company'});}catch(e){}">
+                                            스타닥                    </a>
+                                    </strong>
+                <div class="recruit ">
+                                            <a href="/zf_user/jobs/relay/view?rec_idx=46884331&amp;view_type=apply_status&amp;t_ref=apply_status_list&amp;t_ref_content=generic" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'recruit_title'});}catch(e){}">
+                                                                        <span class="division">마케터</span>
+                        
+                            <div class="TipBox">
+                                <span class="">[연봉 최고 대우] 2023 하반기 공개채용</span>
+                                <div class="TipCont TopLeft">
+                                    <span class="Tail"></span>
+                                    <div class="TipTxt">
+                                        해당 공고는 삭제되었습니다                                    </div>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                                    <div class="attached">
+                        <button type="button" class="data _file_down_resume" data-recruitapply_idx="352730578" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'resume'});}catch(e){}">이력서</button>                    </div>
+                                <div class="status">
+                    <em class="txt_status">
+                        지원취소완료                    </em>
+                    <span class="txt_sub ">2023.11.10 16:58</span><!-- 알림표시 new 클래스 추가 -->
+                                                        </div>
+            </div>
+            <div class="col_btns">
+                <div class="action">
+                                        <span class="date_end"></span>
+                </div>
+            </div>
+            <div class="col_history">
+                <ol class="timeline"><!--관리내역 들어가는곳--></ol>
+            </div>
+                        </div>
+                    <div class="row _apply_list disabled" id="apply_list_351572668" data-name="박주연" data-recruitapply_idx="351572668" data-layer_check_status="n" data-csn="1088199034" data-rec_idx="46617655" data-company_nm="(주)알엠소프트" data-recruittitle="자사 솔루션 기반 프로젝트 수행 개발자 대규모 채용" data-rec_division="" data-logo="" data-is_ai_head_hunting="n" data-jumpit_rec_idx="46617655"><!-- disabled 추가시 비활성 -->
+            <div class="InpBox">
+                <span class="Chk Hide">
+                    <input type="checkbox" name="recruitapply_idxs[]" id="chk_351572668" value="351572668" class="_recruitapply_chk">
+                    <label class="Lbl" for="chk_351572668">선택</label>
+                </span>
+            </div>
+
+            <div class="col_date">2023.10.31 03:30</div>
+            <div class="col_summary">
+                <strong class="corp">
+                                            <a href="/zf_user/company-info/view?csn=1088199034" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'company'});}catch(e){}">
+                                            ㈜알엠소프트                    </a>
+                                    </strong>
+                <div class="recruit ">
+                                            <a href="/zf_user/jobs/relay/view?rec_idx=46617655&amp;view_type=apply_status&amp;t_ref=apply_status_list&amp;t_ref_content=generic" target="_blank" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'recruit_title'});}catch(e){}">
+                                            
+                            <div class="TipBox">
+                                <span class="">자사 솔루션 기반 프로젝트 수행 개발자 대규모 채용</span>
+                                <div class="TipCont TopLeft">
+                                    <span class="Tail"></span>
+                                    <div class="TipTxt">
+                                        해당 공고는 삭제되었습니다                                    </div>
+                                </div>
+                            </div>
+                    </a>
+                </div>
+                                    <div class="attached">
+                        <button type="button" class="data _file_down_resume" data-recruitapply_idx="351572668" onmousedown="try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'resume_introduce'});}catch(e){}">이력서(자기소개서)</button>                    </div>
+                                <div class="status">
+                    <em class="txt_status">
+                        지원취소완료                    </em>
+                    <span class="txt_sub ">2023.10.31 03:30</span><!-- 알림표시 new 클래스 추가 -->
+                                                        </div>
+            </div>
+            <div class="col_btns">
+                <div class="action">
+                                        <span class="date_end"></span>
+                </div>
+            </div>
+            <div class="col_history">
+                <ol class="timeline"><!--관리내역 들어가는곳--></ol>
+            </div>
+                        </div>
+                </div>
+    </form>
+        <div class="bottom_btns">
+            <div class="align">
+                                <div class="TipBox">
+                    <button type="button" class="BtnType SizeS btn_check_row" id="set_list_hide_btn">지원내역 숨기기</button>
+                    <button type="button" class="BtnType SizeS btn_check_row" style="display: none;" id="list_hide_btn">선택한 내역 숨기기</button>
+                    <div class="TipCont TopLeft">
+                        <span class="Tail"></span>
+                        <div class="TipTxt">
+                            <dl class="del_apply_row">
+                                <dt>잠깐! 내역 숨기기는 [지원취소]와 다른기능입니다.</dt>
+                                <dd>
+                                    내역을 숨기면 <b>[지원취소]</b>를 할 수 없으며<br>
+                                    취소하지 않은 상태에서는 해당 공고에 재지원이 <b>불가능</b>합니다.<br>
+                                    숨기기 전 반드시 지원취소를 해주세요.<br><br>
+                                    내역을 숨기시려면 리스트에서 선택한 후 다시 버튼을 눌러주세요.
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                                <button type="button" class="BtnType SizeS cancel" style="display: none;" id="set_list_cancel_btn">취소</button>
+            </div>
+            <div class="align">
+                
+                
+            </div>
+        </div>
+
+            <div class="PageBox">
+                        <span class="BtnType SizeS">1</span>
+                    </div>
+    
+    </div>
+        
+
+
+    <!--첨부파일 다운로드 레이어-->
+    <div id="applyFileListLayer" class="layer_pop_manage layer_attach"></div>
+
+    <!-- 사전 인터뷰 레이어 -->
+    <div class="layer_pop_manage layer_interview" id="layer_interview" style="display:none;top:185px"></div>
+
+    <!-- 면접 관련 레이어(new) -->
+    <div id="interview_layer"></div>
+
+</div>
+
+
+
+<!-- 결과발표 레이어 -->
+<div id="layer_template" style="display:none;">
+    <div class="layer_template_announce show">
+        <h4 class="title">결과 발표 안내드립니다.</h4>
+        <h5 class="company_name">
+            <a href="/zf_user/company-info/view?csn=" target="_blank">기업명</a>
+        </h5>
+        <h6 class="res_title">
+            <a href="/zf_user/jobs/relay/view?view_type=apply_status&amp;rec_idx=" target="_blank">공고명</a>
+        </h6>
+        <dl class="wrap_res_division" style="display: none;">
+            <dt class="res_division">지원분야</dt>
+            <dd class="res_team"></dd>
+        </dl>
+        <div class="wrap_bi" style="display: none;"><div class="thumb_bi"><div class="inner_bi"></div></div>
+        </div>
+        <div class="wrap_textarea">
+            <div class="message"></div>
+        </div>
+        <button type="button" class="btn_confirm _result_btn_close">확인</button>
+        <button type="button" class="btn_layer_close _result_btn_close"><span class="blind">닫기</span></button>
+    </div>
+</div>
+
+<!--취소 레이어-->
+<div class="cancel_layerWrap " id="cancel_layerWrap">
+    <div class="pop_header">
+        <h1>
+            <span id="cancel_company_nm">$(주)사람인$</span> <em>지원 취소</em>
+        </h1>
+        <button type="button" class="btn_close" id="cancel_layer_btn_close"></button>
+    </div>
+    <div class="pop_contents">
+        <div class="popinner">
+            <p class="infotxt">지원 취소 시 아래 <em>주의사항</em>을 반드시 확인하신 후, 신중하게 이용해주세요.</p>
+            <div class="notice_box">
+                <ul>
+                    <li>
+                        기업에게 지원 알림메일은 이미 발송되었습니다. <br><strong>지원을 취소하더라도</strong>, <strong><em>메일발송은 취소되지 않습니다.</em></strong>
+                        <label class="sri_check" for="cancel_checkbox_1">
+                            <input type="checkbox" id="cancel_checkbox_1" class="inp_check _cancel_checkbox" name="checktest" value="on">
+                            <span class="txt_check">확인</span>
+                        </label>
+                    </li>
+                    <li>
+                        지원취소가 완료된 이력서는 더 이상 기업에서 <em>열람할 수 없습니다.</em> <br>(지원 알림메일 내 링크를 통해서도 열람 불가)
+                        <label class="sri_check" for="cancel_checkbox_2">
+                            <input type="checkbox" id="cancel_checkbox_2" class="inp_check _cancel_checkbox" name="checktest" value="on">
+                            <span class="txt_check">확인</span>
+                        </label>
+                    </li>
+                    <li>
+                        지원취소한 내역은 <em>구직활동 확인서 내역에서도 제외됩니다.</em>
+                        <label class="sri_check" for="cancel_checkbox_3">
+                            <input type="checkbox" id="cancel_checkbox_3" class="inp_check _cancel_checkbox" name="checktest" value="on">
+                            <span class="txt_check">확인</span>
+                        </label>
+                    </li>
+                    <li>
+                        기업이 이미 이력서를 열람한 경우, <em>면접제의 등의 연락을 받을 수도 있습니다.</em>
+                        <label class="sri_check" for="cancel_checkbox_4">
+                            <input type="checkbox" id="cancel_checkbox_4" class="inp_check _cancel_checkbox" name="checktest" value="on">
+                            <span class="txt_check">확인</span>
+                        </label>
+                    </li>
+                    <li>
+                        지원부문이 마감된 경우, <em>지원취소 후 재지원이 불가합니다.</em> <br>지원부문 마감 여부를 확인 후 지원취소 바랍니다.
+                        <label class="sri_check" for="cancel_checkbox_5">
+                            <input type="checkbox" id="cancel_checkbox_5" class="inp_check _cancel_checkbox" name="checktest" value="on">
+                            <span class="txt_check">확인</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="btnWrap">
+            <button type="button" class="btn_cancel" id="btn_cancel"><span>취소하기</span></button>
+        </div>
+    </div>
+</div>
+
+<div class="ModalBox profile_list" id="profile_update_layer" style="display:none">
+    <input type="hidden" name="targetProfileRecruitApplyIdx" value="" id="targetProfileRecruitApplyIdx">    <input type="hidden" name="targetProfileRecruitTitle" value="" id="targetProfileRecruitTitle">    <input type="hidden" name="totalResumeCnt" value="0" id="totalResumeCnt">    <h4 class="Tit">이미 이력서가 있나요?
+        <p class="Txt">작성한 이력서가 있다면 선택해 주세요.</p>
+    </h4>
+    <div class="ModalCont ScrollBar">
+        <ul class="resume_list profile_update_target_resume_list">
+        </ul>
+    </div>
+    <div class="BtmArea">
+        <button type="button" class="BtnType SizeM btn_close create_resume">새 이력서 작성</button>
+        <button type="button" class="BtnType SizeM btn_save resume_select_done">선택 완료</button>
+    </div>
+    <button type="button" class="BtnClose" id="profile_update_layer_close"><span class="blind">닫기</span></button>
+</div>
+
+<div class="ModalBox update_resume" id="update_profile_resume_confirm_layer" style="display: none;">
+    <h4 class="Tit TxtCenter">
+        이력서를 최종 제출할까요?
+        <p class="Txt"></p>
+    </h4>
+    <div class="ModalCont">
+        <ul class="resume_submit_notice">
+            <li>제출 후에는 <span>수정이 불가</span>합니다.</li>
+            <li>제출 서류는 90일간 지원기업에게 제공됩니다.</li>
+            <li>제출에 동의할 경우에만 '최종 제출할게요' 버튼을 클릭해 주세요.</li>
+            <li>동의하지 않을 경우, 제출이 불가합니다.</li>
+            <li>제출 후에는, 프로필 입사지원은 지원취소 처리 및 전형이 초기화되며 <span>추가 제출한 서류로 입사지원되어 새롭게 전형이 시작</span>됩니다.</li>
+        </ul>
+    </div>
+    <div class="BtmArea">
+        <button type="button" class="BtnType SizeM btn_close profile_update_close">다음에 할게요</button>
+        <button type="button" class="BtnType SizeM btn_save profile_update_save">최종 제출할게요</button>
+    </div>
+</div>
+
+<div class="ModalBox resume_loading" id="update_profile_resume_loading_layer" style="display:none">
+    <p>입사지원서 제출 중입니다</p>
+    <span>잠시만 기다려주세요</span>
+</div>
+
+
+<script>
+    var applyStatus = [{"recruitapply_idx":"352730578","recruittitle":"[\uc5f0\ubd09 \ucd5c\uace0 \ub300\uc6b0] 2023 \ud558\ubc18\uae30 \uacf5\uac1c\ucc44\uc6a9","company_nm":"\uc2a4\ud0c0\ub2e5","reg_dt":"2023-11-10 16:50:53","pass_fl":"n","company_del_fl":null,"rec_idx":"46884331","rec_type_cd":"rtc001","is_ai_head_hunting":"n","invisible_fl":"n","grab_source_cd":"","opening_dt":"2023-11-06 00:00:00","closing_dt":"2023-12-06 23:59:59","career_cd":"3","apply_cnt":"74","read_cnt":"4596","mandb_mcom_idx":"7774320","comment_open_fl":"n","recruit_status":"0","recruit_edit_dt":"2023-11-10 10:18:26","apply_dept":"\ub9c8\ucf00\ud130","introduce_length":"0","status":"cancel","mem_idx":"1","mcom_idx":"7646386","com_idx":"49774","modify_fl":"n","logo_src":null,"res_idx":"25762195","rec_division":"\ub9c8\ucf00\ud130","read_dt_for_user":null,"resume_html_src":"posting\/202311\/10\/s3wdst_10052413_resume_recruitapply.html","announced_dt":null,"announced_way":null,"announced_way_text":null,"cancel_dt":null,"res_type":"saramin","res_apply_idx":null,"profile_update_request_dt":null,"target_res_apply_idx":null,"csn":"3081351102","apply_cancel_dt":"2023-11-10 16:58:36","layer_check_status":null,"file":null,"portfolio":null,"answer":null,"question":null,"reason_contents":null,"jumpit_rec_idx":null,"rec_view_invisible_fl":null,"duplicateApplyCount":"0","apply_status":"cancel","tcode_count":"1","pass_data_fl":"n","celebration_amount_send_fl":"n","celebration_amount_request_fl":"n","pass_status":"hprc001","edit_ts":"2023-11-10 16:58:36","listInfo":{"isCancel":true,"boldText":"\uc9c0\uc6d0\ucde8\uc18c\uc644\ub8cc","subText":"2023.11.10 16:58","button1":"","button2":""},"fileList":"<button type='button' class='data _file_down_resume' data-recruitapply_idx='352730578' onmousedown=\"try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'resume'});}catch(e){}\">\uc774\ub825\uc11c<\/button>"},{"recruitapply_idx":"351572668","recruittitle":"\uc790\uc0ac \uc194\ub8e8\uc158 \uae30\ubc18 \ud504\ub85c\uc81d\ud2b8 \uc218\ud589 \uac1c\ubc1c\uc790 \ub300\uaddc\ubaa8 \ucc44\uc6a9","company_nm":"(\uc8fc)\uc54c\uc5e0\uc18c\ud504\ud2b8","reg_dt":"2023-10-31 03:30:19","pass_fl":"n","company_del_fl":null,"rec_idx":"46617655","rec_type_cd":"rtc001","is_ai_head_hunting":"n","invisible_fl":"n","grab_source_cd":"","opening_dt":"2023-10-31 00:00:00","closing_dt":"2023-11-03 17:32:51","career_cd":"3","apply_cnt":"122","read_cnt":"1971","mandb_mcom_idx":"0","comment_open_fl":"n","recruit_status":"0","recruit_edit_dt":"2023-11-03 17:32:51","apply_dept":"","introduce_length":"3639","status":"cancel","mem_idx":"1","mcom_idx":"8041675","com_idx":"70993","modify_fl":"n","logo_src":null,"res_idx":"21028774","rec_division":"","read_dt_for_user":null,"resume_html_src":"posting\/202310\/31\/s3cu2j_10052413_resume_recruitapply.html","announced_dt":null,"announced_way":null,"announced_way_text":null,"cancel_dt":null,"res_type":"saramin","res_apply_idx":null,"profile_update_request_dt":null,"target_res_apply_idx":null,"csn":"1088199034","apply_cancel_dt":"2023-10-31 03:30:43","layer_check_status":null,"file":null,"portfolio":null,"answer":null,"question":null,"reason_contents":null,"jumpit_rec_idx":"46617655","rec_view_invisible_fl":null,"duplicateApplyCount":"0","apply_status":"cancel","tcode_count":"1","pass_data_fl":"n","celebration_amount_send_fl":"n","celebration_amount_request_fl":"n","pass_status":null,"edit_ts":"2023-10-31 03:30:43","listInfo":{"isCancel":true,"boldText":"\uc9c0\uc6d0\ucde8\uc18c\uc644\ub8cc","subText":"2023.10.31 03:30","button1":"","button2":""},"fileList":"<button type='button' class='data _file_down_resume' data-recruitapply_idx='351572668' onmousedown=\"try{dataLayer.push({'event': 'ga_lead','category': 'pc_my_apply','event-flow': 'apply','event-label': 'resume_introduce'});}catch(e){}\">\uc774\ub825\uc11c(\uc790\uae30\uc18c\uac1c\uc11c)<\/button>"}];
+</script>
+
+<div class="ModalBox employment_money_apply" id="celebrationAmountModal" style="display:none">
+    <h4 class="Tit">
+        취업 축하금 신청
+        <p class="Txt">최종 입사 후 3개월 초과 근무하신 분들께 취업 축하금을 드립니다!</p>
+    </h4>
+    <div class="money_apply_form ScrollBar">
+        <div class="top_desc">
+            <ul>
+                <li>본 채용에 최종 합격하신 경우, 축하금 신청을 진행해 주세요.</li>
+                <li>취업 축하금: 50만원 (기타소득세 공제 후 지급)</li>
+                <li>웰컴키트는 합격하신 회사 주소지로만 발송 가능합니다.</li>
+            </ul>
+        </div>
+        <form id="money_apply">
+        <div class="money_apply_list">
+            <ul>
+                <input type="hidden" id="res_idx" name="res_idx">
+                <input type="hidden" id="rec_idx" name="rec_idx">
+                <input type="hidden" id="recruitapply_idx" name="recruitapply_idx">
+                <li>
+                    <div class="label_filed">이름<span class="necessary">필수</span></div>
+                    <div class="input_filed">
+                        <div class="output_txt" id="user_nm">박주연</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="label_filed">기업명<span class="necessary">필수</span></div>
+                    <div class="input_filed">
+                        <div class="output_txt" id="company_nm"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="label_filed">입사일<span class="necessary">필수</span></div>
+                    <div class="input_filed TypoBox">
+                        <input type="text" id="join_dt" name="join_dt" class="Typo DatePic  hasDatepicker" style="width:159px" autocomplete="off" readonly="" size="10"><button type="button" class="ui-datepicker-trigger"></button>
+                        <em class="msgInvalid" style="display: none;">입사일을 선택해주세요</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="label_filed">포지션명<span class="necessary">필수</span></div>
+                    <div class="input_filed TypoBox">
+                        <input type="text" id="position_nm" name="position_nm" class="Typo SizeL" placeholder="포지션명을 입력해주세요" style="width:100%">
+                        <em class="msgInvalid" style="display: none;">포지션명을 입력해주세요</em>
+                    </div>
+                </li>
+                <li>
+                    <div class="label_filed p0">연봉계약서<br>작성 여부 확인<span class="necessary">필수</span></div>
+                    <div class="input_filed">
+                        <div class="InpBox">
+                               <span class="Rdo">
+                                    <input type="radio" id="contract_y" name="salary_contract_confirm_fl" value="y" checked="">
+                                    <label class="Lbl" for="contract_y">연봉계약서를 작성했습니다.</label>
+                                </span>
+                        </div>
+                        <div class="InpBox">
+                               <span class="Rdo">
+                                    <input type="radio" id="contract_n" name="salary_contract_confirm_fl" value="n">
+                                    <label class="Lbl" for="contract_n">아직 작성하지 못했습니다.</label>
+                                </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="money_agree">
+            <div class="money_agree_check">
+                <div class="InpBox">
+                      <span class="Chk">
+                        <input type="checkbox" id="check_agree">
+                        <label class="Lbl" for="check_agree">개인 정보 수집에 동의합니다</label>
+                        <em class="msgInvalid" style="display: none;">개인 정보 수집 및 이용에 동의해 주세요.</em>
+                    </span>
+                </div>
+            </div>
+            <button class="money_agree_more">더보기</button>
+            <ul class="money_agree_list">
+                <li>
+                    <span class="list_tit">1. 개인정보 수집 항목 및 이용목적</span>
+                    <div class="list_desc">
+                        <dl>
+                            <dt>가. 수집항목</dt>
+                            <dd>(필수) 이름, 아이디, 이메일, 회사명, 포지션명, 입사일, 연봉계약서 수령 여부</dd>
+                            <dt>나. 이용목적</dt>
+                            <dd>취업 축하금 공고 지원에 따른 취업사실 확인 및  취업 축하금 제공</dd>
+                        </dl>
+                    </div>
+                </li>
+                <li>
+                    <span class="list_tit">2. 개인정보 보유 및 이용기간</span>
+                    <div class="list_desc">
+                        신청일로부터 1년 간 보관됩니다.
+                    </div>
+                </li>
+                <li>
+                    ※ 개인정보 수집에 대한 동의를 거부할 권리가 있으며, 동의를 거부할 경우 취업 축하금 전달이 어려울 수 있습니다.
+                </li>
+            </ul>
+        </div>
+        <div class="money_agree">
+            <div class="money_agree_check">
+                <div class="InpBox">
+                     <span class="Chk">
+                        <input type="checkbox" id="check_apply">
+                        <label class="Lbl" for="check_apply">해당 공고에 최종 합격되어 취업축하금을 신청합니다</label>
+                        <em class="msgInvalid" style="display: none;">취업축하금은 최종 합격 이후 신청 가능합니다.</em>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="money_bottom_notice">
+            취업 축하금은 입사일로부터 3개월 경과 후 지급에 필요한 절차가 진행됩니다. 위의 정보를 입력하면 취업 축하금 지급 기준에 따라 입사 후 3개월 초과되는 시점에 지급 안내를 드리겠습니다.
+            기타 문의 사항은 <span id="money_bottom_notice_email">hunting_b2b@saramin.co.kr</span> 로 연락 바랍니다.
+        </div>
+        <div class="BtmArea">
+            <button type="button" class="BtnType SizeL btnSubmit">제출하기</button>
+        </div>
+        <button type="button" class="btnClose BtnClose"><span class="blind">닫기</span></button>
+    </div>
+</div>
+
+<div class="ModalBox employment_money_done" id="employment_money" style="display:none">
+    <h4 class="Tit">
+        취업 축하금 신청
+        <p class="Txt">입력하신 정보로 취업축하금 지급을 신청하시겠습니까?</p>
+    </h4>
+    <div class="BtmArea">
+        <button type="button" class="BtnType SizeM btnCancel">취소</button>
+        <button type="button" class="BtnType SizeM btnConfirm">확인</button>
+    </div>
+    <button type="button" class="BtnClose"><span class="blind">닫기</span></button>
+</div>
+
+<div class="ModalBox employment_money_done" id="employment_money_done" style="display:none">
+    <h4 class="Tit">
+        취업 축하금 신청 완료
+        <p class="Txt">지급 신청을 완료하였습니다</p>
+    </h4>
+    <div class="BtmArea">
+        <button type="button" class="BtnType SizeM btnConfirm">확인</button>
+    </div>
+    <button type="button" class="btnClose BtnClose"><span class="blind">닫기</span></button>
+</div>
+
+        </div>
+    </div>          
+    </div>
+    </div>
+    </div>

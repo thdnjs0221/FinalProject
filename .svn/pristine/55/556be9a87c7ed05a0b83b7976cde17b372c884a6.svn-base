@@ -1,0 +1,214 @@
+@charset "UTF-8";
+/* 포인트 - 화면 가운데로 모아주기 */
+.pointCharge {
+    margin: 0 auto;
+    width: 1400px;
+    padding: 50px;
+}
+
+.pointCharge .AmountShortcut_article__LIBKS{
+	margin-bottom: 100px;
+}
+
+.pointCharge .AmountShortcut_article__LIBKS{
+	margin-top: 30px;
+}
+
+label#paymentcheck {
+    margin-left: 20px;
+}
+
+.pointCharge .Target_ellipsis__TQ_8f {
+	color:black;
+}
+
+.pointCharge .Target_article__Xhj_7_paymentMethod {
+    margin-bottom: 25px;
+}
+
+.pointCharge .Target_name__8LHwW_payment {
+	color: black;
+}
+
+.pointCharge .bankSelect {
+    display: flex;
+    flex-direction: column;
+}
+
+.pointCharge .payment_radio {
+	margin-bottom: 10px;
+}
+
+/* 이용권 - 화면 가운데로 모아주기 */
+.periodTicket section{
+	margin: 0 auto;
+    width: 1400px;
+    padding: 50px;
+}
+
+.periodTicket_accordion{
+	margin: 0 auto;
+    width: 1400px;
+    padding: 30px;
+}
+
+.periodTicket .page-top-head__title {
+	font-size: 22px;
+	margin-top: 50px;
+}
+
+.periodTicket .talentpool-product {
+	grid-template-columns: repeat(4,1fr);
+}
+
+.periodTicket .page-top-head {
+	margin-bottom: 85px;
+}
+
+.periodTicket .talentpool-product-card {
+	background-size:100% 100%;
+}
+
+.periodTicket .talentpool-product-card__info-value, .periodTicket .talentpool-product-card__price-real{
+	font-size: 30px;
+}
+
+.periodTicket .talentpool-product-card__link{
+	font-size: 40px;
+}
+
+.periodTicket .talentpool-product-card__tit {
+    margin-top: 35px;
+}
+
+.periodTicket .talentpool-product-card__price-real_red, .periodTicket .talentpool-product-card__price-real_red_bold{
+	color: red;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.periodTicket .talentpool-product-card__info-row{
+	margin-bottom: 25px;
+}
+
+.periodTicket .modal-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
+
+strong.talentpool-product-card__info-value {
+    font-size: 36px;
+    margin: 23px;
+}
+
+.payCheck {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 35px;
+}
+
+.PeriodTicketPayment-footer a#memDltBtn {
+    background-color: lightgray;
+}
+
+.PeriodTicketPayment-body strong#infoPage01, .PeriodTicketPayment-body strong#infoPage02{
+	font-size: 33px;
+}
+
+/* 이미지광고 - 화면 가운데로 모아주기 */
+.imgAdvrtWrap .prod-content{
+	width: 1250px;
+}
+
+.imgAdvrtWrap .page-top-head__title {
+	font-size: 22px;
+}
+
+.imgAdvrtWrap section {
+	margin: 0 auto;
+    width: 1400px;
+    padding: 50px;
+}
+
+.imgAdvrtWrap .srch-ad__detail__price__option .datepicker {
+   z-index: 0;
+}
+
+.imgAdvrtWrap .page-top-head{
+   margin-bottom: 85px;
+}
+
+.imgAdvrtWrap .srch-ad__detail:not(:has(.srch-ad__detail__badge)) .srch-ad__detail__desc {
+    margin-top: 21px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.imgAdvrtWrap .imgAdvrt_Price{
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+    
+.imgAdvrtWrap .prod-content {
+	gap: 52px;	
+}
+
+.imgAdvrtWrap .prod-content .prod-preview__tab {
+    margin-bottom: 50px;
+}
+
+.imgAdvrtWrap .tab__btn{
+	height: 55px;
+}
+
+ .imgAdvrtWrap .product-renewal-tooltip .imgAdvrt_period_red {
+    color: red;
+    margin-left: 20px
+}
+
+.imgAdvrtWrap .prod-content .prod-preview__container--medium {
+    height: 576px;
+}
+
+
+/* 리스트업 광고 - 화면 가운데로 모아주기 */
+.listUpAdvrt section {
+	margin: 0 auto;
+    width: 1400px;
+    padding: 50px;
+}
+
+.listUpAdvrt .page-top-head__title {
+	font-size: 22px;
+}
+
+.listUpAdvrt .listupAd-list {
+	margin-top: 100px;
+}
+
+.listUpAdvrt .page-area-srch-product .boxinfo-link {
+    margin: 66px auto 66px;
+}
+
+.listUpAdvrt .product-renewal-tooltip .imgAdvrt_period_red {
+    color: red;
+    margin-left: 20px
+}
+
+.listUpAdvrt .srch-product__detail:not(:has(.srch-product__detail__badge)) .srch-product__detail__desc {
+	font-weight: bold;
+    margin-top: 38px;
+}
+
+.listUpAdvrt .srch-product__detail:not(:has(.srch-product__detail__badge)) .srch-product__detail__desc {
+    margin-bottom: 24px;
+}
+
+.listUpAdvrt .purchase__price--primary>strong{
+	color: red;
+    margin-bottom: 10px;
+}
+

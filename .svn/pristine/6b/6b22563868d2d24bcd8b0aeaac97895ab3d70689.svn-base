@@ -1,0 +1,27 @@
+package kr.or.ddit.common.service;
+
+import java.util.List;
+
+import kr.or.ddit.company.vo.RecruitVO;
+
+public interface CompanyMainService {
+	/**
+	 * 진행중 채용공고 개수 조회
+	 */
+	public int retrieveClosedRecruitProcedureCount();
+	
+	/**
+	 * 마감된 채용공고 개수 조회
+	 */
+	public int retrieveUnclosedRecruitProcedureCount();
+
+	/**
+	 * 진행중 채용공고 제목 조회
+	 */
+	public List<RecruitVO> retrieveClosedRecruitProcedureList();
+
+	/**
+	 * 마감된 채용공고 제목 조회
+	 */
+	public List<RecruitVO> retrieveUnclosedRecruitProcedureList();
+}

@@ -1,0 +1,11 @@
+package kr.or.ddit.company.service;
+
+
+import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.company.vo.RProcedureVO;
+
+public interface RProcedureService {
+	
+	public ServiceResult createProcedure(RProcedureVO vo);
+
+}

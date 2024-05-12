@@ -1,0 +1,11 @@
+package kr.or.ddit.company.service;
+
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.vo.InterviewReviewVO;
+
+public interface ComInfoReviewService {
+
+	public void retrieveIntrReviewList(PaginationInfo<InterviewReviewVO> paging);
+	
+	public InterviewReviewVO retrieveIntrReviewDetail(String intrevNo);
+}

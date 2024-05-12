@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/kjh/PeriodTicket.js"/>
+<script src="${cpath}/resources/js/jquery-3.7.1.min.js"></script>
+
+
+<div class="periodTicket">
+    <section class="page-talent-pool-product">
+        <div class="page-top-head">
+            <h4 class="page-top-head__title">나에게 맞는 기간제 이용권을 선택해 보세요.</h4>
+            <p class="page-top-head__desc">더 많은 기업 후기에 대해 알아볼 수 있는 기회!</p>
+        </div>
+        <div class="talentpool-product" role="region" aria-label="인재풀 상품 안내" id="ticketBody">
+       
+        </div>
+        </div>
+    </section>
+</div>
+
+ <div id="tModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+	
+			
+				
+				<div class="PeriodTicketPayment-body">
+				<div class="modal-body modalBody">
+					<div class="payCheck">
+				    <strong class="talentpool-product-card__info-value" id="infoPage01"></strong>
+				    <strong class="talentpool-product-card__info-value" id="infoPage02"></strong>
+					</div>
+				</div>
+				</div>
+		
+				
+				<div class="PeriodTicketPayment-footer">
+				<div class="modal-footer">
+				
+					<a href="#" id="memDltBtn" class="btn btn-light btn-icon-split" data-bs-dismiss="modal">
+						<span class="text">취소</span>
+					</a> <a href="#" id="memBuyBtn" class="btn btn-danger btn-icon-split" onclick="memBuyBtn_onclick()">
+                         <span class="text">구매</span>
+                     </a>
+				</div>
+				</div>
+					
+        </div>
+    </div>
+</div>
+<!--결제 상세 Modal 끝 -->
+
+                                

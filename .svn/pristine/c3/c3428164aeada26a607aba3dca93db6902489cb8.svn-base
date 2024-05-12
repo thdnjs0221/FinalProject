@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+/* 기업 메인 */
+.indexCmny .boxArea {
+	float: right;
+    padding-right: 30px;
+}
+
+.indexCmny .position .progress {
+	background-color: #19ae90 !important;
+}
+
+.indexCmny .section_status .position {
+	height: 373px;
+    overflow: hidden;
+}
+
+.indexCmny .no_data {
+	height: 66% !important;
+}
+
+.indexCmny .endCout {
+	margin-top: 20px;
+}
+
+/* 관리자 */
+
+.leftMenuWrap {
+	margin:0;
+	padding:0;
+	width: auto !important;
+	background: #0875d2;
+}
+
+.leftMenuWrap .bg-gradient-primary {
+	background-color: #1179d3 !important;
+    background-image: linear-gradient(180deg,#0c77d2 10%,#0774d2 100%) !important;
+}
+
+.mainStyle {
+	padding: 0;
+    width: 88%;
+/*     height: 100vh; */
+/*     overflow: hidden; */
+    background: #f5fbff;
+}
+
+.adminMain {
+	padding:0; 
+	width:88%; 
+	background-color: #f5faff;	
+}
+
+.card .card-header {
+    background-color: #e2f2ff;
+    border-top: .25rem solid #4e73df!important;
+}
+
+.textAlignCenter {
+	text-align: center;
+}
+
+.inputStyle {
+	border: 1px solid #ddd !important;
+    background: #fff !important;
+}
+
+.searchArea .search_right {
+	display: flex;
+}
+
+.searchArea .inpSel {
+	margin-right: 10px;
+}
+
+.searchArea .inpSel select{
+	line-height: 1;
+	padding: 5px 6px 6px 4px;
+}
+
+.modalBody .table th, .intvwTbl .table th {
+    width: 30%;
+}
+
+.tblTopBtn {
+	width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 10px 0;
+}
+
+.bsnlImg {
+	max-width: 460px;
+    max-height: 670px;
+}
+
+.slangTxt {
+	padding: 5px;
+    width: 70px;
+    border-radius: 7px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.slangTxt i {
+	color: #fff;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 3px 5px;
+    font-size: 10px;
+    background: black;
+    position: absolute;
+    top: -6px;
+    right: -4px;
+}
+
+.tfPaging .pagination {
+	display: flex;
+	justify-content: center;
+}
+
+.searchTypeCont {
+	display: flex;
+}
+
+.inptStyle {
+	border: 1px solid #d1d3e2;
+    width: 100%;
+    border-radius: 4px;
+}

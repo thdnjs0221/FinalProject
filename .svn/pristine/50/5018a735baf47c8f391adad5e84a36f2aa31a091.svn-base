@@ -1,0 +1,68 @@
+package kr.or.ddit.users.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.binding.MapperMethod.ParamMap;
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.company.vo.AProcedureVO;
+import kr.or.ddit.company.vo.ApplyVO;
+import kr.or.ddit.company.vo.RProcedureVO;
+import kr.or.ddit.users.dao.RcrtApplyDAO;
+
+@Service
+public class RcrtApplyServiceImpl implements RcrtApplyService {
+	
+	@Inject
+	private RcrtApplyDAO dao;
+
+	@Override
+	public List<RProcedureVO> retrieveRecruitProcedure(String rcrtNo) {
+		
+		return dao.selectRecruitProcedure(rcrtNo);
+	}
+
+	@Override
+	public RProcedureVO retrieveCurrentProcedureInfo(Map<String, Object> paramMap) {
+		
+		return dao.selectCurrentProcedureInfo(paramMap);
+	}
+
+	@Override
+	public List<ApplyVO> retrieveApplicant(Map<String, Object> paramMap) {
+		
+		RProcedureVO currProcedureInfo = retrieveCurrentProcedureInfo(paramMap);
+		
+		String comCodeNm = currProcedureInfo.getRprocTypeno();
+		
+		List<ApplyVO> dataList = null;
+		
+		switch (comCodeNm) {
+		case "RE01":
+				dataList = dao.selectResumeApplicant(paramMap);
+			break;
+		case "RE02": case "RE03":
+			dataList = dao.selectTestApplicant(paramMap);
+		break;
+		default:
+				dataList = dao.selectInterviewApplicant(paramMap);
+			break;
+		}
+		System.out.println(dataList);
+		return dataList;
+	}
+
+	
+
+	
+
+	
+
+	
+
+
+}

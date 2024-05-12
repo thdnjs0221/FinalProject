@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.FrBoardDAO">
+	<update id="incrementHit" parameterType="String">
+		UPDATE FRBOARD
+		SET
+		FRB_LNO = FRB_LNO + 1
+		WHERE FRB_NO = #{frbNo}
+	</update>
+	<sql id="searchFrag">
+			<trim prefix="where" prefixOverrides="AND">
+				<if
+					test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+					<choose>
+						<when test="simpleCondition.searchType eq 'title'">
+							AND INSTR(FRB_TITLE, #{simpleCondition.searchWord}) > 0
+						</when>
+						<when test="simpleCondition.searchType eq 'content'">
+							AND INSTR(FRB_WRITE, #{simpleCondition.searchWord}) > 0
+						</when>
+						<otherwise>
+							INSTR(FRB_TITLE, #{simpleCondition.searchWord}) > 0
+							OR
+							INSTR(FRB_WRITE, #{simpleCondition.searchWord}) > 0
+						</otherwise>
+					</choose>
+				</if>
+			</trim>
+		</sql>
+		<select id="selectTotalRecord" parameterType="PaginationInfo"
+			resultType="int">
+			SELECT COUNT(*)
+				FROM FRBOARD
+				<include refid="searchFrag" />
+		</select>
+		<select id="selectFrBoardList" parameterType="PaginationInfo"
+			resultType="FrBoardVO">
+			WITH ORDEREDBRD AS (
+			SELECT A.*, ROWNUM RNUM
+			FROM (
+			SELECT
+			FRB_NO
+			, USERS_ID
+			, FRB_TITLE
+			, FRB_WRITE
+			, TO_CHAR(FRB_DATE, 'YYYY.MM.DD HH24:MI') FRB_DATE
+			, FRB_LNO
+			, FRB_REP
+			FROM FRBOARD
+			<include refid="searchFrag" />
+			ORDER BY FRB_DATE DESC
+			)A
+			)
+			SELECT *
+			FROM ORDEREDBRD
+			<![CDATA[
+				WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} 
+			]]>
+		</select>
+		
+	<!-- 
+	자유게시판 등록
+	public int createPost(FrBoardVO frBoardVO)
+	//FrBoardVO(rnum=0, frbNo=null, usersId=ha001, frbTitle=제목22, frbWrite=ㅁㄴㄹㅇ, frbDate=null, 
+	//frbLno=null, frbRep=null, uploadFile=[org.springframework.web.multipart.support.StandardMultipartHttpS...]
+	//, comment=null, frBoardAttatchVOList=null)
+	 -->
+	 <insert id="createPost" parameterType="FrBoardVO">
+	 	<selectKey resultType="String" order="BEFORE" keyProperty="frbNo">
+	 		SELECT 'FRB' || TRIM(TO_CHAR(SUBSTR(MAX(FRB_NO),4)+1,'0000')) FROM FRBOARD
+	 	</selectKey>
+	 	INSERT INTO FRBOARD(FRB_NO, USERS_ID, FRB_TITLE, FRB_WRITE, FRB_DATE)
+		VALUES(#{frbNo}, #{usersId}, #{frbTitle}, #{frbWrite}, SYSDATE)
+	 </insert>
+</mapper>
+
+
+
+

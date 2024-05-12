@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.TicketMnmtDAO">
+
+	<select id="selectTicketList" resultType="TicketMnmtVO">
+		SELECT 
+			ticket_no, 
+			ticket_name, 
+			ticket_period, 
+			ticket_price, 
+			ticket_image,
+			ticket_content
+		FROM ticketmnmt
+				order by ticket_period asc
+		
+	</select>
+	
+	<select id="selectTicketDetail" parameterType="String" resultType="TicketMnmtVO">
+		SELECT 
+			ticket_no, 
+			ticket_name, 
+			ticket_period, 
+			ticket_price, 
+			ticket_image,
+			ticket_content
+		FROM ticketmnmt
+		WHERE ticket_no = #{ticketNo}
+	</select>
+	
+	<select id="selectCouponDetail" parameterType="String" resultType="CouponVO">
+		SELECT
+		    c.cpn_no,
+		    c.users_id,
+		    c.clist_isn_date,
+		    c.clist_use_date,
+		    p.cpn_no,
+		    p.cpn_name,
+		    p.cpn_content,
+		    p.cpn_img,
+		    p.cpn_price,
+		    p.rgst_date,
+		    p.start_date,
+		    p.end_date
+		FROM
+		    couponlist c
+		    JOIN coupon p ON c.cpn_no = p.cpn_no
+		WHERE 
+		    c.users_id = #{authId}
+		    AND c.clist_use_date IS NULL
+		    AND p.end_date >= SYSDATE
+	</select>
+	
+	<select id="selectUserPass" parameterType="String" resultType="MemberVO">
+		SELECT
+	    	mem_pass
+		FROM
+	    	member
+		WHERE mem_id = #{memId}
+	</select>
+</mapper>

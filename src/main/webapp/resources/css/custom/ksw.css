@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+.login_input_wrap .tab_member_type li .idfind {
+	    margin: 0 auto;
+	    width: 120px;
+}
+
+button.btn_tab.t_per.active.idfind.pwfind{
+	    margin: 0 auto;
+	    width: 150px;
+}
+
+.recruit_hot_header .hot100{
+    margin: 500px;
+}
+
+
+
+.mt100 {
+	margin-top: 100px;
+}
+
+/* top100 */
+.hot100 .list_recruiting.list_hot_type {
+	margin-top: 150px;
+}
+
+.hot100h2{
+	margin-left: 60px; display : inline-block;
+	color: #222;
+	font-size: 32px;
+	font-weight: bold;
+	letter-spacing: -2.5px;
+	line-height: 1;
+	display: inline-block;
+	}
+	
+/* 기업회원가입 */
+
+.area_corp_certification.companyFile {
+	    margin-top: 30px;
+}
+
+
+/* jobs-views css */
+.recruitDetailWrap  {
+    min-width: 1260px;
+    padding-top: 56px;
+}
+
+
+.recruitDetailWrap #sri_header.simple ~ #sri_section {
+    margin-top: 0
+}
+
+.recruitDetailWrap #content {
+    margin: 0;
+    padding: 39px 0 40px;
+    width: 100%;
+    min-height: 2000px;
+    background: #f1f3f9
+}
+
+/* 채용공고 폼 전송버튼 */
+
+.BtnType.SizeML.btn_entry_complete.btn_next_step.ga_data_layer.recruitFormBtn{
+	    width: 300px;
+	
+}
+/* 채용공고 상세페이지 지원 이력서 */
+.resumeswcontainer {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.swh1, .swh2 {
+    color: #3498db;
+}
+
+.swsection, .swsection2 {
+    margin-top: 20px;
+}
+
+.point-swtext {
+    margin-bottom: 15px;
+    color:  black;
+}
+
+ul.point-swtext {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.swcompany-info, .basic-info {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.swcompany-info h3, .basic-info h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.swsection h2 {
+    color: #3498db;
+    font-size: 28px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.swhighlight {
+    font-weight: bold;
+    color: #333;
+}
+
+.infoText {
+    word-spacing: 8px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.recruitDetailWrap button {
+    border: 2px solid #3498db;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.recruitDetailWrap button:hover {
+    background-color: #fff;
+    color: #3498db;
+}
+
+.swContent {
+    width: 150%;
+    color: #333;
+}
+
+/* 이미지 스타일 */
+.swImg {
+    border-radius: 10px; /* 둥근 네모로 변경 */
+    border: 2px solid #ddd; /* 연한 회색 테두리 */
+    max-width: 150px; /* 최대 너비 지정 */
+    width: 100%; /* 부모 요소에 맞추기 위해 100%로 설정 */
+    height: auto; /* 비율 유지 */
+}
+
+ 
+
+/* 채용공고 디테일  */
+.swDetail{
+	width: 150%;
+}
+/* 채용공고 디테일 하단 */
+.swDetailbottom{
+	width: 150%;
+}
+
+/* 아이디 비번찾기 로그인 등 */
+.swIdFind{
+	padding-top: 150px;
+}
+/* 지역채용공고 리스트검색 */
+.InpBox .swselect{
+	 width: 500%;
+	 height: 70px;
+	 font-size: 17px;
+	
+}
+.swText{
+	   width: 610%;
+	   
+}
+.swHeader{
+    color: #444;
+    font-size: 50px;
+    font-weight: normal;
+}
+
+
+/* 이력서 셀렉트 */
+.swResume {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.swResume:hover {
+  border-color: #999;
+}
+
+.swResume:focus {
+  border-color: #555;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.7); /* 연한 파란색 포인트 */
+}

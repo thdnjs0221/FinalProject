@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.ScrapDAO">
+	<resultMap type="ScrapVO" id="scrapMap" autoMapping="true">
+		<id property="rcrtNo" column="RCRT_NO"/>
+		<association property="recruit" autoMapping="true" />
+		<association property="company" autoMapping="true" />
+	</resultMap>
+	<sql id="searchFrag">
+		<where>
+			<if
+				test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="simpleCondition.searchType == 'scrapDate'">
+						ORDER BY SCRAP_DATE DESC
+					</when>
+					<when test="simpleCondition.searchType == 'rcrtEdate'">
+						ORDER BY RCRT_DATE ASC
+					</when>
+					<otherwise>
+						ORDER BY SCRAP_DATE DESC
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	</sql>
+	<select id="selectTotalRecord" parameterType="PaginationInfo"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM SCRAP
+		<include refid="searchFrag" />
+		WHERE USERS_ID = #{usersId}
+	</select>
+	<select id="selectScrapList" parameterType="PaginationInfo"
+		resultType="ScrapVO">
+		WITH ORDEREDBRD AS (
+		SELECT A.*, ROWNUM RNUM
+		FROM (
+		SELECT
+		A.USERS_ID
+		, A.SCRAP_DATE
+		, A.RCRT_NO 
+		, C.COMPANY_NM "company.companyNm"
+		, B.RCRT_TITLE "recruit.rcrtTitle"
+		, B.RCRT_CAREER "recruit.rcrtCareer"
+		, B.RCRT_EDU "recruit.rcrtEdu"
+		, B.RCRT_TYPE "recruit.rcrtType"
+		, B.RCRT_LOC "recruit.rcrtLoc"
+		, TO_CHAR(RCRT_EDATE, 'MM.DD.DY') "recruit.rcrtEdate"
+		FROM SCRAP A JOIN RECRUIT B ON (A.RCRT_NO=B.RCRT_NO)
+		JOIN COMPANY C ON(B.COMPANY_ID=C.COMPANY_ID)
+		<include refid="searchFrag" />
+		WHERE USERS_ID = #{usersId}
+		ORDER BY SCRAP_DATE DESC
+		)A
+		)
+		SELECT *
+		FROM ORDEREDBRD
+		<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} 
+		]]>
+	</select>
+	<delete id="deleteScrap" parameterType="string">
+		DELETE FROM SCRAP
+		WHERE RCRT_NO = #{rcrtNo} and USERS_ID = #{userId}
+	</delete>
+</mapper>

@@ -1,0 +1,13 @@
+package kr.or.ddit.users.service;
+
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.vo.ScrapVO;
+
+public interface ScrapService {
+	
+	
+	public void retrieveScrapList(PaginationInfo<ScrapVO> paging);
+	
+	
+
+}

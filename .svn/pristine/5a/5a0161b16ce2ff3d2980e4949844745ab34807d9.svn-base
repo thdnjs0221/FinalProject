@@ -1,0 +1,19 @@
+package kr.or.ddit.users.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.or.ddit.paging.vo.PaginationInfo;
+import kr.or.ddit.users.vo.InterviewReviewVO;
+import kr.or.ddit.users.vo.ResumeVO;
+
+@Mapper
+public interface ComInfoResumeDAO {
+
+	public int selectTotalRecord(PaginationInfo<ResumeVO> paging); 
+	
+	public List<ResumeVO> selectResumeViewList(PaginationInfo<ResumeVO> paging);
+	
+	public ResumeVO selectResumeViewDetail(String resumeNo);
+}

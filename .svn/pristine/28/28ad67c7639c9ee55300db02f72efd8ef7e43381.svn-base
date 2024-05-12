@@ -1,0 +1,64 @@
+package kr.or.ddit.users.controller;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import kr.or.ddit.company.vo.ApplyVO;
+import kr.or.ddit.company.vo.RProcedureVO;
+import kr.or.ddit.users.service.RcrtApplyService;
+
+@Controller
+@RequestMapping("/users")
+public class RcrtApplyController {
+	
+	@Inject
+	private RcrtApplyService service;
+	
+	@GetMapping("/apply/{rcrtNo}/{rprocOrder}")
+	public String applyViewRetrieve(
+			@PathVariable String rcrtNo
+			, @PathVariable int rprocOrder
+			, @SessionAttribute("authId") String usersId
+			, Model model
+	) {
+		List<RProcedureVO> dataList = service.retrieveRecruitProcedure(rcrtNo);
+		
+		System.out.println("dataList : " + dataList);
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("rcrtNo", rcrtNo);
+		paramMap.put("rprocOrder", rprocOrder);
+		paramMap.put("usersId", usersId);
+		RProcedureVO currProcedureInfo = service.retrieveCurrentProcedureInfo(paramMap);
+		
+		List<ApplyVO> apply = service.retrieveApplicant(paramMap);
+		ApplyVO appVO = null;
+		for (int i = 0; i < apply.size(); i++) {
+			ApplyVO app = apply.get(i);
+			if(app.getProcedure_r().getRprocOrder() == rprocOrder) {
+				appVO = app;
+				break;
+			}
+		}
+		
+		model.addAttribute("dataList", dataList);
+		model.addAttribute("currProcedureInfo", currProcedureInfo);
+		model.addAttribute("apply", appVO);
+		
+		return "users/rcrtApply/rcrtApplyView";
+	}
+
+}

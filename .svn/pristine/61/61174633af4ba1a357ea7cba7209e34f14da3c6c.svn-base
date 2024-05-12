@@ -1,0 +1,20 @@
+package kr.or.ddit.users.vo;
+
+import java.io.Serializable;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(of = "coNo")
+public class CommentVO implements Serializable{
+
+	private String coNo;
+	private String usersId;
+	private String frbNo;
+	private String coContent;
+	private String coDate;
+	private String coRep;
+	private Integer cdepth;
+	private Integer cgroup;
+}

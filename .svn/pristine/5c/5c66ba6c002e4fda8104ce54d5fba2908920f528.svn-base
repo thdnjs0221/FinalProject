@@ -1,0 +1,15 @@
+package kr.or.ddit.users.service;
+
+import java.util.List;
+
+import kr.or.ddit.users.vo.TicketMnmtVO;
+
+public interface TicketMnmtService {
+	
+	/**
+	 * 비동기로 db에 있는 이용권 목록 list띄우기
+	 * @param ticketMnmtVO
+	 */
+	public List<TicketMnmtVO> selectTicketList();
+
+}

@@ -1,0 +1,10 @@
+package kr.or.ddit.users.service;
+
+import kr.or.ddit.company.vo.ApplyVO;
+import kr.or.ddit.paging.vo.PaginationInfo;
+
+public interface ApplyService {
+	
+	public void retrieveApplyList(PaginationInfo<ApplyVO> paging);
+
+}

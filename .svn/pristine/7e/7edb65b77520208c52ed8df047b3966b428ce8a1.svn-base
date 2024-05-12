@@ -1,0 +1,362 @@
+@charset "UTF-8";
+/* 채용 recruit */
+/* 채용공고 목록 - recruitList*/
+
+.tblWrapForm{
+	width: 90%;
+    float: right;
+}
+
+.recruitListContWrap .info_recruit {
+    padding-bottom: 28px;
+    min-height: 95px;
+}
+
+.recruitListContWrap{
+	margin-top : 30px;
+}
+
+.recruitListContWrap .recruitListBorder{
+	border:1px solid #ddd;
+	border-radius: 10px;
+	height : 150px;
+	margin-bottom : 30px;
+}
+
+.recruitListContWrap .row {
+    position: relative;
+    padding: 30px 30px 30px 30px;
+    box-sizing: border-box;
+}
+
+.recruitListContWrap .recruitList{
+	width : 50px;
+}
+
+.recruitListContWrap .status_type {
+	width: 365px !important;
+}
+
+.info_recruit .title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #4b81f4;
+    display : inline-block;
+}
+
+.info_recruit .date{
+	display : inline-block;
+	margin-left : 10px;
+	color : rgb(164, 164, 164);
+}
+
+/* 채용절차 - recruit-process */
+.inTab{
+	cursor: pointer;
+}
+
+#list_position .tblWrap {
+	margin-top: 30px;
+    height: 550px;
+}
+
+#list_position .tblWrap {
+	border-top: none;
+}
+
+#list_position .tblWrap th {
+	border-top: 1px solid #ebebeb;
+}
+
+.tab_part .colorWhite {
+	border: 1px solid #2365f2;
+    color: #1b57d7;
+    background-color: #fff;
+}
+
+.tab_part .colorGray {
+	border: 1px solid #787878;
+	color: #525252;
+	background-color: #fff;
+}
+
+.btnTxt {
+	width: 90px;
+    display: inline-block;
+}
+
+.btnTxt button {
+	font-size: 14px;
+    width: 70px;
+    margin-right: 9px;
+    margin-top: 5px;
+}
+
+.tblBtn {
+	position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: right;
+    right: 25px;
+}
+
+.tblBtn .btnSizeM{
+	width : 70px;
+	margin-left: 10px;
+}
+
+.box_right .btnSizeL{
+	width: 170px;
+}
+
+.searchTypoBox .sword{
+	width : 200px;
+	height : 32px;
+	margin-left : 5px;
+	margin-right : 5px;
+}
+
+.inpSel .stype{
+	width : 80px;
+	height : 32px;
+	padding : 0px;
+}
+
+.resumeBtn {
+	padding: 15px 0;
+    justify-content: space-between;
+    display: flex;
+	
+}
+
+.rightBtn {
+	float: right;
+}
+
+.paging{
+	display: flex;
+    justify-content: center;
+}
+
+
+/* 채용과정 - recruitProcedure */
+.recruitViewTbl a:link,.recruitViewTbl a:visited{
+	text-decoration : underline;
+	color: blue;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* 시험 test */
+/* 시험 리스트 - testList */
+
+.tab_part .box_lookup{
+	height : 80px;
+}
+
+.twoList .inTab{
+	width : 50%;
+}
+
+.test-tbody a:link{
+	text-decoration : underline;
+	color: blue;
+}
+
+.test-tbody a:visited{
+	text-decoration : underline;
+	color: blue;
+}
+
+.fff{
+	background-color: skyblue;
+}
+
+
+
+/* 면접 버튼 스타일 */
+.intrvwForm .box_lookup{
+	height: 50px;
+    padding: 0;
+}
+
+.intrvwForm .btnSlt{
+	float: left;
+    width: 25%;
+    height: 100%;
+    border: 1px solid #dedede;
+    border-right: 0;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 16px;
+    vertical-align: top;
+    background: #fbfbfb;
+}
+
+.intrvwForm .btnSlt:last-child {
+    border-right: 1px solid #dedede;
+}
+
+.intrvwForm .inSelect {
+    position: relative;
+    z-index: 1;
+    border-color: #f1e4e4;
+    border-right: 1px solid #f1e4e4;
+    border-bottom-color: #fff;
+    border-left: 1px solid #f1e4e4;
+    font-weight: bold;
+    background: #fff;
+    color: #0472d1;
+}
+
+.recruitTab>li {
+	display: flex;
+    align-items: center;
+    position: relative;
+    margin: 2px;
+    width: 306px;
+    height: 48px;
+    border: 1px solid var(--gray70);
+    box-sizing: border-box;
+    background: var(--white);
+    border-radius: 5px !important;
+}
+
+.recruitTab>li.select {
+	border-color: var(--gray100);
+    background-color: var(--gray100);
+}
+
+.recruitTab>li .inTab {
+	line-height: 1;
+}
+
+.recruitTab>li.select .inTab {
+    color: #fff;
+}
+
+.recruitTab>li:last-child {
+    border-right: 1px solid #8491a7;
+}
+
+.recruitTab>li.select+li {
+    border-left: 1px solid var(--gray100);
+}
+
+/* 시험지 폼 - testForm */
+#tablewrap {
+	width: 900px;
+	margin: 0px auto;
+}
+
+.test_content {
+	margin: 0 auto;
+	width: 1250px;
+}
+
+.test_content .title_wrap {
+	margin-top: 50px;
+}
+
+.test_content .title_wrap .test_type {
+	font-size: 1.8rem;
+	font-weight: bold;
+}
+
+.test_title {
+	margin-top: 20px;
+}
+
+.test_title .inpTypo {
+	padding: 0px;
+	font-size: 1rem;
+}
+
+.test_title .title_input {
+	width: 1150px;
+	font-size : 1rem;
+}
+
+.test_title .title_text {
+	display: inline;
+	margin-right: 10px;
+}
+
+.testForm {
+	width: 1242px;
+	height: 820px;
+	margin: 0 auto;
+	margin-top: 50px;
+	overflow: auto;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+	padding: 40px 50px 60px;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+
+.test_content .btnSizeS{
+	margin-top : 20px;
+	float : right;
+}
+
+.ques_area{
+	min-height : 80px;
+	overflow : auto;
+	font-size : 1rem;
+}
+
+.resumeTbl .tbl90 {
+    width: 90%;
+    float: right; 
+}
+
+.resumeTxt {
+	display: inline-block;
+}
+
+.item_area{
+	min-height : 60px;
+	overflow : auto;
+	font-size : 1rem;
+}
+.is_answer{
+	width : 90px;
+}
+.test_item{
+	width : 90px;
+}
+.align_center{
+	text-align: center;
+}
+.center{
+	text-align: center;
+	vertical-align: middle;
+}
+.input_radio{
+	width:20px;
+	height:20px;
+}
+
+.divTypo{
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #222;
+    font-family: "Malgun Gothic",gulim,dotum,sans-serif;
+    font-size: 1rem;
+    letter-spacing: -1px;
+    line-height: 36px;
+    vertical-align: middle;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.title_wrap .test_type .saveBtn{
+	margin : 3px;
+}
+
+.test_content .box_lookup{
+	background-color: white;
+}

@@ -1,0 +1,16 @@
+package kr.or.ddit.users.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import kr.or.ddit.company.vo.ApplyVO;
+import kr.or.ddit.paging.vo.PaginationInfo;
+
+@Mapper
+public interface ApplyDAO {
+	
+	public int selectTotalRecord(PaginationInfo<ApplyVO> paging);
+	
+	public List<ApplyVO> selectApplyList(PaginationInfo<ApplyVO> paging);
+}

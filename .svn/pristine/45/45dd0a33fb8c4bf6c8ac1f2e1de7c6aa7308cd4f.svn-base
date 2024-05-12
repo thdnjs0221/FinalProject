@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.users.dao.ResumeDAO">
+	<resultMap type="ResumeVO" id="resumeMap" autoMapping="true">
+    <association property="users" autoMapping="true" />
+    <association property="member" autoMapping="true" />
+    <collection property="careerVOList" ofType="CareerVO" autoMapping="true"/>
+    <collection property="educationVOList" ofType="EducationVO" autoMapping="true" />
+    <collection property="certificateVOList" ofType="CertificateVO" autoMapping="true" />
+    <collection property="intrnActvtVOList" ofType="IntrnActvtVO" autoMapping="true" />
+    <collection property="languageVOList" ofType="LanguageVO" autoMapping="true" />
+    <collection property="coverLetterVOList" ofType="CoverLetterVO" autoMapping="true" />
+</resultMap>
+	<!-- 조회 -->
+	<select id="selectResumeInfo" parameterType="string" resultMap="resumeMap">
+		SELECT 
+			A.RESUME_NO
+			, A.USERS_ID
+			, A.RESUME_TITLE
+			, A.RESUME_PORTFOLIO
+			, A.RESUME_OPEN_STATUS
+			, A.RESUME_DATE
+			, B.USERS_NM
+			, TO_CHAR(USERS_BIR, 'YYYY') USERS_BIR
+			, B.USERS_GEN
+			, B.USERS_IMG
+			, C.MEM_TEL
+			, C.MEM_MAIL
+			, C.MEM_ZIP
+			, C.MEM_ADDR1
+			FROM RESUME A 
+			LEFT OUTER JOIN USERS B ON(A.USERS_ID=B.USERS_ID)
+			LEFT OUTER JOIN MEMBER C ON(A.USERS_ID=C.MEM_ID)
+			WHERE A.RESUME_NO = #{resumeNo}
+	</select>
+	<select id="selectEduInfo" parameterType="string" resultType="EducationVO">
+		SELECT 
+			EDU_NO
+			, RESUME_NO
+			, EDU_SCHOOLNM
+			, EDU_MAJORNM
+			, TO_CHAR(EDU_STDATE, 'YYYY.MM') EDU_STDATE
+			, TO_CHAR(EDU_ENDATE, 'YYYY.MM') EDU_ENDATE
+			, EDU_GRADE
+			, EDU_STANDARD_GRADE
+			, EDU_GRADUATE
+		FROM EDUCATION
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY EDU_ENDATE DESC
+	</select>
+	<select id="selectCerInfo" parameterType="string" resultType="CertificateVO">
+		SELECT
+			CER_NO
+			, RESUME_NO
+			, CER_NM
+			, TO_CHAR(CER_DATE_ACQST, 'YYYY.MM') CER_DATE_ACQST
+		FROM CERTIFICATE
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY CER_DATE_ACQST DESC
+	</select>
+	<select id="selectCovInfo" parameterType="string" resultType="CoverLetterVO">
+		SELECT
+			PS_NO
+			, RESUME_NO
+			, PS_TITLE
+			, PS_CONTENT
+		FROM PERSONAL_STATEMENT
+		WHERE RESUME_NO = #{resumeNo}
+	</select>
+	<select id="selectLagInfo" parameterType="string" resultType="LanguageVO">
+		SELECT
+			LAG_NO
+			, RESUME_NO
+			, LAG_NAME
+			, LAG_TESTNM
+			, TO_CHAR(LAG_DATE_ACQST, 'YYYY.MM') LAG_DATE_ACQST
+			, LAG_CONTENT
+			, LAG_LEVEL
+		FROM LANGUAGE
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY LAG_DATE_ACQST DESC
+	</select>
+	<select id="selectInaInfo" parameterType="string" resultType="IntrnActvtVO">
+		SELECT
+			IA_NO
+			, RESUME_NO
+			, IA_NAME
+			, TO_CHAR(IA_STDATE, 'YYYY.MM') IA_STDATE
+			, TO_CHAR(IA_ENDATE, 'YYYY.MM') IA_ENDATE
+			, IA_CONTENT
+		FROM INTRN_ACTVT
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY IA_ENDATE DESC
+	</select>
+	<select id="selectOstInfo" parameterType="string" resultType="OverseasStudyVO">
+		SELECT
+			OS_NO
+			, RESUME_NO
+			, OS_COUNTRYNM
+			, TO_CHAR(OS_STDATE, 'YYYY.MM') OS_STDATE
+			, TO_CHAR(OS_ENDATE, 'YYYY.MM') OS_ENDATE
+			, OS_CONTENT
+		FROM OVERSEAS_STUDY
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY OS_ENDATE DESC
+	</select>
+	<select id="selectCarInfo" parameterType="string" resultType="CareerVO">
+		SELECT
+			CR_NO
+			, RESUME_NO
+			, CR_COMPANYNM
+			, TO_CHAR(CR_STDATE, 'YYYY.MM') CR_STDATE
+			, TO_CHAR(CR_ENDATE, 'YYYY.MM') CR_ENDATE
+			, CR_CONTENT
+		FROM CAREER
+		WHERE RESUME_NO = #{resumeNo}
+		ORDER BY CR_ENDATE DESC
+	</select>
+	<sql id="searchFrag">
+		<trim prefix="where" prefixOverrides="AND">
+			<if
+				test="simpleCondition neq null and @org.apache.commons.lang3.StringUtils@isNotBlank(simpleCondition.searchWord)">
+				<choose>
+					<when test="simpleCondition.searchType eq 'title'">
+						AND INSTR(RESUME_TITLE, #{simpleCondition.searchWord}) > 0
+					</when>
+					<otherwise>
+						INSTR(RESUME_TITLE, #{simpleCondition.searchWord}) > 0
+					</otherwise>
+				</choose>
+			</if>
+			<if test="@org.apache.commons.lang3.StringUtils@isNotBlank(variousCondition.usersId)">
+				AND USERS_ID=#{variousCondition.usersId}
+			</if>
+		</trim>
+	</sql>
+	<select id="selectTotalRecord" parameterType="PaginationInfo"
+		resultType="int">
+		SELECT COUNT(*)
+			FROM RESUME
+		<include refid="searchFrag" />
+	</select>
+	<select id="selectResumeList" parameterType="PaginationInfo"
+		resultType="ResumeVO">
+		WITH ORDEREDBRD AS (
+		SELECT A.*, ROWNUM RNUM
+		FROM (
+		SELECT
+			RESUME_NO
+			,USERS_ID
+			, RESUME_TITLE
+			, TO_CHAR(RESUME_DATE, 'YYYY.MM.DD') RESUME_DATE
+		FROM RESUME
+		<include refid="searchFrag" />
+		ORDER BY RESUME_DATE DESC
+		)A
+		)
+		SELECT *
+		FROM ORDEREDBRD
+		<![CDATA[
+			WHERE RNUM >= #{startRow} AND RNUM <= #{endRow} 
+		]]>
+	</select>
+	<select id="selectUsersInfo" parameterType="string" resultMap="resumeMap">
+		SELECT
+			USERS_ID
+			, USERS_NM
+			, TO_CHAR(USERS_BIR, 'YYYY.MM.DD') USERS_BIR 
+			, USERS_GEN
+			, USERS_IMG
+			, MEM_MAIL
+			, MEM_TEL
+			, MEM_ZIP
+			, MEM_ADDR1
+			, MEM_ADDR2
+		FROM USERS A 
+		JOIN MEMBER B ON(A.USERS_ID=B.MEM_ID)
+		WHERE USERS_ID = #{usersId}
+	</select>
+	
+	<!-- 등록 -->
+	<insert id="insertResume" parameterType="ResumeVO">
+	    <selectKey resultType="string" keyProperty="resumeNo" order="BEFORE">
+        	SELECT 'RS' || LPAD(RESUME_SEQ.NEXTVAL, 5, '0') FROM DUAL     
+        </selectKey>   
+		INSERT INTO RESUME(
+			RESUME_NO
+			, USERS_ID
+			, RESUME_TITLE
+			, RESUME_PORTFOLIO
+			, RESUME_OPEN_STATUS
+			, RESUME_DATE
+		) VALUES (
+			#{resumeNo,jdbcType=VARCHAR}
+			, #{usersId,jdbcType=VARCHAR}
+			, #{resumeTitle,jdbcType=VARCHAR}
+			, #{resumePortfolio,jdbcType=VARCHAR}
+			, #{resumeOpenStatus,jdbcType=VARCHAR}
+			, SYSDATE
+		)
+	</insert>
+	<insert id="insertCareer" parameterType="ResumeVO">
+		INSERT INTO CAREER(
+			CR_NO
+			, RESUME_NO
+			, CR_COMPANYNM
+			, CR_STDATE
+			, CR_ENDATE
+			, CR_CONTENT
+		) VALUES (
+			'CR' || LPAD(CAREER_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{careerVOList[0].crCompanynm,jdbcType=VARCHAR}
+			, #{careerVOList[0].crStdate,jdbcType=DATE}
+			, #{careerVOList[0].crEndate,jdbcType=DATE}
+			, #{careerVOList[0].crContent,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertEducation" parameterType="ResumeVO">
+		INSERT INTO EDUCATION(
+			EDU_NO
+			, RESUME_NO
+			, EDU_SCHOOLNM
+			, EDU_MAJORNM
+			, EDU_STDATE
+			, EDU_ENDATE
+			, EDU_GRADE
+			, EDU_STANDARD_GRADE
+			, EDU_GRADUATE
+		) VALUES (
+			'EDU' || LPAD(EDUCATION_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{educationVOList[0].eduSchoolnm,jdbcType=VARCHAR}
+			, #{educationVOList[0].eduMajornm,jdbcType=VARCHAR}
+			, #{educationVOList[0].eduStdate,jdbcType=DATE}
+			, #{educationVOList[0].eduEndate,jdbcType=DATE}
+			, #{educationVOList[0].eduGrade,jdbcType=NUMERIC}
+			, #{educationVOList[0].eduStandardGrade,jdbcType=NUMERIC}
+			, #{educationVOList[0].eduGraduate,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertIntrnActvt" parameterType="ResumeVO">
+		INSERT INTO INTRN_ACTVT (
+			IA_NO
+			, RESUME_NO
+			, IA_NAME
+			, IA_STDATE
+			, IA_ENDATE
+			, IA_CONTENT
+		) VALUES (
+			'IA' || LPAD(INTRN_ACT_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{intrnActvtVOList[0].iaName,jdbcType=VARCHAR}
+			, #{intrnActvtVOList[0].iaStdate,jdbcType=DATE}
+			, #{intrnActvtVOList[0].iaEndate,jdbcType=DATE}
+			, #{intrnActvtVOList[0].iaContent,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertCertificate" parameterType="ResumeVO">
+		INSERT INTO CERTIFICATE(
+			CER_NO
+			, RESUME_NO
+			, CER_NM
+			, CER_DATE_ACQST
+		) VALUES (
+			'CER' || LPAD(CERTIFICATE_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{certificateVOList[0].cerNm,jdbcType=VARCHAR}
+			, #{certificateVOList[0].cerDateAcqst,jdbcType=DATE} 
+		)
+	</insert>
+	<insert id="insertLanguage" parameterType="ResumeVO">
+		INSERT INTO LANGUAGE(
+			LAG_NO
+			, RESUME_NO
+			, LAG_NAME
+			, LAG_TESTNM
+			, LAG_DATE_ACQST
+			, LAG_LEVEL
+		) VALUES (
+			'LAG' || LPAD(LANGUAGE_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{languageVOList[0].lagName,jdbcType=VARCHAR}
+			, #{languageVOList[0].lagTestnm,jdbcType=VARCHAR}
+			, #{languageVOList[0].lagDateAcqst,jdbcType=DATE}
+			, #{languageVOList[0].lagLevel,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertCoverLetter" parameterType="ResumeVO">
+		INSERT INTO PERSONAL_STATEMENT(
+			PS_NO
+			, RESUME_NO
+			, PS_TITLE
+			, PS_CONTENT
+		) VALUES (
+			'PS' || LPAD(PS_SEQ.NEXTVAL, 5, '0')
+			, #{resumeNo,jdbcType=VARCHAR}
+			, #{coverLetterVOList[0].psTitle,jdbcType=VARCHAR}
+			, #{coverLetterVOList[0].psContent,jdbcType=VARCHAR}
+		)
+	</insert>
+	<!-- 삭제 -->
+	<delete id="deleteResume">
+		DELETE FROM RESUME
+		WHERE RESUME_NO = #{resumeNo} 
+	</delete>
+</mapper>

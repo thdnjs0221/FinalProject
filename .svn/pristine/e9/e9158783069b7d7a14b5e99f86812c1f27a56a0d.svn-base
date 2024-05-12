@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.login_input_wrap .tab_member_type li .idfind {
+	    margin: 0 auto;
+	    width: 120px;
+}
+
+button.btn_tab.t_per.active.idfind.pwfind{
+	    margin: 0 auto;
+	    width: 150px;
+}
+
+.recruit_hot_header .hot100{
+    margin: 500px;
+}

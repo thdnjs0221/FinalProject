@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.ProceduerDAO">
+
+
+
+
+<insert id="createProcedure" parameterType="RProcedureVO">
+	
+
+INSERT INTO r_procedure (
+    rcrt_no,
+    rproc_order,
+    rproc_typeno,
+    rproc_sdate,
+    rproc_edate,
+    rproc_end,
+    test_no
+) VALUES (
+   	#{rcrtNo,jdbcType=VARCHAR}
+	, #{rprocOrder,jdbcType=NUMERIC}
+	, #{rprocTypeno,jdbcType=VARCHAR}
+	, #{rprocSdate,jdbcType=DATE}
+	, #{rprocEdate,jdbcType=DATE}
+	, 'N'
+	, #{testNo,jdbcType=VARCHAR}
+)
+
+
+
+</insert>
+
+
+
+
+</mapper>

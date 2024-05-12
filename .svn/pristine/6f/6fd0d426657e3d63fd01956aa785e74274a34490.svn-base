@@ -1,0 +1,16 @@
+package kr.or.ddit.users.service;
+
+import java.util.List;
+import java.util.Map;
+
+import kr.or.ddit.company.vo.ApplyVO;
+import kr.or.ddit.company.vo.RProcedureVO;
+
+public interface RcrtApplyService {
+	
+	public List<RProcedureVO> retrieveRecruitProcedure(String rcrtNo);
+	
+	public RProcedureVO retrieveCurrentProcedureInfo(Map<String, Object> paramMap);
+	
+	public List<ApplyVO> retrieveApplicant(Map<String, Object> paramMap);
+}

@@ -1,0 +1,81 @@
+package kr.or.ddit.users.service;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import kr.or.ddit.common.enumpkg.ServiceResult;
+import kr.or.ddit.common.service.AuthenticateService;
+import kr.or.ddit.common.vo.MemberVO;
+import kr.or.ddit.users.dao.UsersInfoDAO;
+import kr.or.ddit.users.vo.UsersVO;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UsersInfoServiceImpl implements UsersInfoService{
+//	@Value("#{appInfo.userImagesUrl}")
+//	private String userImagesUrl;
+//	
+//	@Value("#{appInfo.userImagesUrl}")
+//	private Resource userImages;
+//	
+//	private File saveFolder;
+//	@PostConstruct
+//	public void init() throws IOException{
+//		saveFolder = userImages.getFile();
+//	}
+
+	private final UsersInfoDAO dao;
+	private final AuthenticateService authService;
+	
+	@Override
+	public MemberVO retrieveUsers(String memId) {
+		MemberVO member = dao.selectUsers(memId);
+		if(member == null)
+			throw new UsernameNotFoundException(memId);
+		return member;
+	}
+	
+//	private void processUserImage(UsersVO users) {
+//		try {
+//			users.saveTo(saveFolder);
+//		}catch(IOException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}
+	
+	@Override
+	public int modifyUsers(MemberVO users) {
+		/*
+		 member 수정
+		 */
+		int result = this.dao.updateMember(users);
+		
+		/*
+		 users 수정
+		 */
+		result += this.dao.updateUsers(users);
+		
+		return result;
+	}
+
+	@Override
+	public ServiceResult removeUsers(MemberVO users) {
+		ServiceResult result = authService.authenticate(users);
+		if(result == ServiceResult.OK) {
+			int rowcnt = dao.deleteUsers(users.getMemId());
+			result = rowcnt > 0 ? ServiceResult.OK : ServiceResult.FAIL;
+		}else {
+			result = ServiceResult.INVALIDPASSWORD;
+		}
+		return result;
+	}
+	
+}

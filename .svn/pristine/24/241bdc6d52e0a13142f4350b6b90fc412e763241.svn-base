@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.company.dao.RecruitDAO">
+
+<resultMap type="RecruitVO" id="RecruitMap" autoMapping="true">
+	<id property="rcrtNo" column="RCRT_NO" />
+	<association property="company" javaType="CompanyVO" autoMapping="true"/>
+	<association property="apply" javaType="ApplyVO" autoMapping="true"/>
+</resultMap>
+
+<resultMap type="RProcedureVO" id="RProcedureMap" autoMapping="true">
+	<id property="rcrtNo" column="RCRT_NO"/>
+	<id property="rprocOrder" column="RPROC_ORDER"/>
+	<association property="test" javaType="TestVO" autoMapping="true"/>
+	<association property="code" javaType="CodeVO" autoMapping="true"/>
+</resultMap>
+
+<!-- TOP100 리스트 -->
+<select id="selectTop100List" resultMap="RecruitMap">
+SELECT *
+FROM (
+  SELECT 
+    RECRUIT.RCRT_NO,
+    COMPANY.COMPANY_NM,
+    RECRUIT.RCRT_TITLE,
+    RECRUIT.RCRT_KEYWORDNM,
+    RECRUIT.RCRT_LOC,
+    RECRUIT.RCRT_CAREER,
+    RECRUIT.RCRT_EDU,
+    COUNT(APPLY.APL_NO) AS APPLICANT_COUNT,
+    ROW_NUMBER() OVER (ORDER BY COUNT(APPLY.APL_NO) DESC) AS RNUM
+  FROM RECRUIT 
+    INNER JOIN COMPANY ON RECRUIT.COMPANY_ID = COMPANY.COMPANY_ID
+    LEFT JOIN APPLY ON APPLY.RCRT_NO = RECRUIT.RCRT_NO
+  WHERE RECRUIT.RCRT_DELETE = 'N'
+  GROUP BY
+    RECRUIT.RCRT_NO,
+    COMPANY.COMPANY_NM,
+    RECRUIT.RCRT_TITLE,
+    RECRUIT.RCRT_KEYWORDNM,
+    RECRUIT.RCRT_LOC,
+    RECRUIT.RCRT_CAREER,
+    RECRUIT.RCRT_EDU
+) A
+WHERE RNUM BETWEEN 1 AND 100
+ORDER BY APPLICANT_COUNT DESC
+
+</select>
+
+<!-- 페이징 + 지역별 채용공고 리스트 -->
+<select id="selectRecruitList" resultMap="RecruitMap" parameterType="PaginationInfo" >
+ SELECT A.*
+    FROM(
+  SELECT 
+   rownum rnum,
+   rcrt_no,
+   company_nm,
+   rcrt_title,
+   rcrt_keywordnm,
+   rcrt_loc,
+   rcrt_career,
+   rcrt_edu
+
+  FROM recruit 
+  	INNER JOIN company
+  	ON recruit.company_id = company.company_id
+  	WHERE rcrt_delete = 'N'
+  	)A
+  <![CDATA[
+  WHERE rnum>=#{startRow} and rnum<=#{endRow}
+  ]]>
+  order by rcrt_no desc
+</select>
+
+
+<!-- 페이징 total record -->
+<select id="selectTotalRecord" resultType="int">
+SELECT COUNT(*)
+FROM recruit
+</select>
+
+
+<!-- 채용공고 상세보기 -->
+<select id="selectRecruit" parameterType="string" resultMap="RecruitMap">
+
+SELECT
+   *
+FROM
+    recruit inner join company
+    on recruit.company_id=company.company_id
+WHERE  rcrt_no =#{rcrtNo}
+    
+</select>
+
+<!-- 채용공고 상세보기 채용절차 -->
+<select id="procedureList" parameterType="string" resultMap="RProcedureMap">
+SELECT
+    rcrt_no,
+    rproc_order,
+    rproc_typeno,
+    TO_CHAR(rproc_sdate, 'yyyy/mm/dd') AS rproc_sdate,
+    TO_CHAR(rproc_edate, 'yyyy/mm/dd') AS rproc_edate,
+    rproc_end,
+    test.test_no,
+    company_id,
+    test_title,
+    test_type,
+    test_date,
+    test_delete,
+    com_code,
+    com_code_nm,
+    tcom_code
+FROM R_PROCEDURE
+   left outer join test on r_procedure.test_no = test.test_no
+   left outer join tb_com_code on r_procedure.rproc_typeno = tb_com_code.com_code
+WHERE rcrt_no=#{rcrtNo}
+ORDER BY rproc_order asc 
+
+</select>
+
+<!-- 채용공고 상세보기 조회수 -->
+<select id="hitRecruit" parameterType="string">
+
+update recruit
+set rcrt_hit = rcrt_hit+1
+where rcrt_no =#{rcrtNo}
+
+</select>
+
+<!-- 채용공고 스크랩  -->
+<insert id="scrapRecruit" parameterType="ScrapVO">
+INSERT INTO scrap (
+    users_id,
+    rcrt_no,
+    scrap_date
+) VALUES (
+    #{usersId},
+    #{rcrtNo},
+    sysdate
+)
+
+</insert>
+
+<!-- 채용공고 스크랩 중복방지 -->
+<select id="scrapCheck" parameterType="ScrapVO" resultType="int">
+SELECT count(*) 
+	FROM scrap 
+WHERE rcrt_no =#{rcrtNo} and users_id=#{usersId}
+
+</select>
+
+<!-- 채용공고 등록 -->
+<insert id="createRecruit" parameterType="RecruitVO">
+
+ 	<selectKey  keyProperty="rcrtNo" resultType="String" order="BEFORE" >
+        select 'RCRT_' || LPAD(RECRUIT_SEQ.NEXTVAL, 5, '0') from dual
+ 	</selectKey>
+ 	
+	INSERT INTO recruit (
+	rcrt_no,
+	company_id,
+	rcrt_title,
+	rcrt_hit,
+	rcrt_keywordnm,
+	rcrt_field,
+	rcrt_person,
+	rcrt_career,
+	rcrt_condition,
+	rcrt_edu,
+	rcrt_loc,
+	rcrt_type,
+	rcrt_salary,
+	rcrt_week,
+	rcrt_date,
+	rcrt_sdate,
+	rcrt_edate,
+	rcrt_nm,
+	rcrt_tel,
+	rcrt_mail,
+	rcrt_wlfr,
+	rcrt_rectype,
+	rcrt_stime,
+	rcrt_etime
+	) VALUES (
+	 #{rcrtNo}
+	, #{companyId,jdbcType=VARCHAR}
+	, #{rcrtTitle,jdbcType=VARCHAR}
+	, #{rcrtHit,jdbcType=NUMERIC}
+	, #{rcrtKeywordnm,jdbcType=VARCHAR}
+	, #{rcrtField,jdbcType=VARCHAR}
+	, #{rcrtPerson,jdbcType=NUMERIC}
+	, #{rcrtCareer,jdbcType=VARCHAR}
+	, #{rcrtCondition,jdbcType=VARCHAR}
+	, #{rcrtEdu,jdbcType=VARCHAR}
+	, #{rcrtLoc,jdbcType=VARCHAR}
+	, #{rcrtType,jdbcType=VARCHAR}
+	, #{rcrtSalary,jdbcType=VARCHAR}
+	, #{rcrtWeek,jdbcType=VARCHAR}
+	, sysdate
+	, #{rcrtSdate,jdbcType=DATE}
+	, #{rcrtEdate,jdbcType=DATE}
+	, #{rcrtNm,jdbcType=VARCHAR}
+	, #{rcrtTel,jdbcType=VARCHAR}
+	, #{rcrtMail,jdbcType=VARCHAR}
+	, #{rcrtWlfr,jdbcType=VARCHAR}
+	, #{rcrtRectype,jdbcType=VARCHAR}
+	, #{rcrtStime,jdbcType=VARCHAR}
+	, #{rcrtEtime,jdbcType=VARCHAR}
+	)
+</insert>
+
+<!-- 채용공고 등록 시험지 조회 -->
+<select id="selectTest" parameterType="string" resultType="TestVO">
+
+SELECT
+    test_no,
+    company_id,
+    test_title,
+    test_type,
+    test_date
+FROM
+    test
+WHERE company_id=#{companyId}
+</select>
+
+
+
+</mapper>
